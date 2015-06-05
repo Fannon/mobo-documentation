@@ -13,4 +13,4 @@ There is also an interactive graph explorer that gives a more visual representat
 
 Mobo can also be used to batch-upload wiki pages in general and it is planned to support some basic external data transformation and importing capabilities.
 
-Mobo is Open Source and cross platform.
+Mobo is Open Source and Cross-Platform.

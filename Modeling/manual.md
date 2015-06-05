@@ -67,7 +67,7 @@ The mobo examples are available in both JSON and YAML notation. A comparison:
 
 **YAML-Notation:**
 
-```yml
+```yaml
 title: Location
 description: Location where hardware is deployed
 properties:
@@ -87,7 +87,7 @@ smw_postfix:
 ```
 
 To batch-convert a project from JSON to YAML notation (or the other way around), the [yamljs](https://www.npmjs.com/package/yamljs) CLI tool is recommended.
-Conversion should be easy and fast, so the notation format has no lock-in effect.
+Conversion should be easy and fast, so the choice of notation format should have no lock-in effect.
 
 ### The Development Model Structure
 #### Overview
