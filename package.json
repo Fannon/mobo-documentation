@@ -1,0 +1,29 @@
+{
+  "name": "mobo-documentation",
+  "version": "1.0.0",
+  "description": "Documentation of the mobo project",
+  "main": "index.js",
+  "dependencies": {
+    "gulp": "^3.9.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://Fannon@github.com/Fannon/mobo-documentation.git"
+  },
+  "keywords": [
+    "documentation",
+    "gitbook"
+  ],
+  "author": "Simon Heimler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Fannon/mobo-documentation/issues"
+  },
+  "homepage": "https://github.com/Fannon/mobo-documentation"
+}

@@ -1,3 +1,8 @@
 {
-    "gitbook": "2.1.0"
+    "gitbook": "2.1.0",
+    "styles": {
+        "website": "_style/website.css",
+        "ebook": "_style/ebook.css",
+        "pdf": "_style/pdf.css"
+    }
 }

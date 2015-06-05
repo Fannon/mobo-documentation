@@ -40,15 +40,13 @@ $wgEnableWriteAPI = true;
 $wgCrossSiteAJAXdomains = array( '*' );
 ```
 
-Now the login credentials of the bot have to be set. Please adjust the `settings.json` in your project directory accordingly.
+Now the login credentials of the bot have to be set. Please adjust the `settings.yaml` in your project directory accordingly.
 
-```json
-{
-    "mw_server_url": "http://semwiki-exp01.multimedia.hs-augsburg.de",
-    "mw_server_path": "/mobo-demo",
-    "mw_username": "mobo",
-    "mw_password": "verysafepassword"
-}
+```python
+mw_server_url: 'http://semwiki-exp01.multimedia.hs-augsburg.de' # No trailing slash!
+mw_server_path: 'mobo-demo'
+mw_username: 'mobo'
+mw_password: 'verysafepassword'
 ```
 
 For more options, enter `mobo -c` to print out the currently used configuration, including all inherited default values and refer to the [settings](examples/init/settings.md) manual.
