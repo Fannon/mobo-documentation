@@ -1,0 +1,18 @@
+```json
+[
+    "properties.multipleOf",
+    "properties.exclusiveMaximum",
+    "properties.exclusiveMinimum",
+    "properties.additionalItems",
+    "properties.uniqueItems",
+    "properties.additionalProperties",
+    "properties.definitions",
+    "properties.patternProperties",
+    "properties.dependencies",
+    "properties.not",
+    "properties.allOf",
+    "properties.anyOf",
+    "dependencies",
+    "$ref"
+]
+```

@@ -5,22 +5,20 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-shell');
 
-
-
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
     watch: {
       html: {
-        files: '_book/*.html',
-        options: {
-          livereload: true,
-        }
+        files: '_book/lastUpdate.txt'
       },
       src: {
-        files: ['*.md', '*.css'],
-        tasks: ['shell:build']
+        files: ['**/*.md'],
+        tasks: ['shell:build'],
+        options: {
+          debounceDelay: 250
+        }
       }
     },
 
@@ -28,8 +26,7 @@ module.exports = function(grunt) {
       server: {
         options: {
           port: 9000,
-          base: '_book',
-          livereload: true
+          base: '_book'
         }
       }
     },
@@ -45,5 +42,6 @@ module.exports = function(grunt) {
 
   // Register Tasks
   grunt.registerTask('serve', ['connect', 'watch']);
+  grunt.registerTask('default', ['shell:build', 'serve']);
 
 };
