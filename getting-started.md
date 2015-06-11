@@ -8,25 +8,49 @@ Mobo has optional support for the [HeaderTabs](http://www.mediawiki.org/wiki/Ext
 
 ### Installation
 In most cases mobo should be installed locally on the machine the model is developed on. It is possible to install and use mobo on a server for more advanced use cases, like automatic deployment.
-
+#### Global Installation
 ```sh
 $ npm install -g mobo               # Installs mobo globally.
 $ sudo npm install -g mobo          # Linux: Admin privileges are required
 ```
 
+#### Local Installation
 If many different projects are managed by mobo it is usually better to install mobo locally into your project directory. Those per-project installations allow to use a specific version of mobo (this information is stored in the `package.json` file). Different projects can use different mobo versions.
 ```sh
 $ mkdir newProject && cd newProject # Creates and enters new directory
 $ npm install mobo --save-dev       # Installs mobo locally
 ```
 
-Advanced Installation (latest master, for developers)
+#### Advanced Installation (latest master, for developers)
 ```sh
 $ git clone https://github.com/Fannon/mobo.git
 $ cd mobo
 $ npm install # Installs all dependencies
 $ npm link # Creates / links the global alias to the current mobo installation
 ```
+
+### Run mobo
+
+
+Mobo runs in interactive mode by default. It supports several command line options.
+
+```sh
+$ mobo      # Runs mobo in interactive mode
+$ mobo -r   # Runs mobo in non-interactive mode (will exit after run)
+$ mobo -f   # Forces the upload of all files (will exit after run)
+```
+
+To see all available options, run mobo with the -h flag or refer to the [Command Line Options](cli.md) manual.
+
+```sh
+$ mobo -h   # View command line help
+```
+
+If mobo can't be added to your global path for some reason, it can be run manually:
+```sh
+$ node /path/to/mobo/cli.js
+```
+
 
 ### Configuration
 First your wiki needs a bot account for mobo. The user should have the "bot" and possibly the "administrator" (if you want to upload special pages) privileges.
@@ -56,25 +80,6 @@ If you want to change a setting, simply copy it into your settings.yaml and adju
 $ mobo -c   # prints out all settings and their current state
 ```
 
-### Run mobo
-Mobo runs in interactive mode by default. It supports several command line options.
-
-```sh
-$ mobo      # Runs mobo in interactive mode
-$ mobo -r   # Runs mobo in non-interactive mode (will exit after run)
-$ mobo -f   # Forces the upload of all files (will exit after run)
-```
-
-To see all available options, run mobo with the -h flag or refer to the [Command Line Options](cli.md) manual.
-
-```sh
-$ mobo -h   # View command line help
-```
-
-If mobo can't be added to your global path for some reason, it can be run manually:
-```sh
-$ node /path/to/mobo/cli.js
-```
 
 ### Update
 Update mobo to the latest version through npm.
