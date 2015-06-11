@@ -250,7 +250,7 @@ This directory works similar like /smw_page/. MediaWiki Templates can be stored 
 
 Please note that some characters can’t be used for filenames, so some string substitutions have to be made.
 
-* `__` will be converted to a `:` (namespaces)
+* `___` will be converted to a `:` (namespaces)
 * `---` will be converted to a `/`(subpages)
 
 #### /smw_query/*
