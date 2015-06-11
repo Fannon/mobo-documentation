@@ -30,7 +30,7 @@ $ npm link # Creates / links the global alias to the current mobo installation
 ```
 
 ### Run mobo
-#### Test mobo
+#### Test if mobo has been successfuly installed
 ```sh
 $ mobo -v # Should print the mobo version number
 ```
@@ -42,7 +42,9 @@ $ mkdir projectName
 $ cd projectName
 $ mobo --init
 ```
+Please note that mobo will display errors if no upload settings have been set. See Configuration.
 
+#### Run mobo
 Mobo runs in interactive mode by default. It supports several command line options.
 
 ```sh
