@@ -30,7 +30,13 @@ $ npm link # Creates / links the global alias to the current mobo installation
 ```
 
 ### Run mobo
+#### Create a new empty project
 
+```sh
+$ mkdir projectName
+$ cd projectName
+$ mobo --init
+```
 
 Mobo runs in interactive mode by default. It supports several command line options.
 
