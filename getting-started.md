@@ -30,6 +30,11 @@ $ npm link # Creates / links the global alias to the current mobo installation
 ```
 
 ### Run mobo
+#### Test mobo
+```sh
+$ mobo -v # Should print the mobo version number
+```
+
 #### Create a new empty project
 
 ```sh
