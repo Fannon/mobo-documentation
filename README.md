@@ -17,3 +17,4 @@ Mobo can also be used to batch-upload wiki pages in general and it is planned to
 Mobo is Open Source and Cross-Platform.
 
 ## Screenshots
+![mobo-first-start](http://up.fannon.de/img/mobo-first-start.png?v=3)
