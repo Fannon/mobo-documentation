@@ -68,7 +68,7 @@ $ node /path/to/mobo/cli.js
 ### Configuration
 First you need to create a bot account for mobo on the target wiki at `Special:CreateAccount`. The user should have the "Bot" and possibly the "Administrator" (if you want to upload special/restricted pages) privileges.
 
-The MediaWiki API needs to be enabled with write access. This is the default setting since MW 1.14. If the wiki doesn't work right out of the box, adjust your LocalSettings.php accordingly:
+The MediaWiki API needs to be enabled with write access. If the wiki doesn't work right out of the box, adjust your LocalSettings.php accordingly:
 
 ```php
 // WARNING: Check your permissions and if needed make further constraints.
