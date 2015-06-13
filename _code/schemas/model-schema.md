@@ -71,18 +71,6 @@
    </thead>
    <tbody>
        <tr>
-           <td class="schema-propertyName">showForm</td>
-           <td class="schema-type">boolean</td>
-           <td class="schema-defaultValue">true</td>
-           <td class="schema-description">Display postfix in form-view</td>
-       </tr>
-       <tr>
-           <td class="schema-propertyName">showPage</td>
-           <td class="schema-type">boolean</td>
-           <td class="schema-defaultValue">true</td>
-           <td class="schema-description">Display postfix in page-view</td>
-       </tr>
-       <tr>
            <td class="schema-propertyName">template</td>
            <td class="schema-type">string</td>
            <td class="schema-defaultValue"></td>
@@ -93,6 +81,66 @@
            <td class="schema-type">string</td>
            <td class="schema-defaultValue"></td>
            <td class="schema-description">wikitext to postfix</td>
+       </tr>
+   </tbody>
+</table>
+</td>
+       </tr>
+       <tr>
+           <td class="schema-propertyName">smw_postfixForm</td>
+           <td class="schema-type">object</td>
+           <td class="schema-defaultValue"></td>
+           <td class="schema-description"><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
+   <thead>
+       <tr>
+           <th>ID</th>
+           <th>Type</th>
+           <th>Default</th>
+           <th>Description</th>
+       </tr>
+   </thead>
+   <tbody>
+       <tr>
+           <td class="schema-propertyName">template</td>
+           <td class="schema-type">string,array</td>
+           <td class="schema-defaultValue"></td>
+           <td class="schema-description">name of a template to inject. Must exist</td>
+       </tr>
+       <tr>
+           <td class="schema-propertyName">wikitext</td>
+           <td class="schema-type">string</td>
+           <td class="schema-defaultValue"></td>
+           <td class="schema-description">wikitext to prefix</td>
+       </tr>
+   </tbody>
+</table>
+</td>
+       </tr>
+       <tr>
+           <td class="schema-propertyName">smw_postfixPage</td>
+           <td class="schema-type">object</td>
+           <td class="schema-defaultValue"></td>
+           <td class="schema-description"><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
+   <thead>
+       <tr>
+           <th>ID</th>
+           <th>Type</th>
+           <th>Default</th>
+           <th>Description</th>
+       </tr>
+   </thead>
+   <tbody>
+       <tr>
+           <td class="schema-propertyName">template</td>
+           <td class="schema-type">string,array</td>
+           <td class="schema-defaultValue"></td>
+           <td class="schema-description">name of a template to inject. Must exist</td>
+       </tr>
+       <tr>
+           <td class="schema-propertyName">wikitext</td>
+           <td class="schema-type">string</td>
+           <td class="schema-defaultValue"></td>
+           <td class="schema-description">wikitext to prefix</td>
        </tr>
    </tbody>
 </table>
@@ -119,20 +167,80 @@
            <td class="schema-description">Inserts auto generated header of given hierachy (1-6)</td>
        </tr>
        <tr>
-           <td class="schema-propertyName">showForm</td>
-           <td class="schema-type">boolean</td>
-           <td class="schema-defaultValue">true</td>
-           <td class="schema-description">Display prefix in form-view</td>
+           <td class="schema-propertyName">template</td>
+           <td class="schema-type">string</td>
+           <td class="schema-defaultValue"></td>
+           <td class="schema-description">name of a template to inject. Must exist</td>
        </tr>
        <tr>
-           <td class="schema-propertyName">showPage</td>
-           <td class="schema-type">boolean</td>
-           <td class="schema-defaultValue">true</td>
-           <td class="schema-description">Display prefix in page-view</td>
+           <td class="schema-propertyName">wikitext</td>
+           <td class="schema-type">string</td>
+           <td class="schema-defaultValue"></td>
+           <td class="schema-description">wikitext to prefix</td>
+       </tr>
+   </tbody>
+</table>
+</td>
+       </tr>
+       <tr>
+           <td class="schema-propertyName">smw_prefixForm</td>
+           <td class="schema-type">object</td>
+           <td class="schema-defaultValue"></td>
+           <td class="schema-description"><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
+   <thead>
+       <tr>
+           <th>ID</th>
+           <th>Type</th>
+           <th>Default</th>
+           <th>Description</th>
+       </tr>
+   </thead>
+   <tbody>
+       <tr>
+           <td class="schema-propertyName">header</td>
+           <td class="schema-type">number</td>
+           <td class="schema-defaultValue"></td>
+           <td class="schema-description">Inserts auto generated header of given hierachy (1-6)</td>
        </tr>
        <tr>
            <td class="schema-propertyName">template</td>
+           <td class="schema-type">string,array</td>
+           <td class="schema-defaultValue"></td>
+           <td class="schema-description">name of a template to inject. Must exist</td>
+       </tr>
+       <tr>
+           <td class="schema-propertyName">wikitext</td>
            <td class="schema-type">string</td>
+           <td class="schema-defaultValue"></td>
+           <td class="schema-description">wikitext to prefix</td>
+       </tr>
+   </tbody>
+</table>
+</td>
+       </tr>
+       <tr>
+           <td class="schema-propertyName">smw_prefixPage</td>
+           <td class="schema-type">object</td>
+           <td class="schema-defaultValue"></td>
+           <td class="schema-description"><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
+   <thead>
+       <tr>
+           <th>ID</th>
+           <th>Type</th>
+           <th>Default</th>
+           <th>Description</th>
+       </tr>
+   </thead>
+   <tbody>
+       <tr>
+           <td class="schema-propertyName">header</td>
+           <td class="schema-type">number</td>
+           <td class="schema-defaultValue"></td>
+           <td class="schema-description">Inserts auto generated header of given hierachy (1-6)</td>
+       </tr>
+       <tr>
+           <td class="schema-propertyName">template</td>
+           <td class="schema-type">string,array</td>
            <td class="schema-defaultValue"></td>
            <td class="schema-description">name of a template to inject. Must exist</td>
        </tr>
