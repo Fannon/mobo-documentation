@@ -26,6 +26,31 @@
     "overwriteImportedPages": false,
     "logDate": true,
     "logLongDate": false,
+    "arrayMergeOptions": {
+        "$remove": [
+            "@unique"
+        ],
+        "enum": [
+            "@unique"
+        ],
+        "form": [
+            "@unique"
+        ],
+        "recommended": [
+            "@unique"
+        ],
+        "required": [
+            "@unique"
+        ],
+        "itemsOrder": [
+            "@unique",
+            "@prepend"
+        ],
+        "smw_categories": [
+            "@unique",
+            "@prepend"
+        ]
+    },
     "uploadConcurrency": 4,
     "webAppPort": 8080,
     "autoRefreshWebGui": true,

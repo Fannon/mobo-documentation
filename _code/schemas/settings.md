@@ -9,6 +9,66 @@
    </thead>
    <tbody>
        <tr>
+           <td class="schema-propertyName">arrayMergeOptions</td>
+           <td class="schema-type">object</td>
+           <td class="schema-defaultValue">[object Object]</td>
+           <td class="schema-description"><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
+   <thead>
+       <tr>
+           <th>ID</th>
+           <th>Type</th>
+           <th>Default</th>
+           <th>Description</th>
+       </tr>
+   </thead>
+   <tbody>
+       <tr>
+           <td class="schema-propertyName">$remove</td>
+           <td class="schema-type">array</td>
+           <td class="schema-defaultValue">@unique</td>
+           <td class="schema-description"></td>
+       </tr>
+       <tr>
+           <td class="schema-propertyName">enum</td>
+           <td class="schema-type">array</td>
+           <td class="schema-defaultValue">@unique</td>
+           <td class="schema-description"></td>
+       </tr>
+       <tr>
+           <td class="schema-propertyName">form</td>
+           <td class="schema-type">array</td>
+           <td class="schema-defaultValue">@unique</td>
+           <td class="schema-description"></td>
+       </tr>
+       <tr>
+           <td class="schema-propertyName">itemsOrder</td>
+           <td class="schema-type">array</td>
+           <td class="schema-defaultValue">@unique,@prepend</td>
+           <td class="schema-description"></td>
+       </tr>
+       <tr>
+           <td class="schema-propertyName">recommended</td>
+           <td class="schema-type">array</td>
+           <td class="schema-defaultValue">@unique</td>
+           <td class="schema-description"></td>
+       </tr>
+       <tr>
+           <td class="schema-propertyName">required</td>
+           <td class="schema-type">array</td>
+           <td class="schema-defaultValue">@unique</td>
+           <td class="schema-description"></td>
+       </tr>
+       <tr>
+           <td class="schema-propertyName">smw_categories</td>
+           <td class="schema-type">array</td>
+           <td class="schema-defaultValue">@unique,@prepend</td>
+           <td class="schema-description"></td>
+       </tr>
+   </tbody>
+</table>
+</td>
+       </tr>
+       <tr>
            <td class="schema-propertyName">arraymapSeparator</td>
            <td class="schema-type">string</td>
            <td class="schema-defaultValue">;</td>
