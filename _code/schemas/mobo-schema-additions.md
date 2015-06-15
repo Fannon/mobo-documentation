@@ -27,6 +27,12 @@
            <td class="schema-description">Internal metadata</td>
        </tr>
        <tr>
+           <td class="schema-propertyName">$modelPart</td>
+           <td class="schema-type">string</td>
+           <td class="schema-defaultValue"></td>
+           <td class="schema-description">For internal use only! This declares the part from the model where the object originated (field, form,...)</td>
+       </tr>
+       <tr>
            <td class="schema-propertyName">$path</td>
            <td class="schema-type">string</td>
            <td class="schema-defaultValue"></td>
@@ -81,6 +87,12 @@
            <td class="schema-description">If true this file will be ignored.</td>
        </tr>
        <tr>
+           <td class="schema-propertyName">itemsOrder</td>
+           <td class="schema-type">array</td>
+           <td class="schema-defaultValue"></td>
+           <td class="schema-description">Array that sets the display order of all (including inherited) properties. Unmentioned fields will be appended at the bottom in their original order.</td>
+       </tr>
+       <tr>
            <td class="schema-propertyName">note</td>
            <td class="schema-type">string,object</td>
            <td class="schema-defaultValue"></td>
@@ -91,12 +103,6 @@
            <td class="schema-type">object,array</td>
            <td class="schema-defaultValue"></td>
            <td class="schema-description">Mobo supports to (optionally) use the array notation instead of the object notation for the property attribute.</td>
-       </tr>
-       <tr>
-           <td class="schema-propertyName">propertyOrder</td>
-           <td class="schema-type">array</td>
-           <td class="schema-defaultValue"></td>
-           <td class="schema-description">Array that sets the display order of all (including inherited) properties. Unmentioned fields will be appended at the bottom in their original order.</td>
        </tr>
        <tr>
            <td class="schema-propertyName">title</td>
