@@ -12,6 +12,7 @@
     "properties.not",
     "properties.allOf",
     "properties.anyOf",
+    "properties.oneOf",
     "dependencies",
     "$ref"
 ]

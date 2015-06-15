@@ -21,6 +21,12 @@
            <td class="schema-description">For internal use only! This stores the complete relative path of the .json file. Used for improved debugging messages</td>
        </tr>
        <tr>
+           <td class="schema-propertyName">$meta</td>
+           <td class="schema-type">object</td>
+           <td class="schema-defaultValue"></td>
+           <td class="schema-description">Internal metadata</td>
+       </tr>
+       <tr>
            <td class="schema-propertyName">$path</td>
            <td class="schema-type">string</td>
            <td class="schema-defaultValue"></td>

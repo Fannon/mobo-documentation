@@ -87,6 +87,12 @@
 </td>
        </tr>
        <tr>
+           <td class="schema-propertyName">compatibilityLayer</td>
+           <td class="schema-type">boolean</td>
+           <td class="schema-defaultValue">true</td>
+           <td class="schema-description">Set to false, if you want to skip the compatibility layer that migrates deprecated models to the latest standard.</td>
+       </tr>
+       <tr>
            <td class="schema-propertyName">cwd</td>
            <td class="schema-type">string</td>
            <td class="schema-defaultValue"></td>

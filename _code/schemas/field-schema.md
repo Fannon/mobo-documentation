@@ -9,6 +9,18 @@
    </thead>
    <tbody>
        <tr>
+           <td class="schema-propertyName">form</td>
+           <td class="schema-type">string,array</td>
+           <td class="schema-defaultValue"></td>
+           <td class="schema-description">Defines which form should be automatically used if the red link is clicked</td>
+       </tr>
+       <tr>
+           <td class="schema-propertyName">sf_form</td>
+           <td class="schema-type">object</td>
+           <td class="schema-defaultValue"></td>
+           <td class="schema-description">Object, containing SemanticForms option, that will be redirected to the form</td>
+       </tr>
+       <tr>
            <td class="schema-propertyName">smw_arraymaptemplate</td>
            <td class="schema-type">string</td>
            <td class="schema-defaultValue">false</td>
@@ -25,12 +37,6 @@
            <td class="schema-type">boolean</td>
            <td class="schema-defaultValue">false</td>
            <td class="schema-description">Forces the semantic storage of the attribute through the #set parser function. This is useful for #subobject models that want to expose one or more fields as regular #set properties.</td>
-       </tr>
-       <tr>
-           <td class="schema-propertyName">smw_form</td>
-           <td class="schema-type">object</td>
-           <td class="schema-defaultValue"></td>
-           <td class="schema-description">Object, containing SemanticForms option, that will be redirected to the form</td>
        </tr>
        <tr>
            <td class="schema-propertyName">smw_hideInForm</td>
