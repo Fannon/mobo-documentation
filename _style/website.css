@@ -1,6 +1,7 @@
 /** TABLES */
-.book-body .page-wrapper .page-inner section.normal table td {
-    padding: 4px 8px;
+.book .book-body .page-wrapper .page-inner section.normal table th,
+.book .book-body .page-wrapper .page-inner section.normal table td {
+    padding: 8px;
 }
 
 .schema-table .schema-description {
@@ -12,4 +13,8 @@
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     hyphens: auto;
+}
+
+.book .book-body .navigation.navigation-next {
+    right: 18px;
 }
