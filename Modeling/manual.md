@@ -1,6 +1,3 @@
-## Mobo Model Development MANUAL
-> Read the latest version [online at GitHub](https://github.com/Fannon/mobo/blob/master/examples/init/MANUAL.md).
-
 ### Premises
 In order to learn mobo, it is mandatory to understand the basic concepts of JSON and JSON Schema first.
 
