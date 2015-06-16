@@ -48,7 +48,7 @@
         ],
         "smw_categories": [
             "@unique",
-            "@prepend"
+            "@append"
         ]
     },
     "uploadConcurrency": 4,

@@ -33,10 +33,10 @@
     ],
     "smw_categories": [
         "@unique",
-        "@prepend"
+        "@append"
     ]
 }</td>
-           <td class="schema-description"><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
+           <td class="schema-description">Default settings (using @annotations) for array merges<br/><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
    <thead>
        <tr>
            <th>ID</th>
@@ -93,7 +93,7 @@
            <td class="schema-type">array</td>
            <td class="schema-defaultValue">[
     "@unique",
-    "@prepend"
+    "@append"
 ]</td>
        </tr>
    </tbody>
@@ -135,7 +135,7 @@
     "edgeWeight": 2,
     "multipleEdgeWeight": 2
 }</td>
-           <td class="schema-description"><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
+           <td class="schema-description"><br/><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
    <thead>
        <tr>
            <th>ID</th>

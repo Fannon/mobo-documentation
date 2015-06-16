@@ -1,10 +1,5 @@
-# Models
-> Read the latest version [online at GitHub](https://github.com/Fannon/mobo/blob/master/examples/init/model/README.md).
-
-> Refer to the corresponding [SCHEMA.md](https://github.com/Fannon/mobo/blob/master/examples/init/model/SCHEMA.md) for a technical description of all possible properties.
-
 ## Description
-Models will create Templates and Categories. They define the actual structure of the development model. 
+Models will create Templates and Categories. They define the actual structure of the development model.
 
 They usually declare:
 
@@ -41,7 +36,7 @@ The `smw_prefix` and `smw_postfix` attributes allow to inject wikitext before an
 
 The `"header"` attribute takes a number and will automatically generate a header of the given hierachy with the title of the model as text.
 
-```json 
+```json
 {
     "smw_prefix": {
         "header": 1,
@@ -62,7 +57,7 @@ The `required` and `recommended` attributes are arrays that consist of the field
 Please not that recommended fields are not officially supported by Semantic Forms and require the `sfDivLayout` setting to be enabled and some custom CSS styling, like the [VectorUp skin extension](http://www.mediawiki.org/wiki/Extension:VectorUp).
 
 
-```json 
+```json
 {
     "properties": [
         { "$extend": "/field/streetAdress" },
@@ -77,11 +72,11 @@ Please not that recommended fields are not officially supported by Semantic Form
 ```
 
 ### smw_subobject
-If `smw_subobject` is set to true, mobo will use the #subobject function instead of the #set function. 
+If `smw_subobject` is set to true, mobo will use the #subobject function instead of the #set function.
 
 Mobo will automantically introduce two additional helper attributes `subobjectType` and `subobjectParent` that help with querying subobjects.
 
-```json 
+```json
 {
     "smw_subobject": true
 }
@@ -90,7 +85,7 @@ Mobo will automantically introduce two additional helper attributes `subobjectTy
 ### smw_display
 This allows to define the style the template is rendered with. It must be supported by the `/mobo_template/template.wikitext` template.
 
-```json 
+```json
 {
     "smw_display": "ul"
 }

@@ -1,12 +1,7 @@
-# Fields
-> Read the latest version [online at GitHub](https://github.com/Fannon/mobo/blob/master/examples/init/field/README.md).
-
-> Refer to the corresponding [SCHEMA.md](https://github.com/Fannon/mobo/blob/master/examples/init/field/SCHEMA.md) for a technical description of all possible properties.
-
 ## Description
-Fields are the mobo equivalent to SMW attributes. 
+Fields are the mobo equivalent to SMW attributes.
 
-The biggest difference to SMW attributes is that mobo fields already declare how they will be rendered and validated. Those information will be inherited through the models up to the final form. 
+The biggest difference to SMW attributes is that mobo fields already declare how they will be rendered and validated. Those information will be inherited through the models up to the final form.
 
 Fields usually declare:
 
@@ -35,7 +30,7 @@ To define a primitive datatype, just declare the "type" attribute:
 ```
 
 ### "Semantic" Datatypes (format)
-Semantic Datatypes are defined through the "format" attribute. Usually the primitive "type" datatype is "string". 
+Semantic Datatypes are defined through the "format" attribute. Usually the primitive "type" datatype is "string".
 
 * JSON Schema Datatypes
     * date / date-time
@@ -61,7 +56,7 @@ To define a semantic datatype, declare the "format" in addition to the "type":
 }
 ```
 
-The format attribute can be used to reference to a form. This can be done by using the same url notation as for the `$extend` attribute. 
+The format attribute can be used to reference to a form. This can be done by using the same url notation as for the `$extend` attribute.
 If the url links to a page that does not exist yet, it will be created through the defined form.
 
 ```json

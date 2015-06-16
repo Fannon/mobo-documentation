@@ -1,4 +1,7 @@
 /** TABLES */
+.book .book-body .page-wrapper .page-inner section.normal table {
+    margin: 8px 0;
+}
 .book .book-body .page-wrapper .page-inner section.normal table th,
 .book .book-body .page-wrapper .page-inner section.normal table td {
     padding: 8px;

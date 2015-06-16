@@ -30,7 +30,7 @@
            <td class="schema-propertyName">smw_append</td>
            <td class="schema-type">object,string</td>
            <td class="schema-defaultValue">""</td>
-           <td class="schema-description"><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
+           <td class="schema-description">Adds a postfix wikitext to forms and models<br/><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
    <thead>
        <tr>
            <th>ID</th>
@@ -63,7 +63,7 @@
            <td class="schema-propertyName">smw_appendForm</td>
            <td class="schema-type">object,string</td>
            <td class="schema-defaultValue">""</td>
-           <td class="schema-description"><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
+           <td class="schema-description">Postfixes wikitext only to forms (edit-view). Can either be a string or an object for more advanced features (auto-generate headers, inject templates or add arbitrary wikitext)<br/><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
    <thead>
        <tr>
            <th>ID</th>
@@ -90,7 +90,7 @@
            <td class="schema-propertyName">smw_appendPage</td>
            <td class="schema-type">object,string</td>
            <td class="schema-defaultValue">""</td>
-           <td class="schema-description"><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
+           <td class="schema-description">Postfixes wikitext only to templates (page-view). Can either be a string or an object for more advanced features (auto-generate headers, inject templates or add arbitrary wikitext)<br/><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
    <thead>
        <tr>
            <th>ID</th>
@@ -135,7 +135,7 @@
            <td class="schema-propertyName">smw_prepend</td>
            <td class="schema-type">object,string</td>
            <td class="schema-defaultValue">""</td>
-           <td class="schema-description"><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
+           <td class="schema-description">Prefixes wikitext to both forms and templates. Can either be a string or an object for more advanced features (auto-generate headers, inject templates or add arbitrary wikitext)<br/><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
    <thead>
        <tr>
            <th>ID</th>
@@ -173,7 +173,7 @@
            <td class="schema-propertyName">smw_prependForm</td>
            <td class="schema-type">object,string</td>
            <td class="schema-defaultValue">""</td>
-           <td class="schema-description"><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
+           <td class="schema-description">Prefixes wikitext only to forms (edit-view). Can either be a string or an object for more advanced features (auto-generate headers, inject templates or add arbitrary wikitext)<br/><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
    <thead>
        <tr>
            <th>ID</th>
@@ -205,7 +205,7 @@
            <td class="schema-propertyName">smw_prependPage</td>
            <td class="schema-type">object,string</td>
            <td class="schema-defaultValue">""</td>
-           <td class="schema-description"><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
+           <td class="schema-description">Prefixes wikitext only to templates (page-view). Can either be a string or an object for more advanced features (auto-generate headers, inject templates or add arbitrary wikitext)<br/><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
    <thead>
        <tr>
            <th>ID</th>
