@@ -4,11 +4,12 @@ In order to learn mobo, it is mandatory to understand the basic concepts of [YAM
 
 JSON Schema is a very simple and concise standard and it should only take a few hours to learn it.
 There is a [great tutorial](http://spacetelescope.github.io/understanding-json-schema/) by the Space Telescope Science Institute.
-This time to learn JSON Schema is a good investment anyhow, since it can be very useful in other contexts as well.
+The time to learn JSON Schema is a good investment anyhow, since it can be very useful in other contexts as well.
 
-Basic understanding of [MediaWiki](http://mediawiki.org), [SemanticMediaWiki](https://semantic-mediawiki.org/) and [SemanticForms](https://www.mediawiki.org/wiki/Extension:Semantic_Forms) is also highly recommended, since this is the target system and its architecture has a huge impact on how models are developed.
+Some understanding of [MediaWiki](http://mediawiki.org), [SemanticMediaWiki](https://semantic-mediawiki.org/) and [SemanticForms](https://www.mediawiki.org/wiki/Extension:Semantic_Forms) is also highly recommended,
+since they are the target system. Their architecture has a huge impact on how models are developed.
 
-If the default templates are changed, an understanding of the [Handlebars.js template engine](http://handlebarsjs.com/) is of advantage.
+If the default templates need to be changed, an understanding of the [Handlebars.js template engine](http://handlebarsjs.com/) is of advantage.
 
 ## Create a new project
 To start with the model development, an empty project structure has to be created first:
@@ -51,8 +52,8 @@ required: ['streetAdress', 'streetNumber', 'town']
 smw_prefix:
     header: 1
     wikitext: Some prefix-description for the location
-smw_postfix:
-    wikitext: Some postfix-description for the location
+smw_postfix: |
+    Some postfix-description for the location
 ```
 
 #### JSON-Notation:
@@ -83,163 +84,6 @@ smw_postfix:
 
 To batch-convert a project from JSON to YAML notation (or the other way around), the [yamljs](https://www.npmjs.com/package/yamljs) CLI tool is recommended.
 Conversion should be easy and fast, so the choice of notation format should have no lock-in effect.
-
-## The Development Model Structure
-### Overview
-`mobo --init` has created a default project structure.
-
-Please note that subdirectories can be created freely, but they will be flattened on the reading step. This allows greater freedom in organizing the model. Moving files does not require to adjust paths in the model.
-
-```
-├── field
-├── form
-├── model
-├── settings.yaml
-├── smw_page
-├── smw_query
-├── smw_template
-└── mobo_template
-    ├── category.wikitext
-    ├── form.wikitext
-    ├── property.wikitext
-    ├── query-ask.wikitext
-    ├── query-sparql.wikitext
-    ├── report.wikitext
-    └── template.wikitext
-```
-
-### /settings.yaml
-The settings.yaml (or settings.json) file will hold all project specific options. It has already been explained in the Getting Started Section.
-
-For more documentation of all available options and their defaults, please refer to the [Settings Schema](../Schemas/settings-schema.md).
-
-```yaml
-# Bot login settings
-mw_server_url: 'http://example.com'
-mw_server_path: '/wiki'
-mw_username: 'username'
-mw_password: 'password'
-mw_server_port: false
-
-# Custom Settings
-uploadWikiPages: true
-deleteWikiPages: false
-```
-
-### /field/*
-Fields are the mobo equivalent to SMW attributes.
-
-The biggest difference to SMW attributes is that mobo fields already declare how they will be rendered and validated. Those information will be inherited through the models up to the final form.
-
-Fields usually declare:
-* The machine name will be the filename.
-* A tittle that is human readable.
-* An optional description.
-* The datatype, consisting of type and format (see JSON Schema Spec).
-* Additional validation (some datatypes already come with validation).
-* The format can link to other forms, in this case the datatype is ‘page’.
-* Semantic Forms options that define how SF will render the final field.
-
-```json
-{
-    "title": "radius",
-    "description": "The radius of a shape",
-
-    "type": "number",
-    "minimum": 0,
-
-    "smw_form": {
-        "input type": "text"
-    }
-}
-```
-
-### /model/*
-Models will create Templates and Categories. They define the actual struc-ture of the development model.
-
-They usually declare:
-
-* Which models they inherit from
-* Which fields are used
-* The order of the fields
-* Mandatory and recommended fields
-* The template “rendering” mode (table, unordered lists, …)
-* If they are stored as regular semantic properties or a subobject
-* MediaWiki Categories
-* Prefix and Postfix wikitext
-
-```json
-{
-    "$extend": "/model/_Shape",
-
-    "title": "Circle",
-    "type": "object",
-
-    "properties": {
-        "radius": { "$extend": "/field/radius" },
-    },
-    "required": ["x", "y", "radius"]
-}
-```
-
-### /form/*
-Forms will create Semantic Forms. They are much more lightweight than regular SF Forms, since most information have already been declared on the field or model level.
-
-They usually declare:
-* Which models to use
-* If the model should be implemented as a single or multiple instance
-* Which template to use / inject
-* The order of the models and templates
-* Visibility of templates in edit-view and reading-view
-
-```json
-{
-    "title": "Circle",
-    "description": "Circle Form",
-    "type": "object",
-
-    "properties": {
-        "CircleHeader": {
-            "$extend": "/smw_template/CircleHeader.wikitext",
-            "showForm": true,
-            "showSite": true
-        },
-        "circle": {
-            "type": "array",
-            "items": {
-                "$extend": "/model/Circle"
-            }
-        },
-
-        "qualityHeader": { "wikitext": "=Quality=" },
-        "quality": { "$extend": "/model/Quality" }
-    }
-}
-```
-
-### /smw_page/*
-In this directory .wikitext files can be stored. They will be uploaded to the wiki and overwrite any page that mobo have created before.
-
-Please note that some characters can’t be used for filenames, so some string substitutions have to be made.
-
-* `___` will be substituted with `:` (namespaces)
-* `---` will be substituted with `/` (subpages)
-
-### /smw_template/*
-This directory works similar like /smw_page/. MediaWiki Templates can be stored here without having to prepend `template___`. All templates in this directory will overwrite any template mobo has created before.
-
-Please note that some characters can’t be used for filenames, so some string substitutions have to be made.
-
-* `___` will be converted to a `:` (namespaces)
-* `---` will be converted to a `/`(subpages)
-
-### /smw_query/*
-ASK or SPARQL Queries can be stored in this directory. Mobo will automat-ically generate a template (including documentation) with which the query can be embedded. Queries are also tagged with categories.
-
-### /mobo_template/*
-This directory contains Handlebars.js (http://handlebarsjs.com/) templates. They are used by mobo to generate the final wikitext pages. For more doc-umentation how they work, please refer to the Handlebars.js website.
-
-The rendered output can be customized by editing those templates. They contain the rendered markup, some logic and strings that may want to be localized.
 
 ## Mobo Schema
 ### Differences from JSON Schema
