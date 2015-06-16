@@ -5,15 +5,18 @@
 ## About mobo
 [Mobo](https://www.npmjs.com/package/mobo) is a command line toolset that helps to build Semantic MediaWiki structure in an agile,
 Schema-Driven Development (simplified MDE) way.
-The model is developed on the local file system, using an object oriented JSON Schema notation.
+The model is developed with text files and folders, using object oriented JSON Schema.
 Since the model is written in plain YAML or JSON files, Version Control Systems like Git and an editor of choice and can be used.
 There is no need of additional tooling.
 
-The main function of the mobo toolset is the JSON Schema based model development workflow.
-To support this, it also features a web application that documents the development model in its various stages.
-There is also an interactive graph explorer that gives a more visual representation.
+The main feature of mobo is the model development workflow.
+SMW models can be developed very fast, leading to a more agile development process.
+Mobo can run in an interactive realtime mode, automatically validating and uploading the model on changes.
 
-Mobo can also be used to batch-upload wiki pages in general and it is planned to support some basic external data transformation and importing capabilities.
+Mobo also features a web application for inspecting the development model in its various stages.
+There is an interactive graph explorer that gives a more visual representation.
+
+Mobo can also be used to batch-upload wiki pages or programmatically import arbitrary data into the wiki.
 
 Mobo is Open Source and Cross-Platform.
 
