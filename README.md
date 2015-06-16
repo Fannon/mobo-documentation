@@ -16,6 +16,9 @@ There is also an interactive graph explorer that gives a more visual representat
 Mobo can also be used to batch-upload wiki pages in general and it is planned to support some basic external data transformation and importing capabilities.
 
 Mobo is Open Source and Cross-Platform.
+## Documentation
+* Read the [documentation online](http://fannon.gitbooks.io/mobo-documentation/content/)
+* Download the documentation at [GitBook](https://www.gitbook.com/book/fannon/mobo-documentation)
 
 ## Screenshots
 ![mobo-first-start](http://up.fannon.de/img/mobo-first-start.png?v=3)

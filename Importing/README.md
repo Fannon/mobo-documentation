@@ -20,4 +20,4 @@ Please note that some characters can’t be used for filenames, so some string s
 * `---` will be substituted with `/` (subpages)
 
 ## data import (programmatically)
-TODO: This feature is planned, but not implemented yet
+TODO: Implemented, but not documented yet.

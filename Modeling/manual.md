@@ -1,5 +1,5 @@
 ### Premises
-In order to learn mobo, it is mandatory to understand the basic concepts of JSON and JSON Schema first.
+In order to learn mobo, it is mandatory to understand the basic concepts of YAML/JSON and JSON Schema first.
 
 It is a very simple and concise standard and it should only take a few hours to learn it.
 There is a great tutorial published by the Space Telescope Science Institute.
@@ -35,8 +35,24 @@ YAML is a bit more concise and more implicit (and therefore more forgiving). It 
 
 The mobo examples are available in both JSON and YAML notation. A comparison:
 
+**YAML-Notation:**
+```yaml
+# Inline comments are possible. This is not true for JSON.
+title: Location
+description: Location where hardware is deployed
+properties:
+    - $extend: /field/streetAdress
+    - $extend: /field/streetNumber
+    - $extend: /field/town
+    - $extend: /field/country
+required: ['streetAdress', 'streetNumber', 'town']
+smw_prefix:
+    header: 1
+    wikitext: Some prefix-description for the location
+smw_postfix:
+    wikitext: Some postfix-description for the location
+```
 **JSON-Notation:**
-
 ```json
 {
     "title": "Location",
@@ -60,27 +76,6 @@ The mobo examples are available in both JSON and YAML notation. A comparison:
         "wikitext": "Some postfix-description for the location"
     }
 }
-```
-
-**YAML-Notation:**
-
-```yaml
-title: Location
-description: Location where hardware is deployed
-properties:
-    - $extend: /field/streetAdress
-    - $extend: /field/streetNumber
-    - $extend: /field/town
-    - $extend: /field/country
-required:
-    - streetAdress
-    - streetNumber
-    - town
-smw_prefix:
-    header: 1
-    wikitext: Some prefix-description for the location
-smw_postfix:
-    wikitext: Some postfix-description for the location
 ```
 
 To batch-convert a project from JSON to YAML notation (or the other way around), the [yamljs](https://www.npmjs.com/package/yamljs) CLI tool is recommended.
@@ -125,22 +120,22 @@ Please note that subdirectories can be created freely, but they will be flat-ten
 
 
 
-#### /settings.json
-The settings.json file will hold all project specific options. It has already been explained in the Getting Started Section.
+#### /settings.yaml
+The settings.yaml (or settings.json) file will hold all project specific options. It has already been explained in the Getting Started Section.
 
-For more documentation of all available options and their defaults, please read the accompanying settings.md file.
+For more documentation of all available options and their defaults, please refer to the [Settings Schema](../Schemas/settings-schema.md).
 
-```json
-{
-    "mw_server_url": "http://localhost",
-    "mw_server_path": "/wiki",
-    "mw_username": "username",
-    "mw_password": "password",
+```yaml
+# Bot login settings
+mw_server_url: 'http://example.com'
+mw_server_path: '/wiki'
+mw_username: 'username'
+mw_password: 'password'
+mw_server_port: false
 
-    "watchFilesystem": true,
-    "serveWebApp": true,
-    "uploadWikiPages": true
-}
+# Custom Settings
+uploadWikiPages: true
+deleteWikiPages: false
 ```
 
 #### /field/*
