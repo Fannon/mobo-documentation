@@ -1,12 +1,13 @@
-/** TABLES */
-.book .book-body .page-wrapper .page-inner section.normal table {
+/** Typography */
+.book .book-body .page-wrapper .page-inner section.normal p,
+.book .book-body .page-wrapper .page-inner section.normal blockquote,
+.book .book-body .page-wrapper .page-inner section.normal ul,
+.book .book-body .page-wrapper .page-inner section.normal ol,
+.book .book-body .page-wrapper .page-inner section.normal dl,
+.book .book-body .page-wrapper .page-inner section.normal table,
+.book .book-body .page-wrapper .page-inner section.normal pre {
     margin: 8px 0;
 }
-.book .book-body .page-wrapper .page-inner section.normal table th,
-.book .book-body .page-wrapper .page-inner section.normal table td {
-    padding: 8px;
-}
-
 .schema-table .schema-description {
     -ms-word-break: break-all;
     /* Be VERY careful with this, breaks normal words wh_erever */
@@ -17,7 +18,20 @@
     -moz-hyphens: auto;
     hyphens: auto;
 }
+.schema-table .schema-enum {
+}
 
+/** TABLES */
+.book .book-body .page-wrapper .page-inner section.normal table {
+    margin: 8px 0;
+}
+.book .book-body .page-wrapper .page-inner section.normal table th,
+.book .book-body .page-wrapper .page-inner section.normal table td {
+    padding: 8px;
+}
+
+
+/** Layout */
 .book .book-body .navigation.navigation-next {
     right: 18px;
 }

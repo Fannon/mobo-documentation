@@ -11,21 +11,20 @@
        <tr>
            <td class="schema-propertyName">form</td>
            <td class="schema-type">string,array</td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">Defines which form should be automatically used if the red link is clicked</td>
        </tr>
        <tr>
            <td class="schema-propertyName">sf_form</td>
            <td class="schema-type">object</td>
-           <td class="schema-defaultValue">""</td>
-           <td class="schema-description">Object, containing SemanticForms option, that will be redirected to the form (<a href="https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#.27field.27_tag">Documentation</a>)</td>
+           <td class="schema-defaultValue"></td>
+           <td class="schema-description">Object, containing SemanticForms option, that will be redirected to the form<p class="schema-link"><strong>External Link</strong>: <a href="https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#.27field.27_tag target="_blank">Documentation</a></p></td>
        </tr>
        <tr>
            <td class="schema-propertyName">smw_arraymaptemplate</td>
            <td class="schema-type">string</td>
            <td class="schema-defaultValue">false</td>
-           <td class="schema-description">Name of the arraymap template to use.
-Field needs to be of type "array". (<a href="https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Semantic_Forms_and_templates#arraymaptemplate">Documentation</a>)</td>
+           <td class="schema-description">Name of the arraymap template to use. Field needs to be of type "array".<p class="schema-link"><strong>External Link</strong>: <a href="https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Semantic_Forms_and_templates#arraymaptemplate target="_blank">Documentation</a></p></td>
        </tr>
        <tr>
            <td class="schema-propertyName">smw_drilldown</td>
@@ -54,25 +53,25 @@ Field needs to be of type "array". (<a href="https://www.mediawiki.org/wiki/Exte
        <tr>
            <td class="schema-propertyName">smw_overwriteData</td>
            <td class="schema-type">string</td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">Overwrites the final #set or #subobject value of the field. This will also overwrite smw_overwriteOutput.</td>
        </tr>
        <tr>
            <td class="schema-propertyName">smw_overwriteDisplay</td>
            <td class="schema-type">string</td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">Overwrites only the display value of the current field</td>
        </tr>
        <tr>
            <td class="schema-propertyName">smw_overwriteOutput</td>
            <td class="schema-type">string</td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">Overwrites the final value of the field, used for both display and data set</td>
        </tr>
        <tr>
            <td class="schema-propertyName">smw_overwriteOutputToLink</td>
            <td class="schema-type">boolean</td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">If true, this will create a link in display mode, but the data will not receive the appended [[]]</td>
        </tr>
        <tr>

@@ -11,7 +11,7 @@
        <tr>
            <td class="schema-propertyName">recommended</td>
            <td class="schema-type"></td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">Array of fields that should be highlighted as recommended (complementary to mandatory)</td>
        </tr>
        <tr>
@@ -29,7 +29,7 @@
        <tr>
            <td class="schema-propertyName">smw_append</td>
            <td class="schema-type">object,string</td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">Adds a postfix wikitext to forms and models<br/><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
    <thead>
        <tr>
@@ -56,13 +56,13 @@
        <tr>
            <td class="schema-propertyName">smw_appendCategory</td>
            <td class="schema-type">string</td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">wikitext to postfix on the category page</td>
        </tr>
        <tr>
            <td class="schema-propertyName">smw_appendForm</td>
            <td class="schema-type">object,string</td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">Postfixes wikitext only to forms (edit-view). Can either be a string or an object for more advanced features (auto-generate headers, inject templates or add arbitrary wikitext)<br/><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
    <thead>
        <tr>
@@ -89,7 +89,7 @@
        <tr>
            <td class="schema-propertyName">smw_appendPage</td>
            <td class="schema-type">object,string</td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">Postfixes wikitext only to templates (page-view). Can either be a string or an object for more advanced features (auto-generate headers, inject templates or add arbitrary wikitext)<br/><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
    <thead>
        <tr>
@@ -116,7 +116,7 @@
        <tr>
            <td class="schema-propertyName">smw_categories</td>
            <td class="schema-type"></td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">Array of additional categories the template should set.</td>
        </tr>
        <tr>
@@ -134,7 +134,7 @@
        <tr>
            <td class="schema-propertyName">smw_prepend</td>
            <td class="schema-type">object,string</td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">Prefixes wikitext to both forms and templates. Can either be a string or an object for more advanced features (auto-generate headers, inject templates or add arbitrary wikitext)<br/><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
    <thead>
        <tr>
@@ -166,13 +166,13 @@
        <tr>
            <td class="schema-propertyName">smw_prependCategory</td>
            <td class="schema-type">string</td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">wikitext to prefix on the category page</td>
        </tr>
        <tr>
            <td class="schema-propertyName">smw_prependForm</td>
            <td class="schema-type">object,string</td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">Prefixes wikitext only to forms (edit-view). Can either be a string or an object for more advanced features (auto-generate headers, inject templates or add arbitrary wikitext)<br/><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
    <thead>
        <tr>
@@ -204,7 +204,7 @@
        <tr>
            <td class="schema-propertyName">smw_prependPage</td>
            <td class="schema-type">object,string</td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">Prefixes wikitext only to templates (page-view). Can either be a string or an object for more advanced features (auto-generate headers, inject templates or add arbitrary wikitext)<br/><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
    <thead>
        <tr>
@@ -242,7 +242,7 @@
        <tr>
            <td class="schema-propertyName">smw_subobjectExtend</td>
            <td class="schema-type">object</td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">Contains a set (object) of additional #subobject properties</td>
        </tr>
    </tbody>

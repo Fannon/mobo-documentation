@@ -11,20 +11,20 @@
        <tr>
            <td class="schema-propertyName">naming</td>
            <td class="schema-type">string</td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">Provides naming conventions / guideline. Will appear on the form page itself.</td>
        </tr>
        <tr>
            <td class="schema-propertyName">sf_forminfo</td>
            <td class="schema-type">object</td>
-           <td class="schema-defaultValue">""</td>
-           <td class="schema-description">Object (Set), containing all SemanticForms info parameters. (<a href="https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#.27info.27_tag">Documentation</a>)</td>
+           <td class="schema-defaultValue"></td>
+           <td class="schema-description">Object (Set), containing all SemanticForms info parameters.<p class="schema-link"><strong>External Link</strong>: <a href="https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#.27info.27_tag target="_blank">Documentation</a></p></td>
        </tr>
        <tr>
            <td class="schema-propertyName">sf_forminput</td>
            <td class="schema-type">object</td>
-           <td class="schema-defaultValue">""</td>
-           <td class="schema-description">Object, containing SemanticForms #forminput options (<a href="https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#The_.23forminput_function">Documentation</a>)</td>
+           <td class="schema-defaultValue"></td>
+           <td class="schema-description">Object, containing SemanticForms #forminput options<p class="schema-link"><strong>External Link</strong>: <a href="https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#The_.23forminput_function target="_blank">Documentation</a></p></td>
        </tr>
        <tr>
            <td class="schema-propertyName">sf_freetext</td>

@@ -187,7 +187,7 @@
        <tr>
            <td class="schema-propertyName">cwd</td>
            <td class="schema-type">string</td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">AUTO GENERATED, can be overwritten: Working (root) directory of the project where the settings.json is located</td>
        </tr>
        <tr>
@@ -272,7 +272,7 @@ This can sometimes be useful, if some changes were lost or you want to go for su
        <tr>
            <td class="schema-propertyName">importModelDir</td>
            <td class="schema-type">string</td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">AUTO GENERATED, can be overwritten.</td>
        </tr>
        <tr>
@@ -284,7 +284,7 @@ This can sometimes be useful, if some changes were lost or you want to go for su
        <tr>
            <td class="schema-propertyName">logDir</td>
            <td class="schema-type">string</td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">AUTO GENERATED, can be overwritten.</td>
        </tr>
        <tr>
@@ -302,7 +302,7 @@ This can sometimes be useful, if some changes were lost or you want to go for su
        <tr>
            <td class="schema-propertyName">mw_password</td>
            <td class="schema-type">string</td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">The password of your mobo bot account</td>
        </tr>
        <tr>
@@ -320,13 +320,13 @@ This can sometimes be useful, if some changes were lost or you want to go for su
        <tr>
            <td class="schema-propertyName">mw_server_url</td>
            <td class="schema-type">string,boolean</td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">URL to your MediaWiki server without trailing slash. Do not include the port or relative path to MediaWiki here!</td>
        </tr>
        <tr>
            <td class="schema-propertyName">mw_username</td>
            <td class="schema-type">string</td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">The username of your mobo bot account</td>
        </tr>
        <tr>
@@ -338,7 +338,7 @@ This can sometimes be useful, if some changes were lost or you want to go for su
        <tr>
            <td class="schema-propertyName">processedModelDir</td>
            <td class="schema-type">string</td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">AUTO GENERATED, can be overwritten.</td>
        </tr>
        <tr>
@@ -389,7 +389,7 @@ SemanticForms itself does not support / supply this for a div based layout.</td>
        <tr>
            <td class="schema-propertyName">templateDir</td>
            <td class="schema-type">string</td>
-           <td class="schema-defaultValue">""</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">AUTO GENERATED, can be overwritten.</td>
        </tr>
        <tr>
