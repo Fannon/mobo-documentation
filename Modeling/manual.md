@@ -152,21 +152,24 @@ itemsOrder:
   - macAdress
 ```
 
-### SMW specific Additions
-There are many SMW specific additions, to support the various settings and possibilities of SMW and Semantic Forms.
+#### SMW / SF specific Additions
+There are many implementation specific additions to the schema.
+They are prefixed with `smw_` and `sf_` and support the various settings
+and possibilities of Semantic MediaWiki and Semantic Forms.
+
+
 A comprehensive overview can be found in the [Schemas Documentation](../Schemas/).
 
-To see a complete, auto generated technical description of all available prop-erties, refer to `/field/SCHEMA.md`, `/model/SCHEMA.md` and `/form/SCHEMA.md` documentation on GitHub or the local project directory.
+The implementation specific settings are often directly passed through to the end system.
+In those cases, the available options are documented by the end system.
 
-The smw_form attribute is an object which redirects all settings directly to Semantic Forms. To see which options are supported, refer to the Semantic Forms manual at http://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#.27field.27_tag
-
+**Example**: SemanticForms field tag (see [official documentation](https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#.27field.27_tag))
 ```json
-"smw_form": {
-    "input type": "combobox",
-    "values from namespace": "Manufacturer",
-    "max values": 1,
-    "existing values only": true
-}
+sf_form:
+  input type: combobox
+  values from namespace: Manufacturer
+  max values: 1,
+  existing values only: true
 ```
 
 ### Changes
@@ -218,17 +221,3 @@ The following JSON Schema properties are not supported:
     '$ref'
 ]
 ```
-
-## Continue learning
-There are a few context specific README.md and SCHEMA.md files coming with the initial project structure (`mobo --init`).
-The README.md files contain basic documentation about the section of the development model, while the SCHEMA.md files contain an auto-generated technical documentation of all possible JSON Schema attributes.
-
-* [Command Line Options](lib/cli.md) (`mobo -h`)
-* [/settings.md](examples/init/settings.md)
-    * /field/[README.md](examples/init/field/README.md) and [SCHEMA.md](examples/init/field/SCHEMA.md) for a technical documentation
-    * /model/[README.md](examples/init/model/README.md) and [SCHEMA.md](examples/init/model/SCHEMA.md) for a technical documentation
-    * /form/[README.md](examples/init/form/README.md) and [SCHEMA.md](examples/init/form/SCHEMA.md) for a technical documentation
-    * /smw_query/[README.md](examples/init/smw_query/README.md)
-    * /smw_page/[README.md](examples/init/smw_page/README.md)
-    * /smw_template/[README.md](examples/init/smw_template/README.md)
-    * /mobo_template/[README.md](examples/init/templates/README.md)
