@@ -18,13 +18,14 @@
            <td class="schema-propertyName">sf_form</td>
            <td class="schema-type">object</td>
            <td class="schema-defaultValue">""</td>
-           <td class="schema-description">Object, containing SemanticForms option, that will be redirected to the form</td>
+           <td class="schema-description">Object, containing SemanticForms option, that will be redirected to the form (<a href="https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#.27field.27_tag">Documentation</a>)</td>
        </tr>
        <tr>
            <td class="schema-propertyName">smw_arraymaptemplate</td>
            <td class="schema-type">string</td>
            <td class="schema-defaultValue">false</td>
-           <td class="schema-description">Name of the arraymap template (https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Semantic_Forms_and_templates#arraymaptemplate) to use. Field needs to be of type "array".</td>
+           <td class="schema-description">Name of the arraymap template to use.
+Field needs to be of type "array". (<a href="https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Semantic_Forms_and_templates#arraymaptemplate">Documentation</a>)</td>
        </tr>
        <tr>
            <td class="schema-propertyName">smw_drilldown</td>
