@@ -1,12 +1,13 @@
 ## Description
-Forms will create Semantic Forms. They are much more lightweight than regular SF Forms, since most information have already been declared on the field or model level.
+Each mobo form will create a Semantic Form and define its content.
+Mobo forms are much more lightweight than regular SF Forms,
+since most information have already been declared on the field or model level and are just inherited up.
 
-They usually declare:
-
+**They usually declare:**
 * Which models to use
 * If the model should be implemented as a single or multiple instance
 * Which template to use / inject
-* The order of the models and templates
+* The order of these models and templates
 * Visibility of templates in edit-view and reading-view
 
 ## Form specific features
@@ -24,7 +25,6 @@ The `smw_forminput` attribute is an object that contains Semantic Forms [info ta
 
 ### smw_forminput
 The `smw_forminput` attribute is an object that contains Semantic Forms [#forminput settings](http://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#The_.23forminput_function).
-
 
 ### smw_freetext
 Boolean that enables / disables the freetext field below the form

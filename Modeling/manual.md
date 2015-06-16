@@ -86,36 +86,75 @@ To batch-convert a project from JSON to YAML notation (or the other way around),
 Conversion should be easy and fast, so the choice of notation format should have no lock-in effect.
 
 ## Mobo Schema
-### Differences from JSON Schema
-Mobo uses JSON Schema as a basis for the model development. To fit the model development better, some additions, changes and simplifications were made. The adjusted JSON Schema will be referred to as “mobo Schema”
+Mobo uses JSON Schema as a basis for the model development.
+To fit the model development better, some additions, changes and simplifications were made.
+The adjusted JSON Schema will be referred to as *mobo Schema*.
 
 ### Additions
-#### $extend, abstract and ignore
-The most important addition to JSON Schema is the “$extend” keyword. It takes a string (or an array of strings) which describe the path to another model file.
-
-```json
-"$extend": "/model/_Shape",
-```
-
-Mobo will inherit all properties of the referenced (parent) object to the ob-ject where this statement was made. Properties of the child object will over-write inherited properties. If an array of parent objects is given, the inher-itance order will be the order of the array.
-
+#### Inheritance: $extend and $remove,
+The `$extend` keyword takes a string or an array of strings that describe the path to another model file.
 `$extend` can be used with fields, models and forms. Circular dependencies are not allowed, however.
 
-To define abstract objects that will only be used for inheritance, the property abstract can be used. To (temporarily) remove objects from the model the ignore attribute can be set to true. Both attributes won’t be inherited, so children of abstract or ignored objects don’t have to explicitly undo that setting.
+```yaml
+$extend: /model/_Shape
+```
 
-JSON Schema has a somewhat similar attribute, called `$ref`. The official spec does not specify an inheritance behavior though. To avoid confusion, mobo supports only the custom $extend property.
+Mobo will inherit all properties of the referenced parent-object to the child-object where this statement was made.
+If an array of multiple parent objects is given, the inheritance order will be the order of the array.
 
-#### propertyOrder
-JSON Schema v4 does not natively support a declaration how properties are ordered. For model development this is an important feature, so mobo has added custom support.
+Properties of the child object will merge or overwrite inherited properties:
+* Primitive Datatypes like Strings, Numbers and Booleans will be overwritten
+* Objects will be merged
+* Arrays can behave in different ways. Multiple annotations can be used to define the merging behavior:
+    * `@overwrite`: The children overwrites the parent completely
+    * `@prepend`: The children elements are prepended
+    * `@append`: The children elements are appended
+    * `@unique`: The resulting array removes all duplicate items
+    * `@sorted`: The resulting array will be sorted alphabetically
+    * `@unsorted`: The resulting array will not be sorted (undo @sorted)
 
-The order is defined by an array of the IDs / keys of the properties:
+The default array merging behaviour is defined in the [settings](../Schemas/settings-schema.md) and can be customized.
 
-```json
-"propertyOrder": ["ip", "macAdress"],
+**Important**: In YAML the annotations have to be put in `''` or `""`, because `@` is a reserved [YAML Directive](http://www.yaml.org/spec/1.2/spec.html#id2781553).
+
+Example: This will result in an array of a, b, c
+```yaml
+itemsOrder:
+  - '@unique'
+  - '@sorted'
+  - b
+  - c
+  - a
+  - b
+```
+
+JSON Schema has a similar keyword, called `$ref`.
+The official spec does not specify an inheritance behavior, though.
+To avoid confusion, mobo supports only the custom $extend property.
+
+#### abstract
+Abstract objects will only be used for inheritance purposes.
+They do not create any wiki related pages.
+The `abstract` keyword is not inherited, so children of abstract objects don't have to explicitly set abstract: false.
+
+#### ignore
+To (temporarily) remove objects from the model the ignore attribute can be set to true.
+The `abstract` keyword is not inherited, so children of abstract objects don't have to explicitly set abstract: false.
+
+#### itemsOrder
+To easily change the order of the items array, the keyword `itemsOrder` can be used.
+
+The order is defined through an array of the IDs of the items. The ID is the filename of the referenced object.
+
+```yaml
+itemsOrder:
+  - ip
+  - macAdress
 ```
 
 ### SMW specific Additions
-There are many SMW specific additions, to support the various settings and possibilities of SMW and Semantic Forms. Listing all those would be out of scope for this manual, so just one example will be given.
+There are many SMW specific additions, to support the various settings and possibilities of SMW and Semantic Forms.
+A comprehensive overview can be found in the [Schemas Documentation](../Schemas/).
 
 To see a complete, auto generated technical description of all available prop-erties, refer to `/field/SCHEMA.md`, `/model/SCHEMA.md` and `/form/SCHEMA.md` documentation on GitHub or the local project directory.
 
