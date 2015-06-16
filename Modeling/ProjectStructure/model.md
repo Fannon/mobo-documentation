@@ -1,3 +1,4 @@
+# /model/
 ## Description
 Models will create Templates and Categories. They define the actual structure of the development model.
 

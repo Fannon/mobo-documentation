@@ -10,7 +10,7 @@
    <tbody>
        <tr>
            <td class="schema-propertyName">form</td>
-           <td class="schema-type">string,array</td>
+           <td class="schema-type">string, array</td>
            <td class="schema-defaultValue"></td>
            <td class="schema-description">Defines which form should be automatically used if the red link is clicked</td>
        </tr>

@@ -10,7 +10,7 @@
    <tbody>
        <tr>
            <td class="schema-propertyName">$extend</td>
-           <td class="schema-type">string,array</td>
+           <td class="schema-type">string, array</td>
            <td class="schema-defaultValue"></td>
            <td class="schema-description">This references another mobo json file. It will be included through inheritance, all existing attributes in the parent object will be overwritten.</td>
        </tr>
@@ -64,7 +64,7 @@
        </tr>
        <tr>
            <td class="schema-propertyName">note</td>
-           <td class="schema-type">string,object</td>
+           <td class="schema-type">string, object</td>
            <td class="schema-defaultValue"></td>
            <td class="schema-description">Notes can be strings or objects and their content will be ignored</td>
        </tr>

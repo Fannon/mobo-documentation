@@ -172,52 +172,25 @@ sf_form:
   existing values only: true
 ```
 
-### Changes
-Mobo Schema is valid JSON Schema, with one optional exception.
-
-Since every object in mobo is a file, the filename does already define the ID of the object. This makes defining the key names in the property attribute (which is an object) duplications. To keep the model DRY and avoid incon-sistencies here, it is possible to use the property attribute as an array.
-This is the JSON Schema default property object notation:
-
-```json
-"properties": {
-    "x": { "$extend": "/field/x" },
-    "y": { "$extend": "/field/y" },
-    "color": { "$extend": "/field/color" }
-},
-```
-
-This is the mobo Schema alternative property array notation:
-
-```json
-"properties": [
-    { "$extend": "/field/x" },
-    { "$extend": "/field/y" },
-    { "$extend": "/field/color" }
-],
-```
-
-The array notation is a bit more concise and avoids to write the field names twice.
-
-Internally mobo converts the array notation back to the object notation, to maintain JSON Schema compatibility. The processed development model (with inheritance applied) is therefore always JSON Schema compliant.
-Removals
-
+### Removals
 The following JSON Schema properties are not supported:
 
-```javascript
-[
-    'properties.multipleOf',
-    'properties.exclusiveMaximum',
-    'properties.exclusiveMinimum',
-    'properties.additionalItems',
-    'properties.uniqueItems',
-    'properties.additionalProperties',
-    'properties.definitions',
-    'properties.patternProperties',
-    'properties.dependencies',
-    'properties.not',
-    'properties.allOf',
-    'properties.anyOf',
-    'dependencies',
-    '$ref'
-]
+```yaml
+$ref
+additionalItems
+additionalProperties
+allOf
+anyOf
+definitions
+dependencies
+dependencies
+exclusiveMaximum
+exclusiveMinimum
+multipleOf
+not
+patternProperties
+uniqueItems
 ```
+
+There are a few validation related JSON Schema properties which can be used but are currently not supported by Semantic Forms.
+They are used for internal validation - especially for programmatic imports, though.

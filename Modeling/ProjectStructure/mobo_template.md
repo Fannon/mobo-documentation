@@ -1,3 +1,4 @@
+# /mobo_template/
 ## Description
 This directory contains [Handlebars.js](http://handlebarsjs.com/) templates. They are used by mobo to generate the final wikitext pages. For more doc-umentation how they work, please refer to the Handlebars.js website.
 

@@ -1,3 +1,4 @@
+# /smw_page/
 ## Description
 In this directory .ask files, containing ASK queries can be stored.
 

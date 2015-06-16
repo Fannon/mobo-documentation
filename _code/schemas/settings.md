@@ -307,19 +307,19 @@ This can sometimes be useful, if some changes were lost or you want to go for su
        </tr>
        <tr>
            <td class="schema-propertyName">mw_server_path</td>
-           <td class="schema-type">string,boolean</td>
+           <td class="schema-type">string, boolean</td>
            <td class="schema-defaultValue">""</td>
            <td class="schema-description">Relative path to the MediaWiki installation without trailing slash</td>
        </tr>
        <tr>
            <td class="schema-propertyName">mw_server_port</td>
-           <td class="schema-type">string,boolean</td>
+           <td class="schema-type">string, boolean</td>
            <td class="schema-defaultValue">false</td>
            <td class="schema-description">The port your MW installation is using.</td>
        </tr>
        <tr>
            <td class="schema-propertyName">mw_server_url</td>
-           <td class="schema-type">string,boolean</td>
+           <td class="schema-type">string, boolean</td>
            <td class="schema-defaultValue"></td>
            <td class="schema-description">URL to your MediaWiki server without trailing slash. Do not include the port or relative path to MediaWiki here!</td>
        </tr>

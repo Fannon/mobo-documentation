@@ -1,3 +1,4 @@
+# Model Schema
 ## Model specific properties
 These properties will only work in context of fields.
 {% include "./../_code/schemas/model-schema.md" %}

@@ -1,4 +1,4 @@
-# Overview
+# Modeling Overview
 The following subsections will document:
 * A [manual](manual.md), explaining the basics about mobo modeling
 * A [tutorial](hardware-tutorial.md), which goes through an exemplary modeling project step by step

@@ -1,4 +1,5 @@
-## Settings.json documentation
+# Settings Schema
+## Settings documentation
 {% include "./../_code/schemas/settings.md" %}
 
 ## Default settings

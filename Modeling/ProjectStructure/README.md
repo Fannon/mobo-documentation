@@ -1,4 +1,4 @@
-# Overview
+# Project Structure
 It is highly recommended to create the default structure with mobo:
 ```sh
 $ cd /empty/directory/

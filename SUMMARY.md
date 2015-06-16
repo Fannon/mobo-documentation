@@ -12,7 +12,6 @@
         * [/smw_query/](Modeling/ProjectStructure/smw_query.md)
         * [/smw_template/](Modeling/ProjectStructure/smw_template.md)
         * [/mobo_template/](Modeling/ProjectStructure/mobo_template.md)
-    * [Best Practices](Modeling/best-practices.md)
 * [Mobo Utilities](Utilities/README.md)
 * [Mobo Importing](Importing/README.md)
 * [Schemas](Schemas/README.md)
