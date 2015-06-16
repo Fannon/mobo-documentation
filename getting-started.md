@@ -13,14 +13,14 @@ It is possible however, to install and use mobo on a server for more advanced us
 
 ### Global Installation
 ```sh
-$ npm install -g mobo         # Installs mobo globally.
-$ sudo npm install -g mobo    # Linux: Admin privileges are required
+npm install -g mobo         # Installs mobo globally.
+sudo npm install -g mobo    # Linux: Admin privileges are required
 ```
 
 #### Update
 ```sh
-$ npm update -g mobo          # global mobo update to latest
-$ npm update -g mobo@1.6.0    # global mobo update to 1.6.0
+npm update -g mobo          # global mobo update to latest
+npm update -g mobo@1.6.0    # global mobo update to 1.6.0
 ```
 
 **IMPORTANT**: New versions of mobo can introduce changed default templates.
@@ -28,7 +28,7 @@ You might have to update your project templates with the current version.
 To do so use the `mobo --update` command. This command will make a backup of your current templates.
 
 ```sh
-$ mobo --update
+mobo --update
 ```
 
 ### Local Installation
@@ -37,39 +37,39 @@ Those per-project installations allow to use a specific version of mobo (this in
 Different projects can use different mobo versions.
 If you want to set a fixed version number, use the [package.json version property](https://docs.npmjs.com/files/package.json#version).
 ```sh
-$ mkdir newProject && cd newProject   # Creates and enters new directory
-$ npm install mobo --save-dev         # Installs mobo locally
+mkdir newProject && cd newProject   # Creates and enters new directory
+npm install mobo --save-dev         # Installs mobo locally
 ```
 #### Update
 ```
-$ npm update
+npm update
 ```
 
 ### Advanced Installation (latest master, for developers)
 ```sh
-$ git clone https://github.com/Fannon/mobo.git
-$ cd mobo
-$ npm install   # Installs all dependencies
-$ npm link      # Creates/links the global alias to the current mobo installation
+git clone https://github.com/Fannon/mobo.git
+cd mobo
+npm install   # Installs all dependencies
+npm link      # Creates/links the global alias to the current mobo installation
 ```
 
 ### Update:
 ```sh
-$ git pull      # pull latest master
-$ npm install   # Install / update the dependencies
+git pull      # pull latest master
+npm install   # Install / update the dependencies
 ```
 
 ## Run mobo
 ### Test if mobo has been successfuly installed
 ```sh
-$ mobo -v       # Should print the mobo version number
+mobo -v       # Should print the mobo version number
 ```
 
 ### Create a new empty project
 ```sh
-$ mkdir projectName
-$ cd projectName
-$ mobo --init
+mkdir projectName
+cd projectName
+mobo --init
 ```
 Please note that mobo will display errors if no upload settings have been set. See Configuration.
 
@@ -77,20 +77,20 @@ Please note that mobo will display errors if no upload settings have been set. S
 Mobo runs in interactive mode by default. It supports several command line options.
 
 ```sh
-$ mobo      # Runs mobo in interactive mode
-$ mobo -r   # Runs mobo in non-interactive mode (will exit after run)
-$ mobo -f   # Forces the upload of all files (will exit after run)
+mobo      # Runs mobo in interactive mode
+mobo -r   # Runs mobo in non-interactive mode (will exit after run)
+mobo -f   # Forces the upload of all files (will exit after run)
 ```
 
 To see all available options, run mobo with the -h flag or refer to the [Command Line Options](cli.md) manual.
 
 ```sh
-$ mobo -h   # View command line help
+mobo -h   # View command line help
 ```
 
 If mobo can't be added to your global path for some reason, it can be run manually:
 ```sh
-$ node /path/to/mobo/cli.js
+node /path/to/mobo/cli.js
 ```
 
 ## Configuration
@@ -122,5 +122,5 @@ including all inherited default values. For documentation, please refer to the [
 If you want to change a setting, simply copy it into your settings file and adjust it. Enter `mobo -c` again to check if it was applied.
 
 ```sh
-$ mobo -c   # prints out all settings and their current state
+mobo -c   # prints out all settings and their current state
 ```
