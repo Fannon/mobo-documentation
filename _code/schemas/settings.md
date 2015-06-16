@@ -252,6 +252,12 @@ This can sometimes be useful, if some changes were lost or you want to go for su
            <td class="schema-description">Wikitext that will be prefixed to each mobo generated page</td>
        </tr>
        <tr>
+           <td class="schema-propertyName">gitStatistics</td>
+           <td class="schema-type">boolean</td>
+           <td class="schema-defaultValue">false</td>
+           <td class="schema-description">Adds some git related statistics. Will only work if git is installed and the project is a git repository.</td>
+       </tr>
+       <tr>
            <td class="schema-propertyName">headerTabs</td>
            <td class="schema-type">boolean</td>
            <td class="schema-defaultValue">false</td>
@@ -286,6 +292,12 @@ This can sometimes be useful, if some changes were lost or you want to go for su
            <td class="schema-type">boolean</td>
            <td class="schema-defaultValue">false</td>
            <td class="schema-description">If true and logDate is enabled, the full date will be logged in addition to the time</td>
+       </tr>
+       <tr>
+           <td class="schema-propertyName">logObjectsAsYaml</td>
+           <td class="schema-type">boolean</td>
+           <td class="schema-defaultValue">true</td>
+           <td class="schema-description">Logging / CLI output: Prints JavaScript Object as colorized YAML</td>
        </tr>
        <tr>
            <td class="schema-propertyName">mw_password</td>

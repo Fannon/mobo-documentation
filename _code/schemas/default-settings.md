@@ -16,6 +16,7 @@
     "forceUpload": false,
     "buildGraph": true,
     "statistics": true,
+    "gitStatistics": false,
     "writeExportFiles": false,
     "compatibilityLayer": true,
     "writeLogFile": true,
@@ -26,6 +27,7 @@
     "overwriteImportedPages": false,
     "logDate": true,
     "logLongDate": false,
+    "logObjectsAsYaml": true,
     "arrayMergeOptions": {
         "$remove": [
             "@unique"

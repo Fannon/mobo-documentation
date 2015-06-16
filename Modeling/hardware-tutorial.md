@@ -1,7 +1,8 @@
-## Tutorial: Hardware Management
-> Read the latest version [online at GitHub](https://github.com/Fannon/mobo/blob/master/examples/hardware/TUTORIAL.md).
+# Tutorial: Hardware Management
+This tutorial explains how to build a mobo development model for IT hardware management.
 
-This tutorial explains how to build a mobo development model along the [hardware management example](https://github.com/Fannon/mobo/tree/master/examples/hardware). Please note that the example and the tutorial are greatly simplified!
+For the final and more complete result, please review the [hardware management example](https://github.com/Fannon/mobo/tree/master/examples/hardware).
+It can be installed with `mobo --example hardware`
 
 ### Set up new project
 Create a new empty project and adjust your settings.json. Please refer to the mobo [MANUAL.md](https://github.com/Fannon/mobo/blob/master/examples/init/MANUAL.md#create-a-new-project) how do this.
@@ -89,7 +90,7 @@ Here we introdude some basic validation. The Street number should be a number of
 }
 ```
 
-Since towns may be referenced more than once, it makes sense to provide autocomplete capabilities. This is done by setting the "smw_form" property, declaring [Semantic Forms settings](http://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#.27field.27_tag). 
+Since towns may be referenced more than once, it makes sense to provide autocomplete capabilities. This is done by setting the "smw_form" property, declaring [Semantic Forms settings](http://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#.27field.27_tag).
 
 ```json
 {
@@ -109,7 +110,7 @@ Since towns may be referenced more than once, it makes sense to provide autocomp
 We want to support only three countries, so an enum is a good solution. In this field three countries are given and one is set as default. It will be displayed as a dropdown menu by default.
 
 #### Create form
-The last warning message is giving the hint that `model/Location.json` is never used. This is because there is no form that is including it. 
+The last warning message is giving the hint that `model/Location.json` is never used. This is because there is no form that is including it.
 
 Create `/form/Location.json` with the following content:
 
@@ -148,7 +149,7 @@ Create `/model/HardwareModel/_HardwareModel.json` with the following content:
 }
 ```
 
-The abstract model contains two required fields that will be shared by all other Hardware Models. Since it's defined as abstract, it will not be created in the wiki. 
+The abstract model contains two required fields that will be shared by all other Hardware Models. Since it's defined as abstract, it will not be created in the wiki.
 
 Create `/model/HardwareModel/NetworkPrinterModel.json` with the following content:
 
@@ -178,7 +179,7 @@ Please refer to the example files.
 
 ### Create a HardwareInstallation
 #### Create models
-Now the actual `NetworkPrinterInstallation` can be created. 
+Now the actual `NetworkPrinterInstallation` can be created.
 
 Create `/model/HardwareInstallation/_HardwareInstallation.json` with the following content:
 
@@ -274,10 +275,10 @@ Create `/field/HardwareInstallation/networkPrinterModel.json` with the following
 
 This field defines the `NetworkPrinterModel` form as its format. This means that a red link will always link to a wiki page which uses the form to create it by default.
 
-The `"values from category"` setting will ensure that the combox widget will autocomplete on all previous entered `NetworkPrinterModel`s. 
+The `"values from category"` setting will ensure that the combox widget will autocomplete on all previous entered `NetworkPrinterModel`s.
 
 ### Extend the location form to include Network Printers
-Network Printers should be added at locations through Semantic Forms [multiple instance templates](http://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#Multiple-instance_templates). 
+Network Printers should be added at locations through Semantic Forms [multiple instance templates](http://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#Multiple-instance_templates).
 
 Adjust `/field/HardwareInstallation/networkPrinterModel.json` to the following content:
 
@@ -289,7 +290,7 @@ Adjust `/field/HardwareInstallation/networkPrinterModel.json` to the following c
     "properties": [
         { "$extend": "/model/Location" },
 
-        { 
+        {
             "$extend": "/smw_template/NetworkPrinterHeader.wikitext",
             "showForm": true,
             "showPage": true
@@ -317,7 +318,7 @@ Create the template at `/swm_template/Headers/NetworkPrinterHeader.wikitext`:
 
 The second extend is an array which contains multiple `NetworkPrinterInstallation`s and will be implemented as the already mentioned Semantic Forms multiple template instance.
 
-The final form will now look like this: 
+The final form will now look like this:
 
 ![mobo-final-hardware-example](http://up.fannon.de/img/mobo-final-hardware-example.png)
 
@@ -349,10 +350,10 @@ Create `/smw_page/Overwrite/Category___NetworkPrinterModel.wikitext` with the fo
 
 Note that we can't use `:`` in filenames, so we have to replace it with `___`.
 
-Now we've overwritten the generated category and embedded our new query in it. 
+Now we've overwritten the generated category and embedded our new query in it.
 
 ### Excourse: Using HeaderTabs Extension
-In case the forms are getting more complex, it might be a good idea to seperate them into tabs. The [HeaderTabs Extension](http://www.mediawiki.org/wiki/Extension:Header_Tabs) is supported by mobo. 
+In case the forms are getting more complex, it might be a good idea to seperate them into tabs. The [HeaderTabs Extension](http://www.mediawiki.org/wiki/Extension:Header_Tabs) is supported by mobo.
 
 The support can be enabled in the projects `settings.json` by adding:
 
