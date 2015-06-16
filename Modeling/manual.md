@@ -1,4 +1,5 @@
-### Premises
+# The Mobo Manual
+## Premises
 In order to learn mobo, it is mandatory to understand the basic concepts of YAML/JSON and JSON Schema first.
 
 It is a very simple and concise standard and it should only take a few hours to learn it.
@@ -9,8 +10,8 @@ Basic understanding of MW / SMW and SF is also highly recommended, since this is
 
 If the default templates are changed, an understanding of the Handlebars.js template engine is of advantage.
 
-### Create a new project
-To start with the model development, an empty project structure has to be created first. This is done through a mobo command within an empty directory.
+## Create a new project
+To start with the model development, an empty project structure has to be created first:
 
 ```sh
 $ mkdir newProject  # Create new dir
@@ -18,24 +19,25 @@ $ cd newProject     # Enter new dir
 $ mobo --init       # Create bootstrap project
 ```
 
-Mobo comes with two example projects, which may be a good starting point to learn mobo. They can be copied to the current project directory with the `--example` flag:
+Mobo comes with example projects, which may be a good starting point to learn mobo. Use `mobo -h` to view the available options.
+They can be copied to the current project directory with the `--example` flag:
 
 ```sh
-$ mobo --example shapes
+$ mobo --example hardware
 ```
 
-### How to write the mobo-model (JSON vs YAML)
-It is possible to write the model in either the [JSON](http://json.org/) or the [YAML](http://yaml.org/) notation.
-It is even possible to mix both, though this might get confusing.
-In either case, the structure of JSON / mobo Schema must be adhered to.
+## How to write the mobo-model (JSON vs YAML)
+It is possible to write the model in the [JSON](http://json.org/) or the [YAML](http://yaml.org/) notation.
+In either case, the data structure of Mobo Schema (JSON Schema) is the same and must be adhered to.
 
-It is a matter of personal taste which notation might be prefered. JSON is barebone, explicit and very strict.
-This is so, because it is a data-serialization format by design. JSON does not even support comments for example.
-YAML is a bit more concise and more implicit (and therefore more forgiving). It is arguably easier to read and write by humans.
+It is a matter of personal taste which notation format might be prefered.
+JSON is barebone, explicit and very strict, because it is a machine optimized data-serialization format by design.
+YAML is a bit more concise and more implicit (and therefore more forgiving).
+It supports comments and some comfort features like pipes. It is arguably easier to read and write by humans.
 
-The mobo examples are available in both JSON and YAML notation. A comparison:
+Mobo uses YAML by default. Here is a comparison:
 
-**YAML-Notation:**
+#### YAML-Notation:
 ```yaml
 # Inline comments are possible. This is not true for JSON.
 title: Location
@@ -52,7 +54,8 @@ smw_prefix:
 smw_postfix:
     wikitext: Some postfix-description for the location
 ```
-**JSON-Notation:**
+
+#### JSON-Notation:
 ```json
 {
     "title": "Location",
@@ -81,46 +84,31 @@ smw_postfix:
 To batch-convert a project from JSON to YAML notation (or the other way around), the [yamljs](https://www.npmjs.com/package/yamljs) CLI tool is recommended.
 Conversion should be easy and fast, so the choice of notation format should have no lock-in effect.
 
-### The Development Model Structure
-#### Overview
-The default bootstrap project structure is now created. Please note that it contains many markdown files (.md) that provide more contextual documen-tation. README.md files will give more general information, while SCHEMA.md is an auto generated, more technical documentation of all available attributes.
+## The Development Model Structure
+### Overview
+`mobo --init` has created a default project structure.
 
-Please note that subdirectories can be created freely, but they will be flat-tened on the reading step. This allows greater freedom in organizing the model. Moving files does not require to adjust paths in the model.
+Please note that subdirectories can be created freely, but they will be flattened on the reading step. This allows greater freedom in organizing the model. Moving files does not require to adjust paths in the model.
 
-```sh
+```
 ├── field
-│   ├── README.md
-│   └── SCHEMA.md
 ├── form
-│   ├── README.md
-│   └── SCHEMA.md
 ├── model
-│   ├── README.md
-│   └── SCHEMA.md
-├── README.md
-├── MANUAL.md
-├── settings.json
-├── settings.md
+├── settings.yaml
 ├── smw_page
-│   └── README.md
 ├── smw_query
-│   └── README.md
 ├── smw_template
-│   └── README.md
 └── mobo_template
     ├── category.wikitext
     ├── form.wikitext
     ├── property.wikitext
     ├── query-ask.wikitext
     ├── query-sparql.wikitext
-    ├── README.md
     ├── report.wikitext
     └── template.wikitext
 ```
 
-
-
-#### /settings.yaml
+### /settings.yaml
 The settings.yaml (or settings.json) file will hold all project specific options. It has already been explained in the Getting Started Section.
 
 For more documentation of all available options and their defaults, please refer to the [Settings Schema](../Schemas/settings-schema.md).
@@ -138,7 +126,7 @@ uploadWikiPages: true
 deleteWikiPages: false
 ```
 
-#### /field/*
+### /field/*
 Fields are the mobo equivalent to SMW attributes.
 
 The biggest difference to SMW attributes is that mobo fields already declare how they will be rendered and validated. Those information will be inherited through the models up to the final form.
@@ -166,7 +154,7 @@ Fields usually declare:
 }
 ```
 
-#### /model/*
+### /model/*
 Models will create Templates and Categories. They define the actual struc-ture of the development model.
 
 They usually declare:
@@ -194,7 +182,7 @@ They usually declare:
 }
 ```
 
-#### /form/*
+### /form/*
 Forms will create Semantic Forms. They are much more lightweight than regular SF Forms, since most information have already been declared on the field or model level.
 
 They usually declare:
@@ -229,7 +217,7 @@ They usually declare:
 }
 ```
 
-#### /smw_page/*
+### /smw_page/*
 In this directory .wikitext files can be stored. They will be uploaded to the wiki and overwrite any page that mobo have created before.
 
 Please note that some characters can’t be used for filenames, so some string substitutions have to be made.
@@ -237,7 +225,7 @@ Please note that some characters can’t be used for filenames, so some string s
 * `___` will be substituted with `:` (namespaces)
 * `---` will be substituted with `/` (subpages)
 
-#### /smw_template/*
+### /smw_template/*
 This directory works similar like /smw_page/. MediaWiki Templates can be stored here without having to prepend `template___`. All templates in this directory will overwrite any template mobo has created before.
 
 Please note that some characters can’t be used for filenames, so some string substitutions have to be made.
@@ -245,20 +233,20 @@ Please note that some characters can’t be used for filenames, so some string s
 * `___` will be converted to a `:` (namespaces)
 * `---` will be converted to a `/`(subpages)
 
-#### /smw_query/*
+### /smw_query/*
 ASK or SPARQL Queries can be stored in this directory. Mobo will automat-ically generate a template (including documentation) with which the query can be embedded. Queries are also tagged with categories.
 
-#### /mobo_template/*
+### /mobo_template/*
 This directory contains Handlebars.js (http://handlebarsjs.com/) templates. They are used by mobo to generate the final wikitext pages. For more doc-umentation how they work, please refer to the Handlebars.js website.
 
 The rendered output can be customized by editing those templates. They contain the rendered markup, some logic and strings that may want to be localized.
 
-### Mobo Schema
-#### Differences from JSON Schema
+## Mobo Schema
+### Differences from JSON Schema
 Mobo uses JSON Schema as a basis for the model development. To fit the model development better, some additions, changes and simplifications were made. The adjusted JSON Schema will be referred to as “mobo Schema”
 
-#### Additions
-##### $extend, abstract and ignore
+### Additions
+#### $extend, abstract and ignore
 The most important addition to JSON Schema is the “$extend” keyword. It takes a string (or an array of strings) which describe the path to another model file.
 
 ```json
@@ -273,7 +261,7 @@ To define abstract objects that will only be used for inheritance, the property 
 
 JSON Schema has a somewhat similar attribute, called `$ref`. The official spec does not specify an inheritance behavior though. To avoid confusion, mobo supports only the custom $extend property.
 
-##### propertyOrder
+#### propertyOrder
 JSON Schema v4 does not natively support a declaration how properties are ordered. For model development this is an important feature, so mobo has added custom support.
 
 The order is defined by an array of the IDs / keys of the properties:
@@ -282,7 +270,7 @@ The order is defined by an array of the IDs / keys of the properties:
 "propertyOrder": ["ip", "macAdress"],
 ```
 
-#### SMW specific Additions
+### SMW specific Additions
 There are many SMW specific additions, to support the various settings and possibilities of SMW and Semantic Forms. Listing all those would be out of scope for this manual, so just one example will be given.
 
 To see a complete, auto generated technical description of all available prop-erties, refer to `/field/SCHEMA.md`, `/model/SCHEMA.md` and `/form/SCHEMA.md` documentation on GitHub or the local project directory.
@@ -298,7 +286,7 @@ The smw_form attribute is an object which redirects all settings directly to Sem
 }
 ```
 
-#### Changes
+### Changes
 Mobo Schema is valid JSON Schema, with one optional exception.
 
 Since every object in mobo is a file, the filename does already define the ID of the object. This makes defining the key names in the property attribute (which is an object) duplications. To keep the model DRY and avoid incon-sistencies here, it is possible to use the property attribute as an array.
@@ -347,30 +335,6 @@ The following JSON Schema properties are not supported:
     '$ref'
 ]
 ```
-
-#### The mobo viewer application
-Head to the mobo viewer application at your [localhost:8080](http://localhost:8080) to browse through the development model (with inheritance and further processing applied) on the left search box.
-
-![mobo-viewer-left](http://up.fannon.de/img/mobo-viewer-left.png?v=1)
-
-The final resulting wikitext pages can be browsed through the right search box.
-
-![mobo-viewer-right](http://up.fannon.de/img/mobo-viewer-right.png?v=1)
-
-#### The mobo graph explorer
-In order to use the mobo graph explorer, a layouted version of the graph has to be generated first. This can be done through [Gephi](https://gephi.github.io/):
-
-Launch Gephi and open the file _graph.gexf in your projects `/_processed/` directory. Through the layout options, a force algorithm has to be applied (like Force Atlas). This usually involves some try and error with the parameters, since the correct values depend on the nature of the graph itself.Save the layouted graph as `/_processed/_graph_layouted.gexf`.
-
-A short screenshot guided tutorial on [how to do force layouting with Gephi](https://github.com/Fannon/mobo/wiki/Use-Gephi-to-layout-the-graph) is available at the wiki.
-
-![mobo-gephi](http://up.fannon.de/img/mobo-gephi.png?v=1)
-
-Now the graph explorer at [localhost:8080/graph.html](http://localhost:8080/graph.html) can be used:
-
-![mobo-graph-explorer](http://up.fannon.de/img/mobo-graph-explorer.png?v=2)
-
-The size of the nodes can be adjusted through `settings.json`.
 
 ## Continue learning
 There are a few context specific README.md and SCHEMA.md files coming with the initial project structure (`mobo --init`).

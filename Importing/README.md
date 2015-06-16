@@ -1,3 +1,4 @@
+# Mobo Import Module
 ## Description
 The `/import/` directory handles pages and data that should be batch-imported to the remote-wiki.
 The import files need to be places in subdirectories and can be imported through mobo --import <subdirectory>
