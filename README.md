@@ -16,9 +16,36 @@ There is also an interactive graph explorer that gives a more visual representat
 Mobo can also be used to batch-upload wiki pages in general and it is planned to support some basic external data transformation and importing capabilities.
 
 Mobo is Open Source and Cross-Platform.
+
 ## Documentation
 * Read the [documentation online](http://fannon.gitbooks.io/mobo-documentation/content/)
 * Download the documentation at [GitBook](https://www.gitbook.com/book/fannon/mobo-documentation)
 
 ## Screenshots
-![mobo-first-start](http://up.fannon.de/img/mobo-first-start.png?v=3)
+The mobo model is developed with your favorite text editor:
+
+![text-editor](http://up.fannon.de/img/mobo-intro-editor.png)
+
+----------------------------------------------------------------
+
+Mobo is a console application. It validates, generates and uploads your model in realtime:
+
+![cli](http://up.fannon.de/img/mobo-intro-run.gif)
+
+----------------------------------------------------------------
+
+There is a webapp that allows you to browse your development model and the resulting wikitext:
+
+![webapp](http://up.fannon.de/img/mobo-intro-viewer.gif)
+
+----------------------------------------------------------------
+
+Mobo can generate a graph (which has to be layouted via Gephi) that can be explored in an interactive application:
+
+![graph](http://up.fannon.de/img/mobo-intro-graphexplorer.gif)
+
+----------------------------------------------------------------
+
+The final result in the wiki:
+
+![forms](http://up.fannon.de/img/mobo-intro-sf.png)
