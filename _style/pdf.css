@@ -1,3 +1,50 @@
 .book p {
     font-family: Georgia, Times, 'Times New Roman', serif;
 }
+
+/** Typography */
+.book .book-body .page-wrapper .page-inner section.normal p,
+.book .book-body .page-wrapper .page-inner section.normal blockquote,
+.book .book-body .page-wrapper .page-inner section.normal ul,
+.book .book-body .page-wrapper .page-inner section.normal ol,
+.book .book-body .page-wrapper .page-inner section.normal dl,
+.book .book-body .page-wrapper .page-inner section.normal table,
+.book .book-body .page-wrapper .page-inner section.normal pre {
+    margin: 8px 0;
+}
+.schema-table .schema-description {
+    -ms-word-break: break-all;
+    /* Be VERY careful with this, breaks normal words wh_erever */
+    word-break: break-all;
+    /* Non standard for webkit */
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+.schema-table .schema-enum {
+}
+.book .book-body .page-wrapper .page-inner section.normal .highlight pre,
+.book .book-body .page-wrapper .page-inner section.normal pre {
+    background-color: #EEE;
+    padding: 8px 12px
+}
+.book .book-body .page-wrapper .page-inner section.normal code {
+    background-color: #DDD;
+    padding: 2px 0;
+}
+
+/** TABLES */
+.book .book-body .page-wrapper .page-inner section.normal table {
+    margin: 8px 0;
+}
+.book .book-body .page-wrapper .page-inner section.normal table th,
+.book .book-body .page-wrapper .page-inner section.normal table td {
+    padding: 8px;
+}
+
+
+/** Layout */
+.book .book-body .navigation.navigation-next {
+    right: 18px;
+}

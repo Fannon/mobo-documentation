@@ -1,5 +1,5 @@
 {
-    "gitbook": "2.1.0",
+    "gitbook": "2.x.x",
     "styles": {
         "website": "_style/website.css",
         "ebook": "_style/ebook.css",
