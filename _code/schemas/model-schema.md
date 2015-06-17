@@ -18,13 +18,13 @@
            <td class="schema-propertyName">showForm</td>
            <td class="schema-type">boolean</td>
            <td class="schema-defaultValue">true</td>
-           <td class="schema-description">This applies to forms referencing templates only: If an template (.wikitext) is extended into the form, this property will decide if it is shown in the edit form view.</td>
+           <td class="schema-description">If true the template/model will be hidden in the form view. This will usually be declared in the forms by adding this after the model $extend.</td>
        </tr>
        <tr>
            <td class="schema-propertyName">showPage</td>
            <td class="schema-type">boolean</td>
            <td class="schema-defaultValue">true</td>
-           <td class="schema-description">This applies to forms referencing templates only: If an template (.wikitext) is extended into the form, this property will decide if it is shown in the vie page view.</td>
+           <td class="schema-description">If true the template/model will be hidden in the page view. This will usually be declared in the forms by adding this after the model $extend.</td>
        </tr>
        <tr>
            <td class="schema-propertyName">smw_append</td>

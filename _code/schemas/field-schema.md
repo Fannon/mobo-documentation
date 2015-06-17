@@ -21,6 +21,18 @@
            <td class="schema-description">Object, containing SemanticForms option, that will be redirected to the form<p class="schema-link"><strong>External Link</strong>: <a href="https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#.27field.27_tag target="_blank">Documentation</a></p></td>
        </tr>
        <tr>
+           <td class="schema-propertyName">showForm</td>
+           <td class="schema-type">boolean</td>
+           <td class="schema-defaultValue">true</td>
+           <td class="schema-description">If false, the field will not be visible in the form edit view</td>
+       </tr>
+       <tr>
+           <td class="schema-propertyName">showPage</td>
+           <td class="schema-type">boolean</td>
+           <td class="schema-defaultValue">true</td>
+           <td class="schema-description">If false the field will not be visibly renderd in the page view</td>
+       </tr>
+       <tr>
            <td class="schema-propertyName">smw_arraymaptemplate</td>
            <td class="schema-type">string</td>
            <td class="schema-defaultValue">false</td>
@@ -67,18 +79,6 @@
            <td class="schema-type">boolean</td>
            <td class="schema-defaultValue">true</td>
            <td class="schema-description">If set to false, the property will not be saved as a SMW property, through #set or #subobject</td>
-       </tr>
-       <tr>
-           <td class="schema-propertyName">smw_showForm</td>
-           <td class="schema-type">boolean</td>
-           <td class="schema-defaultValue">true</td>
-           <td class="schema-description">If false, the field will not be visible in the form edit view</td>
-       </tr>
-       <tr>
-           <td class="schema-propertyName">smw_showPage</td>
-           <td class="schema-type">boolean</td>
-           <td class="schema-defaultValue">true</td>
-           <td class="schema-description">If false the field will not be visibly renderd in the page view</td>
        </tr>
    </tbody>
 </table>
