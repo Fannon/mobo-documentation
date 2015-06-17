@@ -20,6 +20,14 @@
 }
 .schema-table .schema-enum {
 }
+.book .book-body .page-wrapper .page-inner section.normal .highlight pre,
+.book .book-body .page-wrapper .page-inner section.normal pre {
+    background-color: #EEE;
+}
+.book .book-body .page-wrapper .page-inner section.normal code {
+    background-color: #DDD;
+    padding: 2px 0;
+}
 
 /** TABLES */
 .book .book-body .page-wrapper .page-inner section.normal table {

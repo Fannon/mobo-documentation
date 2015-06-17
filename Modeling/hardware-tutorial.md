@@ -61,7 +61,8 @@ Once the file is saved, mobo will automatically run and give some feedback:
 ```
 
 #### Create fields
-To keep the model better organized, the Location related fields will be stored at /field/Location/*.
+To keep the model better organized, the Location related fields will be stored at `/field/Location/*`.
+
 **Important** Please note that the `$extend` path does not include subfolders.
 
 Create `/field/Location/streetAdress.yaml` with the following content:
@@ -237,7 +238,7 @@ abstract: true
 
 Create `/model/HardwareInstallation/NetworkPrinterInstallation.yaml` with the following content:
 
-```json
+```yaml
 $extend: /model/_NetworkDeviceInstallation
 
 title: Network Printer Installation
@@ -287,7 +288,7 @@ If the `form` property is used, the `type` will always be `string` and the `form
 This results in a red wiki link that if clicked upon uses the given form to create it by default.
 Because it uses implicitly the format "Page", it will be a wiki link.
 
-The `values from category` setting will ensure that the combox widget will autocomplete on all previous entered `NetworkPrinterModel`s.
+The `values from category` setting will ensure that the combox widget will autocomplete on all previous entered `NetworkPrinterModel`.
 
 ### Extend the location form to include Network Printers
 Network Printers should be added at locations through Semantic Forms [multiple instance templates](http://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#Multiple-instance_templates).
@@ -322,7 +323,7 @@ Create the template at `/swm_template/Headers/NetworkPrinterHeader.wikitext`:
 **NOTE**: Don't forget to add a new line after the headline!
 Since wikitext is not whitespace insensitive and you might break the layout otherwise.
 
-The second extend is an array which contains multiple `NetworkPrinterInstallation`s
+The second extend is an array which contains multiple `NetworkPrinterInstallation`
 and will be implemented as the already mentioned Semantic Forms multiple template instance.
 
 The final form will now look like this:
@@ -358,7 +359,7 @@ Create `/smw_page/Overwrite/Category___NetworkPrinterModel.wikitext` with the fo
 }}
 ```
 
-Note that we can't use `:`` in filenames, so we have to replace it with `___`.
+Note that we can't use `:` in filenames, so we have to replace it with `___`.
 
 Now we've overwritten the generated category and embedded our new query in it.
 
@@ -378,7 +379,7 @@ It would be possible to add the header the same way but for single instance temp
 
 Append to your `/model/Location.yaml` the following content:
 
-```json
+```yaml
 # Prepends a h1 header to both form and page display
 # After the header, adds arbitrary wikitext
 smw_prepend:
@@ -386,9 +387,9 @@ smw_prepend:
   wikitext: Some prefix-description for the location
 ```
 
-The `smw_prepend` attribute allows to prepend automatically generated headers
-(using the title attribute as name and defining the hierachy through the number),
-templates or free wikitext before the template. (There's a `smw_append` attribute, too)
+The `smw_prepend` property allows to prepend automatically generated headers
+(using the title property as name and defining the hierachy through the number),
+templates or free wikitext before the template. (There's a `smw_append` property, too)
 
 Now the Location form has got two headings of hierachy one. The HeaderTabs Extension will become active:
 
