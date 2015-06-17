@@ -39,18 +39,6 @@
            <td class="schema-description">Forces the semantic storage of the attribute through the #set parser function. This is useful for #subobject models that want to expose one or more fields as regular #set properties.</td>
        </tr>
        <tr>
-           <td class="schema-propertyName">smw_hideInForm</td>
-           <td class="schema-type">boolean</td>
-           <td class="schema-defaultValue">false</td>
-           <td class="schema-description">If true, the field will not be visible in the form edit view</td>
-       </tr>
-       <tr>
-           <td class="schema-propertyName">smw_hideInPage</td>
-           <td class="schema-type">boolean</td>
-           <td class="schema-defaultValue">false</td>
-           <td class="schema-description">If true the field will not be visibly renderd in the page view</td>
-       </tr>
-       <tr>
            <td class="schema-propertyName">smw_overwriteData</td>
            <td class="schema-type">string</td>
            <td class="schema-defaultValue"></td>
@@ -72,13 +60,25 @@
            <td class="schema-propertyName">smw_overwriteOutputToLink</td>
            <td class="schema-type">boolean</td>
            <td class="schema-defaultValue"></td>
-           <td class="schema-description">If true, this will create a link in display mode, but the data will not receive the appended [[]]</td>
+           <td class="schema-description">If true, this will create a link in display mode, using #formredlink if applicable</td>
        </tr>
        <tr>
            <td class="schema-propertyName">smw_property</td>
            <td class="schema-type">boolean</td>
            <td class="schema-defaultValue">true</td>
            <td class="schema-description">If set to false, the property will not be saved as a SMW property, through #set or #subobject</td>
+       </tr>
+       <tr>
+           <td class="schema-propertyName">smw_showForm</td>
+           <td class="schema-type">boolean</td>
+           <td class="schema-defaultValue">true</td>
+           <td class="schema-description">If false, the field will not be visible in the form edit view</td>
+       </tr>
+       <tr>
+           <td class="schema-propertyName">smw_showPage</td>
+           <td class="schema-type">boolean</td>
+           <td class="schema-defaultValue">true</td>
+           <td class="schema-description">If false the field will not be visibly renderd in the page view</td>
        </tr>
    </tbody>
 </table>
