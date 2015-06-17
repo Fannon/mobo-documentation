@@ -1,6 +1,7 @@
 # The Mobo Manual
 ## Premises
-In order to learn mobo, it is mandatory to understand the basic concepts of [YAML](http://yaml.org/)/[JSON](http://json.org/) and [JSON Schema](http://json-schema.org/) first.
+In order to learn mobo, it is mandatory to understand the basic concepts of [JSON](http://json.org/) and [JSON Schema](http://json-schema.org/) first.
+It is highly recommended to use and learn [YAML](http://yaml.org/) and use it instead of JSON.
 
 JSON Schema is a very simple and concise standard and it should only take a few hours to learn it.
 There is a [great tutorial](http://spacetelescope.github.io/understanding-json-schema/) by the Space Telescope Science Institute.

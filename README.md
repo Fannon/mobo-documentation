@@ -5,18 +5,17 @@
 ## About mobo
 [Mobo](https://www.npmjs.com/package/mobo) is a command line toolset that helps to build [Semantic MediaWiki](http://semantic-mediawiki.org/) structure in an agile,
 Schema-Driven Development (simplified MDE) way.
-The model is written in [YAML](http://yaml.org/)/[JSON](http://json.org/), using object oriented [JSON Schema](http://json-schema.org/).
+The model is written in [YAML](http://yaml.org/) or [JSON](http://json.org/), using object oriented [JSON Schema](http://json-schema.org/).
 
 Since the model is organized in folders and plain text files, an editor of choice and Version Control Systems like Git can be used.
 There is no need of additional tooling.
 
 The main feature of mobo is the model development workflow.
 Semantic MediaWikis can be developed rapidly and modular, leading to a more agile development process.
-Mobo can run in an interactive mode, automatically validating and uploading the model in realtime.
+Mobo can run in an interactive mode, automatically validating and uploading the development model in realtime.
 
-Mobo also features a web application for inspecting the development model in its various stages.
-
-Mobo can also be used to batch-import wiki pages or data (programmatically).
+It features a web application for inspecting the development model in its various stages
+and can also be used to batch-import wiki pages or data (programmatically).
 
 Mobo is [Open Source](https://github.com/Fannon/mobo) and Cross-Platform.
 
