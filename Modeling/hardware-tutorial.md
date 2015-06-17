@@ -1,130 +1,141 @@
 # Tutorial: Hardware Management
 This tutorial explains how to build a mobo development model for IT hardware management.
 
-For the final and more complete result, please review the [hardware management example](https://github.com/Fannon/mobo/tree/master/examples/hardware).
-It can be installed with `mobo --example hardware`
+For the final and more complete result,
+please review the [hardware management example](https://github.com/Fannon/mobo/tree/master/examples/hardware).
 
 ### Set up new project
-Create a new empty project and adjust your settings.json. Please refer to the mobo [MANUAL.md](https://github.com/Fannon/mobo/blob/master/examples/init/MANUAL.md#create-a-new-project) how do this.
+Create a new empty project and adjust your settings.yaml.
+Please refer to the [manual](manual.md) how do this.
 
 ### Run mobo the first time
-Now run mobo the first time and check that the settings are correct and the upload to the external wiki is working. At your [localhost:8080](http://localhost:8080) should be a web application ready.
+Now run mobo the first time and check that the settings are correct and the upload to the external wiki is working.
+At your [localhost:8080](http://localhost:8080) should be a web application ready.
 
 ![mobo-first-start](http://up.fannon.de/img/mobo-first-start.png?v=3)
 
 ### Conceptualization of the model and its domain
 Before heading into the actual model development, some thought should be put into how the domain should be modeled.
 
-Hardware is deployed at `Locations`. There are several types of hardware, like `NetworkPrinter`, `MultiFunctionUnit`, `Workstations`, etc. Those must be respectivly splitted into -models (the general hardwaremodel) and -installations (the concrete installation and configuration on a location). Hardwaremodels can have a `Manufacturer` and hardwareinstallations are tied to a location.
+Hardware is deployed at `Locations`.
+There are several types of hardware, like `NetworkPrinter`, `MultiFunctionUnit`, `Workstations`, etc.
+Those must be respectivly splitted into -models (the general hardwaremodel) and -installations
+(the concrete installation and configuration on a location).
+Hardwaremodels can have a `Manufacturer` and hardwareinstallations are tied to a location.
 
-The different hardwaremodels will likely share some attributes, so an abstract `_HardwareModel` will come in handy. The same is true for an abstract `_HardwareInstallation`.
-
+The different hardwaremodels will likely share some attributes, so an abstract `_HardwareModel` will come in handy.
+The same is true for an abstract `_HardwareInstallation`.
 
 ### Creating a location
 #### Create model
-Let's start with the simplest part of the model, the location. Personally I do like to start with the model and create the fields and forms afterward. There is no right and wrong with the order, however.
+Let's start with the simplest part of the model, the location.
+Personally I do like to start with the model and create the fields and forms afterward.
+There is no right and wrong with the order, however.
 
-Create `/model/Location.json` with the following content:
+Create `/model/Location.yaml` with the following content:
 
-```json
-{
-    "title": "Location",
-    "description": "Location where hardware is deployed",
+```yaml
+title: Location
+description: Location where hardware is deployed
 
-    "properties": [
-        { "$extend": "/field/streetAdress" },
-        { "$extend": "/field/streetNumber" },
-        { "$extend": "/field/town" },
-        { "$extend": "/field/country" }
-    ],
+items:
+  - $extend: /field/streetAdress
+  - $extend: /field/streetNumber
+  - $extend: /field/town
+  - $extend: /field/country
 
-    "required": ["streetAdress", "streetNumber", "town" ]
-}
+required:
+  - streetAdress
+  - streetNumber
+  - town
 ```
 
 Once the file is saved, mobo will automatically run and give some feedback:
 
 ```text
- [E] (Unknown): invalid $extend to missing "/field/streetAdress.json"!
- [E] (Unknown): invalid $extend to missing "/field/streetNumber.json"!
- [E] (Unknown): invalid $extend to missing "/field/town.json"!
- [E] (Unknown): invalid $extend to missing "/field/country.json"!
- [W] /model/Location.json is never used.
- ```
+[E] (unknown): invalid $extend to missing "/field/streetAdress"!
+[E] (unknown): invalid $extend to missing "/field/streetNumber"!
+[E] (unknown): invalid $extend to missing "/field/town"!
+[E] (unknown): invalid $extend to missing "/field/country"!
+[W] /model/Location.yaml is never used.
+```
 
 #### Create fields
-To keep the model better organized, the Location related fields will be stored at /field/Location/*. Please note that the `$extend` attribute does not include subfolders.
+To keep the model better organized, the Location related fields will be stored at /field/Location/*.
+**Important** Please note that the `$extend` path does not include subfolders.
 
-Create `/field/Location/streetAdress.json` with the following content:
+Create `/field/Location/streetAdress.yaml` with the following content:
 
-```json
-{
-    "title": "Street Adress",
+```yaml
+title: Street Adress
 
-    "type": "string"
-}
+type: string
 ```
 
 This is the simplest possible field. Only the title and the type is mandatory.
 
-```json
-{
-    "title": "Street Number",
+Now create `/field/Location/streetNumber.yaml` with the following content:
+```yaml
+title: Street Number
 
-    "type": "number",
-    "minimum": 1
-}
+type: number
+minimum: 0
 ```
 
-Here we introdude some basic validation. The Street number should be a number of at least 1.
+We've just introduded some basic validation. The Street number should be a number of at least 1.
 
-```json
-{
-    "title": "Town",
+Create `/field/Location/town.yaml` with the following content:
+```yaml
+title: Town
 
-    "type": "string",
+type: string
 
-    "smw_form": {
-        "input type": "text with autocomplete"
-    }
-}
+sf_form:
+  input type: text with autocomplete
 ```
 
-Since towns may be referenced more than once, it makes sense to provide autocomplete capabilities. This is done by setting the "smw_form" property, declaring [Semantic Forms settings](http://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#.27field.27_tag).
+Since towns may be referenced more than once, it makes sense to provide autocomplete capabilities.
+This is done by setting the `sf_form` property,
+declaring [Semantic Forms settings](http://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#.27field.27_tag).
 
-```json
-{
-    "title": "Country",
+Create `/field/Location/country.yaml` with the following content:
+```yaml
+title: Country
 
-    "type": "string",
-    "enum": [
-        "USA",
-        "UK",
-        "Germany"
-    ],
+type: string
+enum:
+    - USA
+    - UK
+    - Germany
 
-    "default": "USA"
-}
+default: Germany
 ```
 
-We want to support only three countries, so an enum is a good solution. In this field three countries are given and one is set as default. It will be displayed as a dropdown menu by default.
+We want to support only three countries, so an enum is a good solution.
+In this field three countries are given and one is set as default.
+Enum fields will be displayed as a dropdown menu by default.
+If you want to change the widget, use the `sf_form` property as learned before.
 
 #### Create form
-The last warning message is giving the hint that `model/Location.json` is never used. This is because there is no form that is including it.
+The last warning message is giving the hint that `model/Location.yaml` is never used:
 
-Create `/form/Location.json` with the following content:
-
-```json
-{
-    "title": "Location",
-
-    "properties": [
-        { "$extend": "/model/Location" }
-    ]
-}
+```text
+[W] /model/Location is never used.
 ```
 
-This is the simplest possible form, referencing the previous model as its sole content. We can now head to the wiki and try the form in action:
+This is because there is no form that is including it.
+
+Create `/form/Location.yaml` with the following content:
+
+```json
+title: Location
+
+items:
+  - $extend: /model/Location
+```
+
+This is the simplest possible form, referencing the previous model as its sole content.
+We can now head to the wiki and try the form in action:
 
 ![mobo-simple-location](http://up.fannon.de/img/mobo-simple-location.png?v=1)
 
@@ -132,7 +143,7 @@ This is the simplest possible form, referencing the previous model as its sole c
 #### Create models
 In the next step, the `NetworkPrinterModel` will be created. It is of the type `HardwareModel` and will use object-oriented inheritance.
 
-Create `/model/HardwareModel/_HardwareModel.json` with the following content:
+Create `/model/HardwareModel/_HardwareModel.yaml` with the following content:
 
 ```json
 {
@@ -151,7 +162,7 @@ Create `/model/HardwareModel/_HardwareModel.json` with the following content:
 
 The abstract model contains two required fields that will be shared by all other Hardware Models. Since it's defined as abstract, it will not be created in the wiki.
 
-Create `/model/HardwareModel/NetworkPrinterModel.json` with the following content:
+Create `/model/HardwareModel/NetworkPrinterModel.yaml` with the following content:
 
 ```json
 {
@@ -181,7 +192,7 @@ Please refer to the example files.
 #### Create models
 Now the actual `NetworkPrinterInstallation` can be created.
 
-Create `/model/HardwareInstallation/_HardwareInstallation.json` with the following content:
+Create `/model/HardwareInstallation/_HardwareInstallation.yaml` with the following content:
 
 ```json
 {
@@ -202,7 +213,7 @@ Since there are Hardwaredevices that are network capable and share therefore som
 
 Hardware Installations will store their semantic properties as a subobjects, instead of directoy to the page. This is necessary becasuse we want to define multiple instances of them on a location and the attribute names would duplicate otherwise.
 
-Create `/model/HardwareInstallation/_NetworkDeviceInstallation.json` with the following content:
+Create `/model/HardwareInstallation/_NetworkDeviceInstallation.yaml` with the following content:
 
 ```json
 {
@@ -218,7 +229,7 @@ Create `/model/HardwareInstallation/_NetworkDeviceInstallation.json` with the fo
 }
 ```
 
-Create `/model/HardwareInstallation/_NetworkDeviceInstallation.json` with the following content:
+Create `/model/HardwareInstallation/_NetworkDeviceInstallation.yaml` with the following content:
 
 ```json
 {
@@ -237,7 +248,7 @@ The final `NetworkPrinterInstallation` extends from the `_NetworkDeviceInstallat
 #### Create fields
 The field `networkPrinterModel` will reference to a `NetworkPrinterModel`.
 
-Create `/field/HardwareInstallation/_hardwareModelReference.json` with the following content:
+Create `/field/HardwareInstallation/_hardwareModelReference.yaml` with the following content:
 
 ```json
 {
@@ -258,7 +269,7 @@ Create `/field/HardwareInstallation/_hardwareModelReference.json` with the follo
 
 All hardware model reference fields will now use the input type combobox and allow only one (already existing) value.
 
-Create `/field/HardwareInstallation/networkPrinterModel.json` with the following content:
+Create `/field/HardwareInstallation/networkPrinterModel.yaml` with the following content:
 
 ```json
 {
@@ -280,7 +291,7 @@ The `"values from category"` setting will ensure that the combox widget will aut
 ### Extend the location form to include Network Printers
 Network Printers should be added at locations through Semantic Forms [multiple instance templates](http://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#Multiple-instance_templates).
 
-Adjust `/field/HardwareInstallation/networkPrinterModel.json` to the following content:
+Adjust `/field/HardwareInstallation/networkPrinterModel.yaml` to the following content:
 
 ```json
 {
@@ -324,7 +335,7 @@ The final form will now look like this:
 
 ### Create an ASK Query with mobo
 
-Create `/smw_query/NetworkPrinterModels.json` with the following content:
+Create `/smw_query/NetworkPrinterModels.yaml` with the following content:
 
 ```text
 {{#ask: [[category:NetworkPrinterModel]]
@@ -355,7 +366,7 @@ Now we've overwritten the generated category and embedded our new query in it.
 ### Excourse: Using HeaderTabs Extension
 In case the forms are getting more complex, it might be a good idea to seperate them into tabs. The [HeaderTabs Extension](http://www.mediawiki.org/wiki/Extension:Header_Tabs) is supported by mobo.
 
-The support can be enabled in the projects `settings.json` by adding:
+The support can be enabled in the projects `settings.yaml` by adding:
 
 ```json
     "headerTabs": true
@@ -365,7 +376,7 @@ The `NetworkPrinterHeader` already defines a heading, but the Location model is 
 
 It would be possible to add the header the same way but for single instance templates its more convenient to use mobos "swm_prefix" feature:
 
-Adjust `/model/Location.json` to the following content:
+Adjust `/model/Location.yaml` to the following content:
 
 ```json
 {

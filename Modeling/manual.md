@@ -99,7 +99,7 @@ The `$extend` keyword takes a string or an array of strings that describe the pa
 $extend: /model/_Shape
 ```
 
-Mobo will inherit all properties of the referenced parent-object to the child-object where this statement was made.
+Mobo will inherit all properties of the referenced parent object to the child object where this statement was made.
 If an array of multiple parent objects is given, the inheritance order will be the order of the array.
 
 Properties of the child object will merge or overwrite inherited properties:
@@ -194,3 +194,9 @@ uniqueItems
 
 There are a few validation related JSON Schema properties which can be used but are currently not supported by Semantic Forms.
 They are used for internal validation - especially for programmatic imports, though.
+
+## Continue Learning
+Now that you've learned the basics of mobo, you may continue with:
+* [The tutorial](hardware-tutorial.md) gives a fast overview how it's like to work with mobo
+* An overview about the [project structure](ProjectStructure/)
+* The [Schemas Documentation](../Schemas/) is important for technical reference
