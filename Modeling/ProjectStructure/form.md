@@ -55,7 +55,5 @@ sf_forminfo:
 ### sf_freetext
 Boolean that enables / disables the freetext field below the form
 
-
-
 ## Reference
 For a complete and more up-to-date reference, read the [Form Schema Documentation](../../Schemas/form-schema.md)
