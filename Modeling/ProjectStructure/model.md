@@ -2,8 +2,7 @@
 ## Description
 Models will create Templates and Categories. They define the actual structure of the development model.
 
-They usually declare:
-
+**They usually declare:**
 * Which models they inherit from
 * Which fields are used
 * The order of the fields
@@ -129,3 +128,6 @@ Model inheritance:
 ```
 
 In this example the Circle inherits all attributes of _Shape, especially the fields x and y. The Circle overwrites attributes like "title" and "abstract" and introduces a new field "radius"
+
+## Reference
+For a complete and more up-to-date reference, read the [Model Schema Documentation](../../Schemas/model-schema.md)
