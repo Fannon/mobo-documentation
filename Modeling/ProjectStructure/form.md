@@ -29,7 +29,7 @@ items:
   - $extend: /smw_template/NetworkScannerHeader.wikitext
 ```
 
-### Including Templates
+#### Including Templates
 If you want to include templates into the form, you can do so by $extending an smw_template.
 
 There are two options, both true by default:
@@ -38,6 +38,10 @@ There are two options, both true by default:
 * `showSite` decides if the template should be rendered when displaying the site. (Notice: The Site has to be (re)saved through the form to make this work)
 
 This is useful for introducion headers into a form / resulting site. If you use the HeaderTabs Extension you are required to use this.
+
+### naming
+Optional text that gives some hints on how to name a page.
+The text will be displayed on the page where the page name has to be entered in order to create it though the form.
 
 ### sf_forminfo
 The `sf_forminput` attribute is an object that contains Semantic Forms [info tag settings](http://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#.27info.27_tag).
@@ -48,18 +52,10 @@ sf_forminfo:
   edit title: Edit a location
 ```
 
-### sf_forminput
-The `sf_forminput` attribute is an object that contains Semantic Forms [#forminput settings](http://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#The_.23forminput_function).
-
 ### sf_freetext
 Boolean that enables / disables the freetext field below the form
 
-### sf_summary
-Boolean that enables / disables the summary textfield below the form
 
-### naming
-Optional text that gives some hints on how to name a page.
-The text will be displayed on the page where the page name has to be entered in order to create it though the form.
 
 ## Reference
 For a complete and more up-to-date reference, read the [Form Schema Documentation](../../Schemas/form-schema.md)
