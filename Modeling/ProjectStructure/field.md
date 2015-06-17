@@ -4,14 +4,13 @@ Fields are the mobo equivalent to SMW attributes.
 
 The biggest difference to SMW attributes is that mobo fields already declare how they will be rendered and validated. Those information will be inherited through the models up to the final form.
 
-**Fields usually declare:**
-* The id (machine name) through the filename.
+#### Fields declare
 * A human readable title
-* An optional description.
-* The datatype, consisting of type and format (see JSON Schema Spec).
-* Additional validation (some datatypes already come with validation).
-* The format can link to other forms, in this case the datatype is page.
-* Semantic Forms options that define how SF will render the final field.
+* An optional description
+* The datatype, consisting of type and format (see JSON Schema Spec)
+* Whether the field links to forms
+* Additional validation (some datatypes already come with validation)
+* Semantic Forms options that define how the field will render and behave in Semantic Forms
 
 ## Supported Datatypes
 ### Primitive Datatypes (type)
@@ -25,7 +24,7 @@ To define a primitive datatype, just declare the `type`:
 type: number
 ```
 
-### "Semantic" Datatypes (format)
+### Semantic Datatypes (format)
 Semantic Datatypes are defined through the `format` attribute.
 Usually the primitive `type` datatype is `string`.
 
@@ -34,7 +33,7 @@ Usually the primitive `type` datatype is `string`.
     * url
     * email
     * tel
-* SMW only Datatypes
+* SMW specific Datatypes
     * Page
     * Code
     * Geographic coordinate
@@ -44,11 +43,12 @@ Usually the primitive `type` datatype is `string`.
 
 To define a semantic datatype, declare the "format" in addition to the "type":
 
-```json
+```yaml
 type: string
 format: date
 ```
 
+### Linking to Forms (form)
 The `form` property can be used to reference to a form.
 This implicitly sets `type` to `string` and `format` to `Page`
 If the url links to a page that does not exist yet, it will be created through the defined form.

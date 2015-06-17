@@ -23,6 +23,7 @@
 .book .book-body .page-wrapper .page-inner section.normal .highlight pre,
 .book .book-body .page-wrapper .page-inner section.normal pre {
     background-color: #EEE;
+    padding: 8px 12px
 }
 .book .book-body .page-wrapper .page-inner section.normal code {
     background-color: #DDD;

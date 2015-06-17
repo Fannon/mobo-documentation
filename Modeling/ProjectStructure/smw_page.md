@@ -1,5 +1,9 @@
 # /smw_page/
 ## Description
-This directory contains [Handlebars.js](http://handlebarsjs.com/) templates. They are used by mobo to generate the final wikitext pages. For more doc-umentation how they work, please refer to the Handlebars.js website.
+In this directory .wikitext files can be stored.
+They will be uploaded to the wiki and overwrite any page that mobo have created before.
 
-The rendered output can be customized by editing those templates. They contain the rendered markup, some logic and strings that may want to be localized.
+Please note that some characters can’t be used for filenames, so some string substitutions have to be made.
+
+* `___` will be substituted with `:` (namespaces)
+* `---` will be substituted with `/` (subpages)
