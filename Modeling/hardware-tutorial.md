@@ -127,7 +127,7 @@ This is because there is no form that is including it.
 
 Create `/form/Location.yaml` with the following content:
 
-```json
+```yaml
 title: Location
 
 items:
@@ -141,49 +141,55 @@ We can now head to the wiki and try the form in action:
 
 ### Create a HardwareModel
 #### Create models
-In the next step, the `NetworkPrinterModel` will be created. It is of the type `HardwareModel` and will use object-oriented inheritance.
+In the next step, the `NetworkPrinterModel` will be created.
+It is of the type `HardwareModel` and will use object-oriented inheritance.
 
 Create `/model/HardwareModel/_HardwareModel.yaml` with the following content:
 
-```json
-{
-    "title": "Hardware Model",
+```yaml
+title: Hardware Model
 
-    "properties": [
-        { "$extend": "/field/brand" },
-        { "$extend": "/field/modelName" }
-    ],
+items:
+  - $extend: /field/brand
+  - $extend: /field/modelName
 
-    "required": ["brand", "modelName"],
+required:
+  - brand
+  - modelName
 
-    "abstract": true
-}
+abstract: true
 ```
 
-The abstract model contains two required fields that will be shared by all other Hardware Models. Since it's defined as abstract, it will not be created in the wiki.
+The abstract model contains two required fields that will be shared by all other Hardware Models.
+Since it's defined as abstract, it will not be created in the wiki.
 
 Create `/model/HardwareModel/NetworkPrinterModel.yaml` with the following content:
 
-```json
-{
-    "$extend": "/model/_HardwareModel",
+```yaml
+$extend: /model/_HardwareModel
 
-    "title": "Network Printer Model",
+title: Network Printer Model
+description: A Network Printer Model
 
-    "properties": [
-        { "$extend": "/field/colorPrinting" }
-    ],
+items:
+  - $extend: /field/colorPrinting
 
-    "propertyOrder": ["brand", "modelName"]
-}
+itemsOrder:
+  - brand
+  - modelName
 ```
 
-The `NetworkPrinterModel` used `$extend` to inherit all attributes from the `_HardwareModel`. It overwrites the title attribute and adds a description and the `color` field.
+The `NetworkPrinterModel` used `$extend` to inherit all attributes from the `_HardwareModel`.
+It overwrites the title attribute and adds a description and the `colorPrinting` field.
 
-The color field will by default appear as the first field on the form since it's most recently added. To keep the brand and modelName on top, the order of the properties has to be set manually. Please note that not all existing properties have to be included. Those missing will be added below in their original order.
+The `colorPrinting` field will by default appear as the first field on the form since it's most recently added.
+To keep the brand and modelName on top, the order of the properties has to be set manually.
+Please note that not all existing properties have to be included.
+Those missing will be added below in their original order.
 
 #### Create fields
-The creation of the fields will be skipped, since they contain no new concepts. Please refer to the example files instead.
+The creation of the fields will be skipped, since they contain no new concepts.
+Please refer to the example files instead.
 
 #### Create form
 Please refer to the example files.
@@ -194,129 +200,117 @@ Now the actual `NetworkPrinterInstallation` can be created.
 
 Create `/model/HardwareInstallation/_HardwareInstallation.yaml` with the following content:
 
-```json
-{
-    "title": "Hardware Installation",
+```yaml
+title: Hardware Installation
 
-    "properties": [
-        { "$extend": "/field/serialNumber" }
-    ],
+items:
+  - $extend: /field/serialNumber
+  - $extend: /field/freetext
 
-    "smw_subobject": true,
-    "smw_category": false,
+smw_subobject: true
+smw_category: false
 
-    "abstract": true
-}
+abstract: true
 ```
 
-Since there are Hardwaredevices that are network capable and share therefore some more common properties, another abstract model will be created that inherits from the `HardwareInstallation`.
+Since there are Hardwaredevices that are network capable and share therefore some more common properties,
+another abstract model will be created that inherits from the `HardwareInstallation`.
 
-Hardware Installations will store their semantic properties as a subobjects, instead of directoy to the page. This is necessary becasuse we want to define multiple instances of them on a location and the attribute names would duplicate otherwise.
+The property `smw_subobject` declares that Hardware Installations will store their semantic properties as subobjects.
+This is necessary becasuse we want to define multiple instances of them on a location and the attribute names would duplicate otherwise.
 
 Create `/model/HardwareInstallation/_NetworkDeviceInstallation.yaml` with the following content:
 
-```json
-{
-    "$extend": "/model/_HardwareInstallation",
+```yaml
+$extend: /model/_HardwareInstallation
 
-    "title": "NetworkDevice Installation",
+title: NetworkDevice Installation
 
-    "properties": [
-        { "$extend": "/field/ip" }
-    ],
+items:
+  - $extend: /field/ip
 
-    "abstract": true
-}
+recommended:
+  - ip
+
+abstract: true
 ```
 
-Create `/model/HardwareInstallation/_NetworkDeviceInstallation.yaml` with the following content:
+Create `/model/HardwareInstallation/NetworkPrinterInstallation.yaml` with the following content:
 
 ```json
-{
-    "$extend": "/model/_NetworkDeviceInstallation",
+$extend: /model/_NetworkDeviceInstallation
 
-    "title": "Network Printer Installation",
+title: Network Printer Installation
 
-    "properties": [
-        { "$extend": "/field/networkPrinterModel" }
-    ]
-}
+items:
+  - $extend: /field/networkPrinterModel
 ```
 
-The final `NetworkPrinterInstallation` extends from the `_NetworkDeviceInstallation` and will define it's network printer model.
+The `NetworkPrinterInstallation` extends from the `_NetworkDeviceInstallation`
+(which itself extends from `_HardwareInstallation`) and will define it's network printer model.
 
 #### Create fields
 The field `networkPrinterModel` will reference to a `NetworkPrinterModel`.
 
 Create `/field/HardwareInstallation/_hardwareModelReference.yaml` with the following content:
 
-```json
-{
-    "title": "Model",
-    "description": "You may only select already existing mardware models!",
+```yaml
+title: Model
+description: You may only select already existing mardware models!
 
-    "type": "string",
+type: string
 
-    "smw_form": {
-        "max values": 1,
-        "input type": "combobox",
-        "existing values only": true
-    },
+sf_form:
+  max values: 1
+  input type: combobox
+  existing values only: true
 
-    "abstract": true
-}
+abstract: true
 ```
 
 All hardware model reference fields will now use the input type combobox and allow only one (already existing) value.
 
 Create `/field/HardwareInstallation/networkPrinterModel.yaml` with the following content:
 
-```json
-{
-    "$extend": "/field/_hardwareModelReference",
+```yaml
+$extend: /field/_hardwareModelReference
 
-    "type": "string",
-    "format": "/form/NetworkPrinterModel",
+# Implicit: type: string and format: Page
+form: NetworkPrinterModel
 
-    "smw_form": {
-        "values from category": "NetworkPrinterModel"
-    }
-}
+sf_form:
+    values from category: NetworkPrinterModel
 ```
 
-This field defines the `NetworkPrinterModel` form as its format. This means that a red link will always link to a wiki page which uses the form to create it by default.
+This field uses the `form` property to defines the `NetworkPrinterModel` form as its target.
+If the `form` property is used, the `type` will always be `string` and the `format` is set to `Page`.
+This results in a red wiki link that if clicked upon uses the given form to create it by default.
+Because it uses implicitly the format "Page", it will be a wiki link.
 
-The `"values from category"` setting will ensure that the combox widget will autocomplete on all previous entered `NetworkPrinterModel`s.
+The `values from category` setting will ensure that the combox widget will autocomplete on all previous entered `NetworkPrinterModel`s.
 
 ### Extend the location form to include Network Printers
 Network Printers should be added at locations through Semantic Forms [multiple instance templates](http://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#Multiple-instance_templates).
 
-Adjust `/field/HardwareInstallation/networkPrinterModel.yaml` to the following content:
+Add to the existing `/form/Location.yaml` the following content:
 
-```json
-{
-    "title": "Location",
-    "description": "This creates a new location where hardware is deployed.",
+```yaml
+title: Location
+description: This creates a new location where hardware is deployed.
 
-    "properties": [
-        { "$extend": "/model/Location" },
-
-        {
-            "$extend": "/smw_template/NetworkPrinterHeader.wikitext",
-            "showForm": true,
-            "showPage": true
-        },
-        {
-            "type": "array",
-            "items": {
-                "$extend": "/model/NetworkPrinterInstallation"
-            }
-        }
-    ]
-}
+items:
+  - $extend: /model/Location
+  - $extend: /smw_template/NetworkPrinterHeader.wikitext
+    showForm: true
+    showPage: true
+  - type: array
+    items:
+      $extend: /model/NetworkPrinterInstallation
 ```
 
-Two new $extends are now made. First, a template is included that will provide a header and is shown in both form and page view. Since both booleans are true by default, they could be omitted in this example.
+Two new `$extend` are added.
+First, a template is included that will provide a header and is shown in both form and page view.
+Since both booleans are true by default, they could be omitted in this example.
 
 Create the template at `/swm_template/Headers/NetworkPrinterHeader.wikitext`:
 
@@ -325,9 +319,11 @@ Create the template at `/swm_template/Headers/NetworkPrinterHeader.wikitext`:
 
 ```
 
-**NOTE**: Don't forget to add a new line after the headline! Since wikitext is not whitespace insensitive and you might break the layout otherwise.
+**NOTE**: Don't forget to add a new line after the headline!
+Since wikitext is not whitespace insensitive and you might break the layout otherwise.
 
-The second extend is an array which contains multiple `NetworkPrinterInstallation`s and will be implemented as the already mentioned Semantic Forms multiple template instance.
+The second extend is an array which contains multiple `NetworkPrinterInstallation`s
+and will be implemented as the already mentioned Semantic Forms multiple template instance.
 
 The final form will now look like this:
 
@@ -345,9 +341,12 @@ Create `/smw_query/NetworkPrinterModels.yaml` with the following content:
 }}
 ```
 
-This will cause mobo to generate the query as a new template with the pagename `Template:NetworkPrinterModels-ask`. If you head there, you will find a small usage snippet for embedding, the query text documented and a live query. The live query may not work if it's dependend on a specific context, though.
+This will cause mobo to generate the query as a new template with the pagename `Template:NetworkPrinterModels-ask`.
+If you head there, you will find a small usage snippet for embedding, the query text documented and a live query.
+The live query may not work if it's dependend on a specific context, though.
 
-It might make sense to include this query in the already generated `Category:NetworkPrinterModel`. To do this, we need to overwrite the generated wikipage. This can easily be done by creating a .wikitext file in the `smw_page` directory:
+It might make sense to include this query in the already generated `Category:NetworkPrinterModel`.
+To do this, we need to overwrite the generated wikipage. This can easily be done by creating a .wikitext file in the `smw_page` directory:
 
 Create `/smw_page/Overwrite/Category___NetworkPrinterModel.wikitext` with the following content:
 
@@ -364,42 +363,32 @@ Note that we can't use `:`` in filenames, so we have to replace it with `___`.
 Now we've overwritten the generated category and embedded our new query in it.
 
 ### Excourse: Using HeaderTabs Extension
-In case the forms are getting more complex, it might be a good idea to seperate them into tabs. The [HeaderTabs Extension](http://www.mediawiki.org/wiki/Extension:Header_Tabs) is supported by mobo.
+In case the forms are getting more complex, it might be a good idea to seperate them into tabs.
+The [HeaderTabs Extension](http://www.mediawiki.org/wiki/Extension:Header_Tabs) is supported by mobo.
 
 The support can be enabled in the projects `settings.yaml` by adding:
 
-```json
-    "headerTabs": true
+```yaml
+headerTabs: true
 ```
 
 The `NetworkPrinterHeader` already defines a heading, but the Location model is missing one.
 
 It would be possible to add the header the same way but for single instance templates its more convenient to use mobos "swm_prefix" feature:
 
-Adjust `/model/Location.yaml` to the following content:
+Append to your `/model/Location.yaml` the following content:
 
 ```json
-{
-    "title": "Location",
-    "description": "Location where hardware is deployed",
-
-    "properties": [
-        { "$extend": "/field/streetAdress" },
-        { "$extend": "/field/streetNumber" },
-        { "$extend": "/field/town" },
-        { "$extend": "/field/country" }
-    ],
-
-    "required": ["streetAdress", "streetNumber", "town" ],
-
-    "smw_prefix": {
-        "header": 1,
-        "wikitext": "Some description for the location"
-    }
-}
+# Prepends a h1 header to both form and page display
+# After the header, adds arbitrary wikitext
+smw_prepend:
+  header: 1
+  wikitext: Some prefix-description for the location
 ```
 
-The `"swm_prefix"` attribute allows to add automatically generated headers (using the title attribute as name and defining the hierachy through the number), templates or free wikitext before the template. (There's a `"swm_postfix"` attribute, too)
+The `smw_prepend` attribute allows to prepend automatically generated headers
+(using the title attribute as name and defining the hierachy through the number),
+templates or free wikitext before the template. (There's a `smw_append` attribute, too)
 
 Now the Location form has got two headings of hierachy one. The HeaderTabs Extension will become active:
 
