@@ -10,7 +10,7 @@
    <tbody>
        <tr>
            <td class="schema-propertyName">recommended</td>
-           <td class="schema-type"></td>
+           <td class="schema-type">array</td>
            <td class="schema-defaultValue"></td>
            <td class="schema-description">Array of fields that should be highlighted as recommended (complementary to mandatory)</td>
        </tr>
@@ -115,7 +115,7 @@
        </tr>
        <tr>
            <td class="schema-propertyName">smw_categories</td>
-           <td class="schema-type"></td>
+           <td class="schema-type">array</td>
            <td class="schema-defaultValue"></td>
            <td class="schema-description">Array of additional categories the template should set.</td>
        </tr>

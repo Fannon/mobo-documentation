@@ -9,6 +9,12 @@
    </thead>
    <tbody>
        <tr>
+           <td class="schema-propertyName">deprecated</td>
+           <td class="schema-type">boolean</td>
+           <td class="schema-defaultValue">false</td>
+           <td class="schema-description">If true, the field will be deprecated. This means it will not be displayed in forms, but the template will keep it in order to display old entries.</td>
+       </tr>
+       <tr>
            <td class="schema-propertyName">form</td>
            <td class="schema-type">string, array</td>
            <td class="schema-defaultValue"></td>
@@ -36,13 +42,13 @@
            <td class="schema-propertyName">smw_arraymaptemplate</td>
            <td class="schema-type">string</td>
            <td class="schema-defaultValue">false</td>
-           <td class="schema-description">Name of the arraymap template to use. Field needs to be of type "array".<p class="schema-link"><strong>External Link</strong>: <a href="https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Semantic_Forms_and_templates#arraymaptemplate target="_blank">Documentation</a></p></td>
+           <td class="schema-description">Name of the arraymap template to use. Field needs to be of type `array`.<p class="schema-link"><strong>External Link</strong>: <a href="https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Semantic_Forms_and_templates#arraymaptemplate target="_blank">Documentation</a></p></td>
        </tr>
        <tr>
            <td class="schema-propertyName">smw_drilldown</td>
            <td class="schema-type">boolean</td>
            <td class="schema-defaultValue">false</td>
-           <td class="schema-description">If the global settings "smw_semanticDrilldown" is enabled, fields with smw_drilldown set to true will be filterable. </td>
+           <td class="schema-description">If the global settings `smw_semanticDrilldown` is enabled, fields with smw_drilldown set to true will be filterable.</td>
        </tr>
        <tr>
            <td class="schema-propertyName">smw_forceSet</td>

@@ -27,12 +27,6 @@
            <td class="schema-description">If true this object is only used for inheritance and will not be created itself.</td>
        </tr>
        <tr>
-           <td class="schema-propertyName">deprecated</td>
-           <td class="schema-type">boolean</td>
-           <td class="schema-defaultValue">false</td>
-           <td class="schema-description">If true, the field will be deprecated. This means it will not be displayed in forms, but the template will keep it in order to display old entries.</td>
-       </tr>
-       <tr>
            <td class="schema-propertyName">description</td>
            <td class="schema-type"></td>
            <td class="schema-defaultValue"></td>
@@ -42,13 +36,7 @@
            <td class="schema-propertyName">format</td>
            <td class="schema-type"></td>
            <td class="schema-defaultValue"></td>
-           <td class="schema-description">Describe the semantic format, how to interpret the type. E.g. "email" or SMW specific datatypes like "Temperature"<p class="schema-enum"><strong>Valid entries</strong>: date, date-time, url, email, tel, Page, page, Code, code, geographic coordinate, Geographic coordinate, Quantity, quantity, Record, record, Temperature, temperature</p></td>
-       </tr>
-       <tr>
-           <td class="schema-propertyName">id</td>
-           <td class="schema-type"></td>
-           <td class="schema-defaultValue"></td>
-           <td class="schema-description">Usually auto generated id, consisting of the filename</td>
+           <td class="schema-description">Describe the semantic format, how to interpret the type. E.g. 'email' or SMW specific datatypes like 'Temperature'<p class="schema-enum"><strong>Valid entries</strong>: date, date-time, url, email, tel, Page, page, Code, code, geographic coordinate, Geographic coordinate, Quantity, quantity, Record, record, Temperature, temperature</p></td>
        </tr>
        <tr>
            <td class="schema-propertyName">ignore</td>

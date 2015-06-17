@@ -1,19 +1,26 @@
 ```json
-[
-    "properties.multipleOf",
-    "properties.exclusiveMaximum",
-    "properties.exclusiveMinimum",
-    "properties.additionalItems",
-    "properties.uniqueItems",
-    "properties.additionalProperties",
-    "properties.definitions",
-    "properties.patternProperties",
-    "properties.dependencies",
-    "properties.not",
-    "properties.allOf",
-    "properties.anyOf",
-    "properties.oneOf",
-    "dependencies",
-    "$ref"
-]
+{
+    "global": [
+        "dependencies",
+        "definitions",
+        "$ref"
+    ],
+    "properties": [
+        "multipleOf",
+        "exclusiveMaximum",
+        "exclusiveMinimum",
+        "additionalItems",
+        "uniqueItems",
+        "additionalProperties",
+        "maxProperties",
+        "minProperties",
+        "definitions",
+        "patternProperties",
+        "dependencies",
+        "not",
+        "allOf",
+        "anyOf",
+        "oneOf"
+    ]
+}
 ```

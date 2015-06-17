@@ -1,0 +1,193 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Core schema meta-schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": null,
+      "description": "Usually auto generated id, consisting of the filename",
+      "internal": true
+    },
+    "$schema": {
+      "type": "string",
+      "format": "uri",
+      "internal": true
+    },
+    "title": {
+      "type": "string",
+      "description": "Human readable title of the field"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the field. Can be displayed as tooltip info"
+    },
+    "default": {},
+    "maximum": {
+      "type": "number"
+    },
+    "minimum": {
+      "type": "number"
+    },
+    "maxLength": {
+      "$ref": "#/definitions/positiveInteger"
+    },
+    "minLength": {
+      "$ref": "#/definitions/positiveIntegerDefault0"
+    },
+    "pattern": {
+      "type": "string",
+      "format": "regex"
+    },
+    "items": {
+      "anyOf": [
+        {
+          "$ref": "#"
+        },
+        {
+          "$ref": "#/definitions/schemaArray"
+        }
+      ],
+      "default": {}
+    },
+    "maxItems": {
+      "$ref": "#/definitions/positiveInteger"
+    },
+    "minItems": {
+      "$ref": "#/definitions/positiveIntegerDefault0"
+    },
+    "required": {
+      "$ref": "#/definitions/stringArray"
+    },
+    "properties": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#"
+      },
+      "default": {},
+      "description": "Mobo Schema does not use 'properties', it prefers 'items' because the order of the element can be garantueed. Internally, properties are still used because of their easier accessing.",
+      "internal": true
+    },
+    "enum": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "type": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/simpleTypes"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/simpleTypes"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      ]
+    },
+    "format": {
+      "description": "Describe the semantic format, how to interpret the type. E.g. 'email' or SMW specific datatypes like 'Temperature'",
+      "enum": [
+        "date",
+        "date-time",
+        "url",
+        "email",
+        "tel",
+        "Page",
+        "page",
+        "Code",
+        "code",
+        "geographic coordinate",
+        "Geographic coordinate",
+        "Quantity",
+        "quantity",
+        "Record",
+        "record",
+        "Temperature",
+        "temperature"
+      ]
+    },
+    "$meta": {
+      "type": "object",
+      "description": "Internal metadata",
+      "internal": true
+    },
+    "$extend": {
+      "type": [
+        "string",
+        "array"
+      ],
+      "description": "This references another mobo json file. It will be included through inheritance, all existing attributes in the parent object will be overwritten.",
+      "pattern": "^/.*/_*.*$",
+      "uniqueItems": true
+    },
+    "$remove": {
+      "type": "array",
+      "description": "Array, containing all properties to remove from the current object",
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "$reference": {
+      "type": "object",
+      "description": "For internal use only! After inheritance is applied, $extend will be replaced through reference. (For keeping info on the heritage)",
+      "minItems": 1,
+      "uniqueItems": true,
+      "internal": true
+    },
+    "$path": {
+      "type": "string",
+      "description": "For internal use only! This stores the path of the object, as used in '$extend' or 'format'. Used for improved debugging messages",
+      "internal": true
+    },
+    "$filepath": {
+      "type": "string",
+      "description": "For internal use only! This stores the complete relative path of the .json file. Used for improved debugging messages",
+      "internal": true
+    },
+    "$modelPart": {
+      "type": "string",
+      "description": "For internal use only! This declares the part from the model where the object originated (field, form,...)",
+      "internal": true
+    },
+    "wikitext": {
+      "type": "string",
+      "description": "For internal use only! This contains wikitext to inject",
+      "internal": true
+    },
+    "ignore": {
+      "type": "boolean",
+      "description": "If true this file will be ignored.",
+      "default": false
+    },
+    "abstract": {
+      "type": "boolean",
+      "default": false,
+      "description": "If true this object is only used for inheritance and will not be created itself."
+    },
+    "itemsOrder": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array that sets the display order of all (including inherited) properties. Unmentioned fields will be appended at the bottom in their original order.",
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "todo": {
+      "type": "string",
+      "description": "If todo notes are placed here, mobo can output them (this is a setting)"
+    },
+    "note": {
+      "type": [
+        "string",
+        "object"
+      ],
+      "description": "Notes can be strings or objects and their content will be ignored"
+    }
+  },
+  "default": {},
+  "additionalProperties": false
+}
