@@ -39,29 +39,27 @@ There are two options, both true by default:
 
 This is useful for introducion headers into a form / resulting site. If you use the HeaderTabs Extension you are required to use this.
 
-### smw_forminfo
-The `smw_forminput` attribute is an object that contains Semantic Forms [info tag settings](http://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#.27info.27_tag).
+### sf_forminfo
+The `sf_forminput` attribute is an object that contains Semantic Forms [info tag settings](http://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#.27info.27_tag).
 
 ```yaml
-{
-    "smw_forminfo": {
-        "create title": "Create a new location",
-        "edit title": "Edit a location"
-    }
-}
+sf_forminfo:
+  create title: Create a new location
+  edit title: Edit a location
 ```
 
-### smw_forminput
-The `smw_forminput` attribute is an object that contains Semantic Forms [#forminput settings](http://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#The_.23forminput_function).
+### sf_forminput
+The `sf_forminput` attribute is an object that contains Semantic Forms [#forminput settings](http://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#The_.23forminput_function).
 
-### smw_freetext
+### sf_freetext
 Boolean that enables / disables the freetext field below the form
 
-### smw_summary
+### sf_summary
 Boolean that enables / disables the summary textfield below the form
 
-### smw_naming
-Optional text that gives some hints on how to name a page. The text will be displayed on the page where the page name has to be entered in order to create it though the form.
+### naming
+Optional text that gives some hints on how to name a page.
+The text will be displayed on the page where the page name has to be entered in order to create it though the form.
 
 ## Reference
 For a complete and more up-to-date reference, read the [Form Schema Documentation](../../Schemas/form-schema.md)
