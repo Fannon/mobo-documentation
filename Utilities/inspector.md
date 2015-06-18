@@ -47,10 +47,10 @@ Launch Gephi and open the file _graph.gexf in your projects `/_processed/` direc
 
 A short screenshot guided tutorial on [how to do force layouting with Gephi](https://github.com/Fannon/mobo/wiki/Use-Gephi-to-layout-the-graph) is available at the wiki.
 
-![mobo-gephi](http://up.fannon.de/img/mobo-gephi.png?v=1)
+![mobo-gephi](/_img/mobo-gephi.png)
 
 Now the graph explorer at [localhost:8080/graph.html](http://localhost:8080/graph.html) can be used:
 
-![mobo-graph-explorer](http://up.fannon.de/img/mobo-graph-explorer.png?v=2)
+![mobo-graph-explorer](/_img/mobo-graphexplorer.gif)
 
 The size of the nodes can be adjusted through `settings.json`.

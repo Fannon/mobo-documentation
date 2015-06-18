@@ -44,10 +44,10 @@ There is a webapp that allows you to browse your development model and the resul
 
 The final result in the wiki:
 
-![forms](http://up.fannon.de/img/mobo-intro-sf.png)
+![forms](/_img/mobo-sf-result.png)
 
 ----------------------------------------------------------------
 
 Mobo can generate a graph (which has to be layouted via Gephi) that can be explored in an interactive application:
 
-![graph](http://up.fannon.de/img/mobo-intro-graphexplorer.gif)
+![graph](/_img/mobo-graphexplorer.gif)
