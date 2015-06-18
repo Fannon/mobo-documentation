@@ -209,6 +209,12 @@ This can sometimes be useful, if some changes were lost or you want to go for su
            <td class="schema-description">If enabled this creates **FormEdit Helper Categories** that tag the WikiPages that were generated through a form as editable by that form.</td>
        </tr>
        <tr>
+           <td class="schema-propertyName">generateTemplateData</td>
+           <td class="schema-type">boolean</td>
+           <td class="schema-defaultValue">false</td>
+           <td class="schema-description">Whether to generate a TemplateData (a VisualEditor extension) to describe templates</td>
+       </tr>
+       <tr>
            <td class="schema-propertyName">generatedByMobo</td>
            <td class="schema-type">boolean</td>
            <td class="schema-defaultValue">false</td>

@@ -34,3 +34,5 @@ Please note that some characters can’t be used for filenames, so some string s
 ## Programmatic Data Import
 If the importer finds an `import.js` file on the main level of a import/subdir/, it will use programmatic importing.
 
+The hardware example contains a [commented example](https://github.com/Fannon/mobo/blob/master/examples/hardware/import/data/import.js)
+that explains programmatic imports along the code.
