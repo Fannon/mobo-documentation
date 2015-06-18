@@ -4,6 +4,17 @@ The `/import/` directory handles pages and data that should be batch-imported to
 The import files need to be places in subdirectories and can be imported through mobo --import <subdirectory>
 Further subdirectories within the subdirectory will be flattened.
 
+The Importer can skip already existing wiki pages, if the setting `overwriteImportedPages: true` is set.
+
+It is also possible to store an `import.yaml` in each import subdirectory to overwrite settings on a local basis:
+
+```yaml
+overwriteImportedPages: false
+blacklist:
+  - PageNameToIgnore1
+  - PageNameToIgnore2
+```
+
 ## Plain wikitext import
 **Example:** Create a new `/import/docs` folder and put the following files in it:
 
@@ -21,4 +32,5 @@ Please note that some characters can’t be used for filenames, so some string s
 * `---` will be substituted with `/` (subpages)
 
 ## Programmatic Data Import
-TODO: Implemented, but not documented yet.
+If the importer finds an `import.js` file on the main level of a import/subdir/, it will use programmatic importing.
+
