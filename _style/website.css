@@ -26,6 +26,7 @@
     padding: 8px 12px;
     border-top: 3px solid #DDD;
     border-bottom: 3px solid #DDD;
+    font-size: 0.85em;
 }
 .book .book-body .page-wrapper .page-inner section.normal code {
     background-color: #DDD;

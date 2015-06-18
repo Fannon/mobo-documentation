@@ -62,4 +62,6 @@ exports.exec = function(fileMap, importHelper, lib, registry, callback) {
 
 ### Example
 The hardware example contains a [commented import.js file](https://github.com/Fannon/mobo/blob/master/examples/hardware/import/data/import.js)
-that explains the most important concepts along the code.
+that explains the most important concepts along the code:
+
+{% include "./../_code/schemas/programmatic-import-example.md" %}
