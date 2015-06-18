@@ -26,28 +26,28 @@ Mobo is [Open Source](https://github.com/Fannon/mobo) and Cross-Platform.
 ## Screenshots
 The mobo model is developed with your favorite text editor:
 
-![text-editor](http://up.fannon.de/img/mobo-intro-editor.png)
+![text-editor](/_img/editor.png)
 
 ----------------------------------------------------------------
 
 Mobo is a console application. It validates, generates and uploads your model in realtime:
 
-![cli](http://up.fannon.de/img/mobo-intro-run.gif)
+![cli](/_img/mobo-cli.gif)
 
 ----------------------------------------------------------------
 
 There is a webapp that allows you to browse your development model and the resulting wikitext:
 
-![webapp](http://up.fannon.de/img/mobo-intro-viewer.gif)
-
-----------------------------------------------------------------
-
-Mobo can generate a graph (which has to be layouted via Gephi) that can be explored in an interactive application:
-
-![graph](http://up.fannon.de/img/mobo-intro-graphexplorer.gif)
+![webapp](/_img/mobo-inspector.gif)
 
 ----------------------------------------------------------------
 
 The final result in the wiki:
 
 ![forms](http://up.fannon.de/img/mobo-intro-sf.png)
+
+----------------------------------------------------------------
+
+Mobo can generate a graph (which has to be layouted via Gephi) that can be explored in an interactive application:
+
+![graph](http://up.fannon.de/img/mobo-intro-graphexplorer.gif)
