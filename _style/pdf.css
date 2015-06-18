@@ -1,7 +1,6 @@
 .book p {
     font-family: Georgia, Times, 'Times New Roman', serif;
 }
-
 /** Typography */
 .book .book-body .page-wrapper .page-inner section.normal p,
 .book .book-body .page-wrapper .page-inner section.normal blockquote,
@@ -27,7 +26,9 @@
 .book .book-body .page-wrapper .page-inner section.normal .highlight pre,
 .book .book-body .page-wrapper .page-inner section.normal pre {
     background-color: #EEE;
-    padding: 8px 12px
+    padding: 8px 12px;
+    border-top: 3px solid #DDD;
+    border-bottom: 3px solid #DDD;
 }
 .book .book-body .page-wrapper .page-inner section.normal code {
     background-color: #DDD;
@@ -47,4 +48,16 @@
 /** Layout */
 .book .book-body .navigation.navigation-next {
     right: 18px;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal img {
+    padding: 3px;
+    margin: 8px 0;
+    background: #F5F5F5;
+    border: 1px solid #DDD;
+}
+#documentation-logo img {
+    border: none;
+    padding: 0;
+    margin: 0;
 }
