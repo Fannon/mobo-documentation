@@ -49,6 +49,17 @@ All textfiles within the import folder will be added to the fileMap object. JSON
 The script must return / call the callback function with an generatedPages object.
 The keys define the page names, the values are strings with the resulting wikitext.
 
+This is the minimal barebone of an `import.js` file:
+
+```javascript
+exports.exec = function(fileMap, importHelper, lib, registry, callback) {
+
+    var generatedPages = {};
+
+    return callback(false, generatedPages);
+};
+```
+
 ### Example
 The hardware example contains a [commented import.js file](https://github.com/Fannon/mobo/blob/master/examples/hardware/import/data/import.js)
 that explains the most important concepts along the code.
