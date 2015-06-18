@@ -15,7 +15,7 @@ blacklist:
   - PageNameToIgnore2
 ```
 
-## Plain wikitext import
+## Plain Wikitext Import
 **Example:** Create a new `/import/docs` folder and put the following files in it:
 
 ```
