@@ -1,7 +1,6 @@
 .book p {
     font-family: Georgia, Times, 'Times New Roman', serif;
-}
-/** Typography */
+}/** Typography */
 .book .book-body .page-wrapper .page-inner section.normal p,
 .book .book-body .page-wrapper .page-inner section.normal blockquote,
 .book .book-body .page-wrapper .page-inner section.normal ul,
@@ -29,6 +28,7 @@
     padding: 8px 12px;
     border-top: 3px solid #DDD;
     border-bottom: 3px solid #DDD;
+    font-size: 0.85em;
 }
 .book .book-body .page-wrapper .page-inner section.normal code {
     background-color: #DDD;
