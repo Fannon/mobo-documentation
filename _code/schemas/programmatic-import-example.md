@@ -46,7 +46,7 @@ exports.exec = function(fileMap, importHelper, lib, registry, callback) {
     // * Statistics
     // * The generated wikitext
     // * ...
-    log('[D] Found Registry, containing: ' + Object.keys(registry).join(', '))
+    log('[D] Found Registry, containing: ' + Object.keys(registry).join(', '));
     log('[D] Current Working Directory: ' + registry.settings.cwd);
 
 
@@ -111,7 +111,7 @@ exports.exec = function(fileMap, importHelper, lib, registry, callback) {
 
         // Enhance the Location Collection through Location form
         // This rearranges the order of the templates and adds missing (empty) templates
-        var locationForm    = registry.expandedForm.Location
+        var locationForm    = registry.expandedForm.Location;
         var locationEnhColl = importHelper.enhanceWithForm(locationColl, locationForm);
 
         // Convert the (enhanced) objColletion to wikitext
@@ -123,11 +123,12 @@ exports.exec = function(fileMap, importHelper, lib, registry, callback) {
         // Add the page to the generated page object
         generatedPages[pageName] = locationWikitext;
 
-    };
+    }
 
     // Execute the callback when the import is completed.
     // This allows to use async actions like AJAX within the import script
     // The first parameter is the error object, the second the generated Pages Object
     return callback(false, generatedPages);
 };
+
 ```
