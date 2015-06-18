@@ -133,14 +133,14 @@ JSON Schema has a similar keyword, called `$ref`.
 The official spec does not specify an inheritance behavior, though.
 To avoid confusion, mobo supports only the custom $extend property.
 
-#### abstract
+#### $abstract
 Abstract objects will only be used for inheritance purposes.
 They do not create any wiki related pages.
-The `abstract` keyword is not inherited, so children of abstract objects don't have to explicitly set abstract: false.
+The `$abstract` keyword is not inherited, so children of abstract objects don't have to explicitly set abstract: false.
 
-#### ignore
+#### $ignore
 To (temporarily) remove objects from the model the ignore attribute can be set to true.
-The `abstract` keyword is not inherited, so children of abstract objects don't have to explicitly set abstract: false.
+The `$abstract` keyword is not inherited, so children of abstract objects don't have to explicitly set abstract: false.
 
 #### itemsOrder
 To easily change the order of the items array, the keyword `itemsOrder` can be used.

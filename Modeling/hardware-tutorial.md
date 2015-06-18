@@ -148,6 +148,8 @@ It is of the type `HardwareModel` and will use object-oriented inheritance.
 Create `/model/HardwareModel/_HardwareModel.yaml` with the following content:
 
 ```yaml
+$abstract: true
+
 title: Hardware Model
 
 items:
@@ -157,12 +159,10 @@ items:
 required:
   - brand
   - modelName
-
-abstract: true
 ```
 
 The abstract model contains two required fields that will be shared by all other Hardware Models.
-Since it's defined as abstract, it will not be created in the wiki.
+Since it's defined as `$abstract: true`, it will not be created in the wiki.
 
 Create `/model/HardwareModel/NetworkPrinterModel.yaml` with the following content:
 
@@ -202,6 +202,8 @@ Now the actual `NetworkPrinterInstallation` can be created.
 Create `/model/HardwareInstallation/_HardwareInstallation.yaml` with the following content:
 
 ```yaml
+$abstract: true
+
 title: Hardware Installation
 
 items:
@@ -210,8 +212,6 @@ items:
 
 smw_subobject: true
 smw_category: false
-
-abstract: true
 ```
 
 Since there are Hardwaredevices that are network capable and share therefore some more common properties,
@@ -223,6 +223,8 @@ This is necessary becasuse we want to define multiple instances of them on a loc
 Create `/model/HardwareInstallation/_NetworkDeviceInstallation.yaml` with the following content:
 
 ```yaml
+$abstract: true
+
 $extend: /model/_HardwareInstallation
 
 title: NetworkDevice Installation
@@ -233,7 +235,6 @@ items:
 recommended:
   - ip
 
-abstract: true
 ```
 
 Create `/model/HardwareInstallation/NetworkPrinterInstallation.yaml` with the following content:
@@ -256,6 +257,8 @@ The field `networkPrinterModel` will reference to a `NetworkPrinterModel`.
 Create `/field/HardwareInstallation/_hardwareModelReference.yaml` with the following content:
 
 ```yaml
+$abstract: true
+
 title: Model
 description: You may only select already existing mardware models!
 
@@ -265,8 +268,6 @@ sf_form:
   max values: 1
   input type: combobox
   existing values only: true
-
-abstract: true
 ```
 
 All hardware model reference fields will now use the input type combobox and allow only one (already existing) value.

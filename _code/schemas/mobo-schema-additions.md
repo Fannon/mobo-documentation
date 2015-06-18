@@ -9,22 +9,28 @@
    </thead>
    <tbody>
        <tr>
+           <td class="schema-propertyName">$abstract</td>
+           <td class="schema-type">boolean</td>
+           <td class="schema-defaultValue">false</td>
+           <td class="schema-description">If true this object is only used for inheritance and will not be created itself.</td>
+       </tr>
+       <tr>
            <td class="schema-propertyName">$extend</td>
            <td class="schema-type">string, array</td>
            <td class="schema-defaultValue"></td>
            <td class="schema-description">This references another mobo json file. It will be included through inheritance, all existing attributes in the parent object will be overwritten.</td>
        </tr>
        <tr>
+           <td class="schema-propertyName">$ignore</td>
+           <td class="schema-type">boolean</td>
+           <td class="schema-defaultValue">false</td>
+           <td class="schema-description">If true this file will be ignored.</td>
+       </tr>
+       <tr>
            <td class="schema-propertyName">$remove</td>
            <td class="schema-type">array</td>
            <td class="schema-defaultValue"></td>
            <td class="schema-description">Array, containing all properties to remove from the current object</td>
-       </tr>
-       <tr>
-           <td class="schema-propertyName">abstract</td>
-           <td class="schema-type">boolean</td>
-           <td class="schema-defaultValue">false</td>
-           <td class="schema-description">If true this object is only used for inheritance and will not be created itself.</td>
        </tr>
        <tr>
            <td class="schema-propertyName">description</td>
@@ -37,12 +43,6 @@
            <td class="schema-type"></td>
            <td class="schema-defaultValue"></td>
            <td class="schema-description">Describe the semantic format, how to interpret the type. E.g. 'email' or SMW specific datatypes like 'Temperature'<p class="schema-enum"><strong>Valid entries</strong>: date, date-time, url, email, tel, Page, page, Code, code, geographic coordinate, Geographic coordinate, Quantity, quantity, Record, record, Temperature, temperature</p></td>
-       </tr>
-       <tr>
-           <td class="schema-propertyName">ignore</td>
-           <td class="schema-type">boolean</td>
-           <td class="schema-defaultValue">false</td>
-           <td class="schema-description">If true this file will be ignored.</td>
        </tr>
        <tr>
            <td class="schema-propertyName">itemsOrder</td>

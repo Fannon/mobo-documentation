@@ -121,6 +121,8 @@ Model inheritance:
 
 ### /model/_Shape.json
 ```yaml
+$abstract: true
+
 title: Shape
 description: Generic Shape
 
@@ -131,8 +133,6 @@ items:
 required:
 - x
 - y
-
-abstract: true
 ```
 
 ### /model/Circle.json

@@ -2,7 +2,6 @@
 {
     "global": [
         "dependencies",
-        "definitions",
         "$ref"
     ],
     "properties": [
