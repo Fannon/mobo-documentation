@@ -11,31 +11,7 @@
        <tr>
            <td class="schema-propertyName">arrayMergeOptions</td>
            <td class="schema-type">object</td>
-           <td class="schema-defaultValue">{
-    "$remove": [
-        "@unique"
-    ],
-    "enum": [
-        "@unique"
-    ],
-    "form": [
-        "@unique"
-    ],
-    "recommended": [
-        "@unique"
-    ],
-    "required": [
-        "@unique"
-    ],
-    "itemsOrder": [
-        "@unique",
-        "@prepend"
-    ],
-    "smw_categories": [
-        "@unique",
-        "@append"
-    ]
-}</td>
+           <td class="schema-defaultValue"></td>
            <td class="schema-description">Default settings (using @annotations) for array merges<br/><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
    <thead>
        <tr>
@@ -127,15 +103,8 @@
        <tr>
            <td class="schema-propertyName">buildGraphSettings</td>
            <td class="schema-type">object</td>
-           <td class="schema-defaultValue">{
-    "dataTypeNodeSize": 8,
-    "templateNodeSize": 12,
-    "modelNodeSize": 24,
-    "formNodeSize": 36,
-    "edgeWeight": 2,
-    "multipleEdgeWeight": 2
-}</td>
-           <td class="schema-description"><br/><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
+           <td class="schema-defaultValue"></td>
+           <td class="schema-description">Sets the size and weight of nodes and edges<br/><table class="schema-table" style="font-size: 0.75em; word-wrap: break-word;">
    <thead>
        <tr>
            <th>ID</th>
@@ -302,7 +271,7 @@ This can sometimes be useful, if some changes were lost or you want to go for su
        <tr>
            <td class="schema-propertyName">mw_password</td>
            <td class="schema-type">string</td>
-           <td class="schema-defaultValue"></td>
+           <td class="schema-defaultValue">"password"</td>
            <td class="schema-description">The password of your mobo bot account</td>
        </tr>
        <tr>
@@ -320,13 +289,13 @@ This can sometimes be useful, if some changes were lost or you want to go for su
        <tr>
            <td class="schema-propertyName">mw_server_url</td>
            <td class="schema-type">string, boolean</td>
-           <td class="schema-defaultValue"></td>
+           <td class="schema-defaultValue">false</td>
            <td class="schema-description">URL to your MediaWiki server without trailing slash. Do not include the port or relative path to MediaWiki here!</td>
        </tr>
        <tr>
            <td class="schema-propertyName">mw_username</td>
            <td class="schema-type">string</td>
-           <td class="schema-defaultValue"></td>
+           <td class="schema-defaultValue">"username"</td>
            <td class="schema-description">The username of your mobo bot account</td>
        </tr>
        <tr>
@@ -420,7 +389,7 @@ SemanticForms itself does not support / supply this for a div based layout.</td>
            <td class="schema-propertyName">uploadReport</td>
            <td class="schema-type">boolean</td>
            <td class="schema-defaultValue">true</td>
-           <td class="schema-description">If this is enabled, mobo will upload a report at User at /User:<bot username>"</td>
+           <td class="schema-description">If this is enabled, mobo will upload a report at User at /User:<bot username></td>
        </tr>
        <tr>
            <td class="schema-propertyName">uploadWikiPages</td>
