@@ -1,4 +1,4 @@
-<p align="center" style="background: #1D1D1B; border-radius:3px; padding: 8px 0 4px 0">
+<p align="center" id="documentation-logo" style="background: #1D1D1B; border-radius:3px; padding: 8px 0 4px 0">
     <img src="_img/documentation.png"/>
 </p>
 

@@ -1,9 +1,9 @@
 # Mobo Inspector
 ## Model Inspector
 The Mobo Inspector allows you to inspect the development model in two stages:
-* The "intermediary model" - this is the development model with inheritance and further processing applied.
+* The **expanded model**. This is the development model with inheritance and further processing applied.
   Mobo uses it internally.
-* The resulting wikitext. If there are differences to the last upload state, a DIFF is displayed.
+* The **resulting wikitext**. If there are differences to the last upload state, a DIFF is displayed.
 
 To open the Inspector, start mobo in interactive mode. The web application is now served at your [localhost:8080](http://localhost:8080).
 

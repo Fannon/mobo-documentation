@@ -46,3 +46,15 @@
 .book .book-body .navigation.navigation-next {
     right: 18px;
 }
+
+.book .book-body .page-wrapper .page-inner section.normal img {
+    padding: 3px;
+    margin: 8px 0;
+    background: #F5F5F5;
+    border: 1px solid #DDD;
+}
+#documentation-logo img {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
