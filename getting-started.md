@@ -7,7 +7,8 @@ and [Semantic Forms](http://www.mediawiki.org/wiki/Extension:Semantic_Forms) ext
 It is highly recommended to install the [PerserFunctions Extension](https://www.mediawiki.org/wiki/Extension:ParserFunctions),
 since mobos default templates make use of it. It is possible to adjust/use templates that work without it, instead.
 
-Mobo has optional support for the [HeaderTabs](http://www.mediawiki.org/wiki/Extension:Header_Tabs) and [TemplateData](http://www.mediawiki.org/wiki/Extension:TemplateData) (VisualEditor) extension.
+Mobo has optional support for the [HeaderTabs](http://www.mediawiki.org/wiki/Extension:Header_Tabs)
+and [TemplateData](http://www.mediawiki.org/wiki/Extension:TemplateData) (VisualEditor) extension.
 
 ## Installation & Update
 In most cases mobo should be installed locally on the machine the model is developed on.
