@@ -303,29 +303,36 @@ description: This creates a new location where hardware is deployed.
 items:
   - $extend: /model/Location
   - $extend: /smw_template/NetworkPrinterHeader.wikitext
-    showForm: true
-    showPage: true
   - type: array
     items:
       $extend: /model/NetworkPrinterInstallation
 ```
 
 Two new `$extend` are added.
-First, a template is included that will provide a header and is shown in both form and page view.
-Since both booleans are true by default, they could be omitted in this example.
+First, a wikitext template from the folder `smw_template` is included.
+It will provide a header and is shown in both form and page view:
+
 
 Create the template at `/swm_template/Headers/NetworkPrinterHeader.wikitext`:
+
+**NOTE**: Don't forget to add a new line after the headline!
+Since wikitext is not whitespace insensitive and you might break the layout otherwise.
 
 ```text
 =Network Printer=
 
 ```
 
-**NOTE**: Don't forget to add a new line after the headline!
-Since wikitext is not whitespace insensitive and you might break the layout otherwise.
-
-The second extend is an array which contains multiple `NetworkPrinterInstallation`
+The second $extend is an array which contains multiple `NetworkPrinterInstallation`
 and will be implemented as the already mentioned Semantic Forms multiple template instance.
+
+**TIPP**: You don't need to explicitly define the `type` as array, since the existence of `items` already implies this.
+This is sufficient:
+
+```yaml
+  - items:
+      $extend: /model/NetworkPrinterInstallation
+```
 
 The final form will now look like this:
 
