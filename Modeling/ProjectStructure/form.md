@@ -20,13 +20,13 @@ To define a model as a multiple instance template, use `type`: `array` and defin
 ```yaml
 items:
   - $extend: /model/Location
-  - $extend: /smw_template/NetworkPrinterHeader.wikitext
+  - $extend: /smw_template/NetworkPrinterHeader
     showForm: true # True by default, can be ommited
     showPage: true # True by default, can be ommited
   - type: array
     items:
       $extend: /model/NetworkPrinterInstallation
-  - $extend: /smw_template/NetworkScannerHeader.wikitext
+  - $extend: /smw_template/NetworkScannerHeader
 ```
 
 #### Including Templates

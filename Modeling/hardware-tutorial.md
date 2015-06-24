@@ -302,7 +302,7 @@ description: This creates a new location where hardware is deployed.
 
 items:
   - $extend: /model/Location
-  - $extend: /smw_template/NetworkPrinterHeader.wikitext
+  - $extend: /smw_template/NetworkPrinterHeader
   - type: array
     items:
       $extend: /model/NetworkPrinterInstallation
@@ -313,7 +313,7 @@ First, a wikitext template from the folder `smw_template` is included.
 It will provide a header and is shown in both form and page view:
 
 
-Create the template at `/swm_template/Headers/NetworkPrinterHeader.wikitext`:
+Create the template at `/swm_template/Headers/NetworkPrinterHeader`:
 
 **NOTE**: Don't forget to add a new line after the headline!
 Since wikitext is not whitespace insensitive and you might break the layout otherwise.
