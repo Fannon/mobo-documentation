@@ -44,17 +44,20 @@ Mobo uses YAML by default. Here is a comparison:
 # Inline comments are possible. This is not true for JSON.
 title: Location
 description: Location where hardware is deployed
-properties:
-    - $extend: /field/streetAdress
-    - $extend: /field/streetNumber
-    - $extend: /field/town
-    - $extend: /field/country
-required: ['streetAdress', 'streetNumber', 'town']
+items:
+  - $extend: /field/streetAdress
+  - $extend: /field/streetNumber
+  - $extend: /field/town
+  - $extend: /field/country
+required:
+  - streetAdress
+  - streetNumber
+  - town
 smw_prefix:
-    header: 1
-    wikitext: Some prefix-description for the location
+  header: 1
+  wikitext: Some prefix-description for the location
 smw_postfix: |
-    Some postfix-description for the location
+  Some postfix-description for the location
 ```
 
 #### JSON-Notation:
@@ -62,7 +65,7 @@ smw_postfix: |
 {
     "title": "Location",
     "description": "Location where hardware is deployed",
-    "properties": [
+    "items": [
         { "$extend": "/field/streetAdress" },
         { "$extend": "/field/streetNumber" },
         { "$extend": "/field/town" },
