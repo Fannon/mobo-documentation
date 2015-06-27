@@ -30,7 +30,7 @@
            <td class="schema-propertyName">$remove<span class="schema-type schema-type-array">array</span></td>
            <td class="schema-defaultValue"></td>
            <td class="schema-specific">domain</td>
-           <td class="schema-description">Array, containing all properties to remove from the current object</td>
+           <td class="schema-description">Array, containing the IDs of all items/properties to remove from the current object.</td>
        </tr>
        <tr>
            <td class="schema-propertyName">description</td>

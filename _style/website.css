@@ -23,11 +23,30 @@
 }
 .schema-table .schema-type {
     margin-left: 4px;
-    padding: 1px 4px;
-    background: #EEE;
+    padding: 0 4px 1px 4px;
+    background: #555;
+    color: #FFF;
     border-radius: 2px;
     font-size: 0.9em;
 }
+.schema-table .schema-type-array {
+    background: #444;
+}
+.schema-table .schema-type-object {
+    background: #DDD;
+    color: #333;
+}
+.schema-table .schema-type-boolean {
+    background: #8D2AC9;
+}
+.schema-table .schema-type-string {
+    background: #277FC6;
+}
+.schema-table .schema-type-number {
+    background: #6FC627;
+}
+
+
 
 
 .book .book-body .page-wrapper .page-inner section.normal .highlight pre,
