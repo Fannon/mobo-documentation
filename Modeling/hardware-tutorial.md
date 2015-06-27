@@ -316,7 +316,7 @@ It will provide a header and is shown in both form and page view:
 Create the template at `/swm_template/Headers/NetworkPrinterHeader`:
 
 **NOTE**: Don't forget to add a new line after the headline!
-Since wikitext is not whitespace insensitive and you might break the layout otherwise.
+Wikitext is whitespace sensitive - you might break functions/layout by ommitting whitespaces.
 
 ```text
 =Network Printer=

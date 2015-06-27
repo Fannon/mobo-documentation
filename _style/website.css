@@ -64,7 +64,7 @@
 /* Schema Type */
 
 .schema-table .schema-propertyType {
-
+    text-align: center;
 }
 .schema-table .schema-type {
     padding: 0 4px 1px 4px;

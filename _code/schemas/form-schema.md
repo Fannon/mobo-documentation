@@ -52,7 +52,7 @@ It will be included through inheritance, all existing attributes in the parent o
        </tr>
        <tr>
            <td class="schema-propertyName"><strong>items</strong></td>
-           <td class="schema-propertyType"><span class="schema-type schema-type-object">object</span></td>
+           <td class="schema-propertyType"><span class="schema-type schema-type-array">array</span><span class="schema-type schema-type-object">object</span></td>
            <td class="schema-defaultValue">{}</td>
            <td class="schema-description">Lists all models that the form uses.<br>
 Those are included by `$extend`.<br>
@@ -138,10 +138,10 @@ Every field that is not listed will be appended at the bottom, in their regular 
        </tr>
        <tr>
            <td class="schema-propertyName">type</td>
-           <td class="schema-propertyType"><span class="schema-type schema-type-array">array</span><span class="schema-type schema-type-string">string</span></td>
+           <td class="schema-propertyType"><span class="schema-type schema-type-string">string</span></td>
            <td class="schema-defaultValue"></td>
            <td class="schema-description">Defines the data-type.
-</td>
+<p class="schema-enum"><strong>Valid entries</strong>: string, number, boolean, array, object</p></td>
            <td class="schema-specific schema-specific-domain" title="domain specific"></td>
        </tr>
    </tbody>

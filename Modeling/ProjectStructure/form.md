@@ -1,10 +1,11 @@
 # /form/
 ## Description
-Each mobo form will create a Semantic Form and define its content.
-Mobo forms are much more lightweight than regular SF Forms,
-since most information have already been declared on the field or model level and are just inherited up.
+Each Mobo Form will create a Semantic Form and define its content.
 
-#### Forms declare
+Mobo forms are much more lightweight than regular SF Forms,
+since most information has already been declared and is inherited from fields and models.
+
+#### Forms declare:
 * Which models to use
 * If the model should be implemented as a single or multiple instance
 * Which template to use / inject
@@ -41,19 +42,3 @@ There are two options, both true by default:
 * `showSite` decides if the template should be rendered when displaying the site. (Notice: The Site has to be (re)saved through the form to make this work)
 
 This is useful for introducion headers into a form / resulting site. If you use the HeaderTabs Extension you are required to use this.
-
-### naming
-Optional text that gives some hints on how to name a page.
-The text will be displayed on the page where the page name has to be entered in order to create it though the form.
-
-### sf_forminfo
-The `sf_forminput` attribute is an object that contains Semantic Forms [info tag settings](http://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#.27info.27_tag).
-
-```yaml
-sf_forminfo:
-  create title: Create a new location
-  edit title: Edit a location
-```
-
-### sf_freetext
-Boolean that enables / disables the freetext field below the form

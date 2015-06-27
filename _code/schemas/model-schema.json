@@ -215,8 +215,14 @@
                 }
             ],
             "type": [
-                "array",
                 "string"
+            ],
+            "enum": [
+                "string",
+                "number",
+                "boolean",
+                "array",
+                "object"
             ],
             "important": false,
             "description": "Defines the data-type.\n"

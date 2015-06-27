@@ -11,7 +11,7 @@
    <tbody>
        <tr>
            <td class="schema-propertyName">items</td>
-           <td class="schema-propertyType"><span class="schema-type schema-type-object">object</span></td>
+           <td class="schema-propertyType"></td>
            <td class="schema-defaultValue"></td>
            <td class="schema-description">Lists all models that the form uses.<br>
 Those are included by `$extend`.<br>

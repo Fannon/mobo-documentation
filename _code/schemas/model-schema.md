@@ -392,10 +392,10 @@ Useful if this model is used through multiple instances.
        </tr>
        <tr>
            <td class="schema-propertyName">type</td>
-           <td class="schema-propertyType"><span class="schema-type schema-type-array">array</span><span class="schema-type schema-type-string">string</span></td>
+           <td class="schema-propertyType"><span class="schema-type schema-type-string">string</span></td>
            <td class="schema-defaultValue"></td>
            <td class="schema-description">Defines the data-type.
-</td>
+<p class="schema-enum"><strong>Valid entries</strong>: string, number, boolean, array, object</p></td>
            <td class="schema-specific schema-specific-domain" title="domain specific"></td>
        </tr>
    </tbody>
