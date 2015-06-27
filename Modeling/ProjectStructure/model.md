@@ -12,6 +12,9 @@ Models will create Templates and Categories. They define the actual structure of
 * MediaWiki Categories
 * Prefix and Postfix wikitext
 
+## Available Properties
+{% include "./../../_code/schemas/model-schema.md" %}
+
 ## Commonly used model propererties
 ### items
 The `items` property contains an array of all fields that are used by the model.
@@ -152,6 +155,3 @@ required:
 
 In this example the Circle inherits all attributes of `_Shape`, especially the fields x and y.
 The Circle overwrites attributes like `title` and introduces a new field `radius`.
-
-## Reference
-For a complete and more up-to-date reference, read the [Model Schema Documentation](../../Schemas/model-schema.md)

@@ -1,8 +1,8 @@
 ```json
 {
     "global": [
-        "dependencies",
-        "$ref"
+        "$ref",
+        "dependencies"
     ],
     "properties": [
         "multipleOf",

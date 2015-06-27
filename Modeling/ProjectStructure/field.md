@@ -12,6 +12,9 @@ The biggest difference to SMW attributes is that mobo fields already declare how
 * Additional validation (some datatypes already come with validation)
 * Semantic Forms options that define how the field will render and behave in Semantic Forms
 
+## Available Properties
+{% include "./../../_code/schemas/field-schema.md" %}
+
 ## Supported Datatypes
 ### Primitive Datatypes (type)
 * number / integer
@@ -109,6 +112,3 @@ Please note that the field can't be queried then.
 ```yaml
 smw_property: false
 ```
-
-## Reference
-For a complete and more up-to-date reference, read the [Field Schema Documentation](../../Schemas/field-schema.md)

@@ -11,6 +11,9 @@ since most information have already been declared on the field or model level an
 * The order of these models and templates
 * Visibility of templates in edit-view and reading-view
 
+## Available Properties
+{% include "./../../_code/schemas/form-schema.md" %}
+
 ## Commonly used form propererties
 ### items
 The `items` property contains an array of all models and templates that are used by the form.
@@ -54,6 +57,3 @@ sf_forminfo:
 
 ### sf_freetext
 Boolean that enables / disables the freetext field below the form
-
-## Reference
-For a complete and more up-to-date reference, read the [Form Schema Documentation](../../Schemas/form-schema.md)

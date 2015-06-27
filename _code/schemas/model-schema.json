@@ -1,0 +1,532 @@
+```json
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "mobo model JSON Schema",
+    "definitions": {
+        "schemaArray": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "$ref": "#"
+            }
+        },
+        "positiveInteger": {
+            "type": "integer",
+            "minimum": 0
+        },
+        "positiveIntegerDefault0": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/positiveInteger"
+                },
+                {
+                    "default": 0
+                }
+            ]
+        },
+        "simpleTypes": {
+            "enum": [
+                "array",
+                "boolean",
+                "integer",
+                "null",
+                "number",
+                "object",
+                "string"
+            ]
+        },
+        "stringArray": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        }
+    },
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string",
+            "format": null,
+            "description": "Usually auto generated id, consisting of the filename",
+            "internal": true,
+            "specific": "domain"
+        },
+        "$schema": {
+            "type": "string",
+            "format": "uri",
+            "internal": true
+        },
+        "title": {
+            "type": [
+                "string"
+            ],
+            "description": "Human readable title of the field",
+            "specific": "domain"
+        },
+        "description": {
+            "type": [
+                "string"
+            ],
+            "description": "Description of the field. Can be displayed as tooltip info",
+            "specific": "domain"
+        },
+        "default": {
+            "type": []
+        },
+        "maximum": {
+            "type": [
+                "number"
+            ]
+        },
+        "minimum": {
+            "type": [
+                "number"
+            ]
+        },
+        "maxLength": {
+            "$ref": "#/definitions/positiveInteger",
+            "type": []
+        },
+        "minLength": {
+            "$ref": "#/definitions/positiveIntegerDefault0",
+            "type": []
+        },
+        "pattern": {
+            "type": [
+                "string"
+            ],
+            "format": "regex"
+        },
+        "items": {
+            "anyOf": [
+                {
+                    "$ref": "#"
+                },
+                {
+                    "$ref": "#/definitions/schemaArray"
+                }
+            ],
+            "default": {},
+            "type": []
+        },
+        "maxItems": {
+            "$ref": "#/definitions/positiveInteger",
+            "type": []
+        },
+        "minItems": {
+            "$ref": "#/definitions/positiveIntegerDefault0",
+            "type": []
+        },
+        "required": {
+            "$ref": "#/definitions/stringArray",
+            "type": []
+        },
+        "properties": {
+            "type": "object",
+            "additionalProperties": {
+                "$ref": "#"
+            },
+            "default": {},
+            "description": "Mobo Schema does not use 'properties', it prefers 'items' because the order of the element can be garantueed. Internally, properties are still used because of their easier accessing.",
+            "internal": true
+        },
+        "enum": {
+            "type": [
+                "array"
+            ],
+            "minItems": 1,
+            "uniqueItems": true
+        },
+        "type": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/simpleTypes"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/simpleTypes"
+                    },
+                    "minItems": 1,
+                    "uniqueItems": true
+                }
+            ],
+            "type": []
+        },
+        "format": {
+            "description": "Describe the semantic format, how to interpret the type. E.g. 'email' or SMW specific datatypes like 'Temperature'",
+            "enum": [
+                "date",
+                "date-time",
+                "url",
+                "email",
+                "tel",
+                "Page",
+                "page",
+                "Code",
+                "code",
+                "geographic coordinate",
+                "Geographic coordinate",
+                "Quantity",
+                "quantity",
+                "Record",
+                "record",
+                "Temperature",
+                "temperature"
+            ],
+            "specific": "domain",
+            "type": []
+        },
+        "$meta": {
+            "type": "object",
+            "description": "Internal metadata",
+            "internal": true,
+            "specific": "metadata"
+        },
+        "$extend": {
+            "type": [
+                "array",
+                "string"
+            ],
+            "description": "This references another mobo json file. It will be included through inheritance, all existing attributes in the parent object will be overwritten.",
+            "pattern": "^/.*/_*.*$",
+            "uniqueItems": true
+        },
+        "$remove": {
+            "type": [
+                "array"
+            ],
+            "description": "Array, containing the IDs of all items/properties to remove from the current object.",
+            "minItems": 1,
+            "uniqueItems": true
+        },
+        "$reference": {
+            "type": "object",
+            "description": "For internal use only! After inheritance is applied, $extend will be replaced through reference. (For keeping info on the heritage)",
+            "minItems": 1,
+            "uniqueItems": true,
+            "internal": true,
+            "specific": "metadata"
+        },
+        "$path": {
+            "type": "string",
+            "description": "For internal use only! This stores the path of the object, as used in '$extend' or 'format'. Used for improved debugging messages",
+            "internal": true,
+            "specific": "metadata"
+        },
+        "$filepath": {
+            "type": "string",
+            "description": "For internal use only! This stores the complete relative path of the .json file. Used for improved debugging messages",
+            "internal": true,
+            "specific": "metadata"
+        },
+        "$modelPart": {
+            "type": "string",
+            "description": "For internal use only! This declares the part from the model where the object originated (field, form,...)",
+            "internal": true,
+            "specific": "metadata"
+        },
+        "wikitext": {
+            "type": "string",
+            "description": "For internal use only! This contains wikitext to inject",
+            "internal": true,
+            "specific": "metadata"
+        },
+        "$ignore": {
+            "type": [
+                "boolean"
+            ],
+            "description": "If true this file will be ignored.",
+            "default": false,
+            "specific": "domain"
+        },
+        "$abstract": {
+            "type": [
+                "boolean"
+            ],
+            "default": false,
+            "description": "If true this object is only used for inheritance and will not be created itself.",
+            "specific": "domain"
+        },
+        "itemsOrder": {
+            "type": [
+                "array"
+            ],
+            "items": {
+                "type": "string"
+            },
+            "description": "Array that sets the display order of all (including inherited) properties. Unmentioned fields will be appended at the bottom in their original order.",
+            "minItems": 1,
+            "uniqueItems": true,
+            "specific": "domain"
+        },
+        "todo": {
+            "type": [
+                "string"
+            ],
+            "description": "If todo notes are placed here, mobo can output them (this is a setting)",
+            "specific": "domain"
+        },
+        "note": {
+            "type": [
+                "object",
+                "string"
+            ],
+            "description": "Notes can be strings or objects and their content will be ignored",
+            "specific": "domain"
+        },
+        "recommended": {
+            "type": [
+                "array"
+            ],
+            "items": {
+                "type": "string"
+            },
+            "description": "Array of fields that should be highlighted as recommended (complementary to mandatory)",
+            "specific": "domain"
+        },
+        "smw_subobject": {
+            "type": [
+                "boolean"
+            ],
+            "default": false,
+            "description": "If true, this models attributes will be created as subobjects. Useful if this model is used through multiple instances.",
+            "specific": "platform"
+        },
+        "smw_subobjectExtend": {
+            "type": [
+                "object"
+            ],
+            "description": "Contains a set (object) of additional #subobject properties",
+            "specific": "platform"
+        },
+        "smw_display": {
+            "type": [
+                "string"
+            ],
+            "default": "table",
+            "description": "Defines the template output rendering mode, whether the template should use tables, ul, etc.",
+            "specific": "platform"
+        },
+        "smw_prepend": {
+            "type": [
+                "object",
+                "string"
+            ],
+            "description": "Prefixes wikitext to both forms and templates. Can either be a string or an object for more advanced features (auto-generate headers, inject templates or add arbitrary wikitext)",
+            "properties": {
+                "wikitext": {
+                    "type": [
+                        "string"
+                    ],
+                    "description": "wikitext to prefix"
+                },
+                "header": {
+                    "type": [
+                        "number"
+                    ],
+                    "description": "Inserts auto generated header of given hierachy (1-6)",
+                    "minimum": 1,
+                    "maximum": 6
+                },
+                "template": {
+                    "type": [
+                        "string"
+                    ],
+                    "description": "name of a template to inject. Must exist"
+                }
+            },
+            "additionalProperties": false,
+            "specific": "implementation"
+        },
+        "smw_prependForm": {
+            "type": [
+                "object",
+                "string"
+            ],
+            "description": "Prefixes wikitext only to forms (edit-view). Can either be a string or an object for more advanced features (auto-generate headers, inject templates or add arbitrary wikitext)",
+            "properties": {
+                "wikitext": {
+                    "type": [
+                        "string"
+                    ],
+                    "description": "wikitext to prefix"
+                },
+                "header": {
+                    "type": [
+                        "number"
+                    ],
+                    "description": "Inserts auto generated header of given hierachy (1-6)",
+                    "minimum": 1,
+                    "maximum": 6
+                },
+                "template": {
+                    "type": [
+                        "array",
+                        "string"
+                    ],
+                    "description": "name of a template to inject. Must exist"
+                }
+            },
+            "additionalProperties": false,
+            "specific": "implementation"
+        },
+        "smw_prependPage": {
+            "type": [
+                "object",
+                "string"
+            ],
+            "description": "Prefixes wikitext only to templates (page-view). Can either be a string or an object for more advanced features (auto-generate headers, inject templates or add arbitrary wikitext)",
+            "properties": {
+                "wikitext": {
+                    "type": [
+                        "string"
+                    ],
+                    "description": "wikitext to prefix"
+                },
+                "header": {
+                    "type": [
+                        "number"
+                    ],
+                    "description": "Inserts auto generated header of given hierachy (1-6)",
+                    "minimum": 1,
+                    "maximum": 6
+                },
+                "template": {
+                    "type": [
+                        "array",
+                        "string"
+                    ],
+                    "description": "name of a template to inject. Must exist"
+                }
+            },
+            "additionalProperties": false,
+            "specific": "implementation"
+        },
+        "smw_prependCategory": {
+            "type": [
+                "string"
+            ],
+            "description": "wikitext to prefix on the category page",
+            "specific": "implementation"
+        },
+        "smw_append": {
+            "type": [
+                "object",
+                "string"
+            ],
+            "description": "Adds a postfix wikitext to forms and models",
+            "properties": {
+                "wikitext": {
+                    "type": [
+                        "string"
+                    ],
+                    "description": "wikitext to postfix"
+                },
+                "template": {
+                    "type": [
+                        "string"
+                    ],
+                    "description": "name of a template to inject. Must exist"
+                }
+            },
+            "additionalProperties": false,
+            "specific": "implementation"
+        },
+        "smw_appendForm": {
+            "type": [
+                "object",
+                "string"
+            ],
+            "description": "Postfixes wikitext only to forms (edit-view). Can either be a string or an object for more advanced features (auto-generate headers, inject templates or add arbitrary wikitext)",
+            "properties": {
+                "wikitext": {
+                    "type": [
+                        "string"
+                    ],
+                    "description": "wikitext to prefix"
+                },
+                "template": {
+                    "type": [
+                        "array",
+                        "string"
+                    ],
+                    "description": "name of a template to inject. Must exist"
+                }
+            },
+            "additionalProperties": false,
+            "specific": "implementation"
+        },
+        "smw_appendPage": {
+            "type": [
+                "object",
+                "string"
+            ],
+            "description": "Postfixes wikitext only to templates (page-view). Can either be a string or an object for more advanced features (auto-generate headers, inject templates or add arbitrary wikitext)",
+            "properties": {
+                "wikitext": {
+                    "type": [
+                        "string"
+                    ],
+                    "description": "wikitext to prefix"
+                },
+                "template": {
+                    "type": [
+                        "array",
+                        "string"
+                    ],
+                    "description": "name of a template to inject. Must exist"
+                }
+            },
+            "additionalProperties": false,
+            "specific": "implementation"
+        },
+        "smw_appendCategory": {
+            "type": [
+                "string"
+            ],
+            "description": "wikitext to postfix on the category page",
+            "specific": "implementation"
+        },
+        "smw_category": {
+            "type": [
+                "boolean"
+            ],
+            "default": true,
+            "description": "This property decides whether the template should tag the page as a category of the model-name.",
+            "specific": "platform"
+        },
+        "smw_categories": {
+            "type": [
+                "array"
+            ],
+            "items": {
+                "type": "string"
+            },
+            "description": "Array of additional categories the template should set.",
+            "specific": "platform"
+        },
+        "showForm": {
+            "type": [
+                "boolean"
+            ],
+            "default": true,
+            "description": "If true the template/model will be hidden in the form view. This will usually be declared in the forms by adding this after the model $extend.",
+            "specific": "domain"
+        },
+        "showPage": {
+            "type": [
+                "boolean"
+            ],
+            "default": true,
+            "description": "If true the template/model will be hidden in the page view. This will usually be declared in the forms by adding this after the model $extend.",
+            "specific": "domain"
+        },
+        "additionalProperties": false
+    },
+    "default": {},
+    "additionalProperties": false
+}
+```

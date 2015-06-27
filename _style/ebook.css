@@ -1,6 +1,7 @@
 .book p {
     font-family: Georgia, Times, 'Times New Roman', serif;
 }
+
 /** Typography */
 .book .book-body .page-wrapper .page-inner section.normal p,
 .book .book-body .page-wrapper .page-inner section.normal blockquote,
@@ -10,6 +11,38 @@
 .book .book-body .page-wrapper .page-inner section.normal table,
 .book .book-body .page-wrapper .page-inner section.normal pre {
     margin: 8px 0;
+}
+.book .book-body .page-wrapper .page-inner section.normal .highlight pre,
+.book .book-body .page-wrapper .page-inner section.normal pre {
+    background-color: #EEE;
+    padding: 8px 12px;
+    border-radius: 0;
+    border-top: 3px solid #DDD;
+    border-bottom: 3px solid #DDD;
+    font-size: 0.85em;
+}
+.book .book-body .page-wrapper .page-inner section.normal .schema-table pre {
+    font-size: 0.85em;
+    padding: 4px 8px;
+    border-top: 2px solid #DDD;
+    border-bottom: 2px solid #DDD;
+}
+.book .book-body .page-wrapper .page-inner section.normal code {
+    background-color: #DDD;
+    padding: 2px 0;
+    border-radius: 2px;
+}
+
+/** TABLES */
+.book .book-body .page-wrapper .page-inner section.normal table {
+    margin: 8px 0;
+    word-wrap: break-word;
+    display: table;
+    width: 100%;
+}
+.book .book-body .page-wrapper .page-inner section.normal table th,
+.book .book-body .page-wrapper .page-inner section.normal table td {
+  padding: 4px 8px;
 }
 .schema-table .schema-description {
     -ms-word-break: break-all;
@@ -21,29 +54,66 @@
     -moz-hyphens: auto;
     hyphens: auto;
 }
-.schema-table .schema-enum {
-}
-.book .book-body .page-wrapper .page-inner section.normal .highlight pre,
-.book .book-body .page-wrapper .page-inner section.normal pre {
-    background-color: #EEE;
-    padding: 8px 12px
-}
-.book .book-body .page-wrapper .page-inner section.normal code {
-    background-color: #DDD;
-    padding: 2px 0;
+.schema-table .schema-propertyName {
+    border-left: 4px solid #CCC;
 }
 
-/** TABLES */
-.book .book-body .page-wrapper .page-inner section.normal table {
-    margin: 8px 0;
+/* Schema Type */
+.schema-table .schema-type {
+    margin-right: 4px;
+    padding: 0 4px 1px 4px;
+    background: #555;
+    color: #FFF;
+    border-radius: 2px;
+    font-size: 0.9em;
+    white-space: nowrap;
 }
-.book .book-body .page-wrapper .page-inner section.normal table th,
-.book .book-body .page-wrapper .page-inner section.normal table td {
-    padding: 8px;
+.schema-table .schema-type-array {
+    background: #444;
+}
+.schema-table .schema-type-object {
+    background: #DDD;
+    color: #555;
+}
+.schema-table .schema-type-boolean {
+    background: #8D2AC9;
+}
+.schema-table .schema-type-string {
+    background: #277FC6;
+}
+.schema-table .schema-type-number {
+    background: #6FC627;
+}
+
+/* Schema Specific */
+.schema-table .schema-specific {
+    font-size: 0.9em;
+    text-align: center;
+}
+.schema-table  .schema-specific-domain {
+    background: #FEFFE4;
+}
+.schema-table  .schema-specific-platform {
+    background: #FFF1DD;
+}
+.schema-table  .schema-specific-implementation {
+    background: #FFE4E4;
 }
 
 
 /** Layout */
 .book .book-body .navigation.navigation-next {
     right: 18px;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal img {
+    padding: 3px;
+    margin: 8px 0;
+    background: #F5F5F5;
+    border: 1px solid #DDD;
+}
+#documentation-logo img {
+    border: none;
+    padding: 0;
+    margin: 0;
 }
