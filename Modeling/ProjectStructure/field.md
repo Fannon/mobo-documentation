@@ -2,7 +2,7 @@
 ## Description
 Fields are the mobo equivalent to SMW attributes.
 
-The biggest difference to SMW attributes is that mobo fields already declare how they will be rendered and validated. Those information will be inherited through the models up to the final form.
+The biggest difference to SMW attributes is that mobo fields already declare how they are rendered and validated. Those information are inherited through the models up to the final form.
 
 #### Fields declare
 * A human readable title
@@ -28,12 +28,12 @@ type: number
 Semantic Datatypes are defined through the `format` attribute.
 Usually the primitive `type` datatype is `string`.
 
-* JSON Schema Datatypes
+* JSON Schema data types
     * date / date-time
     * url
     * email
     * tel
-* SMW specific Datatypes
+* SMW specific data types
     * Page
     * Code
     * Geographic coordinate
@@ -41,7 +41,7 @@ Usually the primitive `type` datatype is `string`.
     * Record
     * Temperature
 
-To define a semantic datatype, declare the "format" in addition to the "type":
+To define a semantic data type, declare the `format` in addition to the "type":
 
 ```yaml
 type: string

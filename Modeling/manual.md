@@ -1,11 +1,11 @@
 # The Mobo Manual
 ## Premises
 In order to learn mobo, it is mandatory to understand the basic concepts of [JSON](http://json.org/) and [JSON Schema](http://json-schema.org/) first.
-It is highly recommended to use and learn [YAML](http://yaml.org/) and use it instead of JSON.
+I would also highly recommended to learn [YAML](http://yaml.org/) and use it instead of JSON.
 
-JSON Schema is a very simple and concise standard and it should only take a few hours to learn it.
+JSON Schema is a simple and concise standard which should only take a few hours to learn it.
 There is a [great tutorial](http://spacetelescope.github.io/understanding-json-schema/) by the Space Telescope Science Institute.
-The time to learn JSON Schema is a good investment anyhow, since it can be very useful in other contexts as well.
+The time learning JSON Schema is a good investment anyhow, since it can be useful in other contexts as well.
 
 Some understanding of [MediaWiki](http://mediawiki.org), [SemanticMediaWiki](https://semantic-mediawiki.org/) and [SemanticForms](https://www.mediawiki.org/wiki/Extension:Semantic_Forms) is also highly recommended,
 since they are the target system. Their architecture has a huge impact on how models are developed.
@@ -58,6 +58,7 @@ smw_prefix:
   wikitext: Some prefix-description for the location
 smw_postfix: |
   Some postfix-description for the location
+  Supporting easy line breaks
 ```
 
 #### JSON-Notation:
@@ -65,6 +66,7 @@ smw_postfix: |
 {
     "title": "Location",
     "description": "Location where hardware is deployed",
+    "type": "array"
     "items": [
         { "$extend": "/field/streetAdress" },
         { "$extend": "/field/streetNumber" },

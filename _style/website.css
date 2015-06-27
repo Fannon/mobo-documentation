@@ -18,8 +18,18 @@
     -moz-hyphens: auto;
     hyphens: auto;
 }
-.schema-table .schema-enum {
+.schema-table .schema-propertyName {
+    border-left: 4px solid #CCC;
 }
+.schema-table .schema-type {
+    margin-left: 4px;
+    padding: 1px 4px;
+    background: #EEE;
+    border-radius: 2px;
+    font-size: 0.9em;
+}
+
+
 .book .book-body .page-wrapper .page-inner section.normal .highlight pre,
 .book .book-body .page-wrapper .page-inner section.normal pre {
     background-color: #EEE;
