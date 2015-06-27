@@ -2,10 +2,10 @@
    <thead>
        <tr>
            <th>ID</th>
-           <th>Type</th>
-           <th>Default</th>
-           <th>Description</th>
-           <th>Specific</th>
+           <th>type</th>
+           <th>default</th>
+           <th>description</th>
+           <th></th>
        </tr>
    </thead>
    <tbody>
@@ -17,7 +17,7 @@
 Those are included by `$extend`.<br>
 If multiple instance templates need to be created, use another items hierachy.
 </td>
-           <td class="schema-specific schema-specific-domain">domain</td>
+           <td class="schema-specific schema-specific-domain" title="domain specific"></td>
        </tr>
        <tr>
            <td class="schema-propertyName">naming</td>
@@ -25,7 +25,7 @@ If multiple instance templates need to be created, use another items hierachy.
            <td class="schema-defaultValue"></td>
            <td class="schema-description">Provides naming conventions / guideline. Will appear on the form page itself.
 </td>
-           <td class="schema-specific schema-specific-domain">domain</td>
+           <td class="schema-specific schema-specific-domain" title="domain specific"></td>
        </tr>
        <tr>
            <td class="schema-propertyName">sf_forminfo</td>
@@ -36,7 +36,7 @@ If multiple instance templates need to be created, use another items hierachy.
   create title: Create a new location
   edit title: Edit a location
 </code></pre></td>
-           <td class="schema-specific schema-specific-platform">platform</td>
+           <td class="schema-specific schema-specific-platform" title="platform specific"></td>
        </tr>
        <tr>
            <td class="schema-propertyName">sf_forminput</td>
@@ -44,7 +44,7 @@ If multiple instance templates need to be created, use another items hierachy.
            <td class="schema-defaultValue"></td>
            <td class="schema-description">Object, containing SemanticForms #forminput options
 <p class="schema-link"><strong>External Link</strong>: <a href="https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#The_.23forminput_function target="_blank">Documentation</a></p></td>
-           <td class="schema-specific schema-specific-platform">platform</td>
+           <td class="schema-specific schema-specific-platform" title="platform specific"></td>
        </tr>
        <tr>
            <td class="schema-propertyName">sf_freetext</td>
@@ -52,7 +52,7 @@ If multiple instance templates need to be created, use another items hierachy.
            <td class="schema-defaultValue">true</td>
            <td class="schema-description">Decides whether the freetext textarea will be displayed below the form.
 </td>
-           <td class="schema-specific schema-specific-platform">platform</td>
+           <td class="schema-specific schema-specific-platform" title="platform specific"></td>
        </tr>
        <tr>
            <td class="schema-propertyName">sf_summary</td>
@@ -60,7 +60,7 @@ If multiple instance templates need to be created, use another items hierachy.
            <td class="schema-defaultValue">false</td>
            <td class="schema-description">Decides whether the summary field will be displayed below the form.
 </td>
-           <td class="schema-specific schema-specific-platform">platform</td>
+           <td class="schema-specific schema-specific-platform" title="platform specific"></td>
        </tr>
    </tbody>
 </table>

@@ -79,51 +79,66 @@
                 "model",
                 "form"
             ],
+            "description": "The default value of the field.\n",
             "type": []
         },
         "maximum": {
             "type": [
                 "number"
             ],
+            "unsupported": true,
             "appliesNot": [
                 "model",
                 "form"
-            ]
+            ],
+            "description": "The maximum value of a number\n"
         },
         "minimum": {
             "type": [
                 "number"
             ],
+            "unsupported": true,
             "appliesNot": [
                 "model",
                 "form"
-            ]
+            ],
+            "description": "The minimum value of a number\n"
         },
         "maxLength": {
             "$ref": "#/definitions/positiveInteger",
+            "type": [
+                "number"
+            ],
+            "unsupported": true,
             "appliesNot": [
                 "model",
                 "form"
             ],
-            "type": []
+            "description": "The maximum length of a string\n"
         },
         "minLength": {
             "$ref": "#/definitions/positiveIntegerDefault0",
+            "type": [
+                "number"
+            ],
+            "unsupported": true,
             "appliesNot": [
                 "model",
                 "form"
             ],
-            "type": []
+            "description": "The minimum length of a string\n"
         },
         "pattern": {
             "type": [
                 "string"
             ],
             "format": "regex",
+            "unsupported": true,
             "appliesNot": [
                 "model",
                 "form"
-            ]
+            ],
+            "description": "Regular Expression (Regex) pattern<br>\nThis is currently not supported by Semantic Forms.\n"
         },
         "items": {
             "anyOf": [
@@ -136,26 +151,38 @@
             ],
             "default": {},
             "type": [
+                "array",
                 "object"
             ],
             "important": true,
-            "description": "Lists all models that the form uses.<br>\nThose are included by `$extend`.<br>\nIf multiple instance templates need to be created, use another items hierachy.\n"
+            "description": "Some fields have multiple values (e.g. comma seperated).<br>\nIn this case the items property needs to be used.<br>\nThe items object then defines the actual data type, format and form\n",
+            "example": [
+                "title: Tags\nitems:\n  type: string\n"
+            ]
         },
         "maxItems": {
             "$ref": "#/definitions/positiveInteger",
+            "type": [
+                "number"
+            ],
+            "unsupported": true,
             "appliesNot": [
                 "model",
                 "form"
             ],
-            "type": []
+            "description": "How many instances are allowed at most.\n"
         },
         "minItems": {
             "$ref": "#/definitions/positiveIntegerDefault0",
+            "type": [
+                "number"
+            ],
+            "unsupported": true,
             "appliesNot": [
                 "model",
                 "form"
             ],
-            "type": []
+            "description": "How many instances are required at least.\n"
         },
         "required": {
             "$ref": "#/definitions/stringArray",
@@ -183,6 +210,10 @@
             "appliesNot": [
                 "model",
                 "form"
+            ],
+            "description": "List of all possible values.<br>\nDefaults to a dropdown widget.\n",
+            "example": [
+                "type: string\nenum:\n  - red\n  - green\n  - blue\n"
             ]
         },
         "type": {
@@ -280,7 +311,10 @@
             "uniqueItems": true,
             "specific": "domain",
             "important": true,
-            "description": "Array that sets the display order of all (including inherited) properties.<br>\nUnmentioned fields will be appended at the bottom in their original order.\n"
+            "description": "In case that fields have been inherited, they might not end up in the correct order.\nThe itemsOrder array lists the order of the fields.\nEvery field that is not listed will be appended at the bottom, in their regular order.\n",
+            "example": [
+                "itemsOrder:\n  - brand\n  - modelName\n"
+            ]
         },
         "todo": {
             "type": [
@@ -289,33 +323,16 @@
             "specific": "domain",
             "description": "If TODO notes are placed here, mobo can print them in the CLI (If the corresponding global setting is enabled)\n"
         },
-        "note": {
-            "type": [
-                "object",
-                "string"
-            ],
-            "specific": "domain",
-            "description": "Notes can be strings or objects and their content will be ignored\n"
-        },
         "wikitext": {
             "type": "string",
             "internal": true,
             "specific": "metadata",
             "description": "For internal use only! This contains wikitext to inject\n"
         },
-        "deprecated": {
-            "type": [
-                "boolean"
-            ],
-            "default": false,
-            "specific": "domain",
-            "appliesNot": [
-                "model",
-                "form"
-            ],
-            "description": "If true, the field will be deprecated. This means it will not be\ndisplayed in forms, but the template will keep it in order to display old entries.\n"
-        },
         "format": {
+            "type": [
+                "string"
+            ],
             "enum": [
                 "date",
                 "date-time",
@@ -336,12 +353,12 @@
                 "temperature"
             ],
             "specific": "domain",
+            "important": true,
             "appliesNot": [
                 "model",
                 "form"
             ],
-            "description": "Describes the semantic format (how to interpret the type).\nE.g. 'email' or SMW specific datatypes like 'Temperature'\n",
-            "type": []
+            "description": "Describes the semantic format (how to interpret the type).\nE.g. 'email' or SMW specific datatypes like 'Temperature'\n"
         },
         "form": {
             "type": [
@@ -349,15 +366,51 @@
                 "string"
             ],
             "specific": "domain",
+            "important": true,
             "appliesNot": [
                 "model",
                 "form"
             ],
-            "description": "Defines which form should be automatically used if the red link is clicked\n",
+            "description": "Defines which form should be automatically used if the red link is clicked.\nIt can link to one multiple forms.<br>\nIt sets implicitly: `type: string`  and `format: Page`\n",
             "example": [
                 "form: formName\n",
                 "form:\n  - formName1\n  - formName2\n"
             ]
+        },
+        "deprecated": {
+            "type": [
+                "boolean"
+            ],
+            "default": false,
+            "specific": "domain",
+            "appliesNot": [
+                "model",
+                "form"
+            ],
+            "description": "If true, the field will be deprecated. This means it will not be\ndisplayed in forms, but the template will keep it in order to display old entries.\n"
+        },
+        "showPage": {
+            "type": [
+                "boolean"
+            ],
+            "default": true,
+            "specific": "domain",
+            "appliesNot": [
+                "form"
+            ],
+            "description": "Whether to display this element in the page view."
+        },
+        "showForm": {
+            "type": [
+                "boolean"
+            ],
+            "default": true,
+            "specific": "domain",
+            "important": true,
+            "appliesNot": [
+                "form"
+            ],
+            "description": "Whether to display this element in the form-edit view."
         },
         "smw_property": {
             "type": [
@@ -365,24 +418,29 @@
             ],
             "default": true,
             "specific": "platform",
+            "important": true,
             "appliesNot": [
                 "model",
                 "form"
             ],
-            "description": "If set to false, the property will not be saved as a SMW property, through #set or #subobject\n"
+            "description": "If smw_property is set to false the templates won't declare it as a semantic property.\nPlease note that the field can't be queried then.\n"
         },
         "sf_form": {
             "type": [
                 "object"
             ],
-            "link": "https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#.27field.27_tag",
             "additionalProperties": true,
+            "important": true,
             "specific": "platform",
             "appliesNot": [
                 "model",
                 "form"
             ],
-            "description": "Object, containing SemanticForms option, that will be redirected to the form\n"
+            "description": "The sf_form property is an object that redirects all settings directly to Semantic Forms.\nIf no value is necessary (e.g. \"existing values only\"), use true.\nTo see which options are supported, refer to the Semantic Forms manual\n",
+            "link": "https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#.27field.27_tag",
+            "example": [
+                "sf_form:\n  input type: combobox\n  values from namespace: Manufacturer\n  max values: 1\n  existing values only: true\n"
+            ]
         },
         "smw_overwriteOutput": {
             "type": [
@@ -464,28 +522,6 @@
                 "form"
             ],
             "description": "If the global settings `smw_semanticDrilldown` is enabled, fields\nwith smw_drilldown set to true will be filterable.\n"
-        },
-        "showPage": {
-            "type": [
-                "boolean"
-            ],
-            "default": true,
-            "specific": "domain",
-            "appliesNot": [
-                "form"
-            ],
-            "description": "Whether to display this element in the page view."
-        },
-        "showForm": {
-            "type": [
-                "boolean"
-            ],
-            "default": true,
-            "specific": "domain",
-            "appliesNot": [
-                "form"
-            ],
-            "description": "Whether to display this element in the form-edit view."
         }
     },
     "default": {},

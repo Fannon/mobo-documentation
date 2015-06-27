@@ -79,36 +79,3 @@ items:
     type: string
     form: Location
 ```
-
-## Enums
-If an additional "enum" array is specified, it can pre-prvide default values. This makes mostly sense for dropdown menus. Note that enums are not dynamic and the model has to be adjusted if entries have to be changed.
-
-```yaml
-title: color
-type: string
-enum:
-  - red
-  - green
-  - blue
-```
-
-## Field specific features
-### sf_form
-The `sf_form` property is an object that redirects all settings directly to Semantic Forms.
-To see which options are supported, refer to the [Semantic Forms manual](http://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#.27field.27_tag)
-
-```yaml
-sf_form:
-  input type: combobox
-  values from namespace: Manufacturer
-  max values: 1
-  existing values only: true
-```
-
-### smw_property
-If `smw_property` is set to false the templates won't use #set or #subobject to declare it as a semantic property.
-Please note that the field can't be queried then.
-
-```yaml
-smw_property: false
-```

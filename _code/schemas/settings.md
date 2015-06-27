@@ -2,9 +2,9 @@
    <thead>
        <tr>
            <th>ID</th>
-           <th>Type</th>
-           <th>Default</th>
-           <th>Description</th>
+           <th>type</th>
+           <th>default</th>
+           <th>description</th>
        </tr>
    </thead>
    <tbody>
@@ -24,8 +24,8 @@ This is very helpful to spot typos and other accidents when modeling
    <thead>
        <tr>
            <th>ID</th>
-           <th>Type</th>
-           <th>Default</th>
+           <th>type</th>
+           <th>default</th>
        </tr>
    </thead>
    <tbody>
@@ -116,8 +116,8 @@ This is very helpful to spot typos and other accidents when modeling
    <thead>
        <tr>
            <th>ID</th>
-           <th>Type</th>
-           <th>Default</th>
+           <th>type</th>
+           <th>default</th>
        </tr>
    </thead>
    <tbody>

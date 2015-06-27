@@ -79,51 +79,66 @@
                 "model",
                 "form"
             ],
+            "description": "The default value of the field.\n",
             "type": []
         },
         "maximum": {
             "type": [
                 "number"
             ],
+            "unsupported": true,
             "appliesNot": [
                 "model",
                 "form"
-            ]
+            ],
+            "description": "The maximum value of a number\n"
         },
         "minimum": {
             "type": [
                 "number"
             ],
+            "unsupported": true,
             "appliesNot": [
                 "model",
                 "form"
-            ]
+            ],
+            "description": "The minimum value of a number\n"
         },
         "maxLength": {
             "$ref": "#/definitions/positiveInteger",
+            "type": [
+                "number"
+            ],
+            "unsupported": true,
             "appliesNot": [
                 "model",
                 "form"
             ],
-            "type": []
+            "description": "The maximum length of a string\n"
         },
         "minLength": {
             "$ref": "#/definitions/positiveIntegerDefault0",
+            "type": [
+                "number"
+            ],
+            "unsupported": true,
             "appliesNot": [
                 "model",
                 "form"
             ],
-            "type": []
+            "description": "The minimum length of a string\n"
         },
         "pattern": {
             "type": [
                 "string"
             ],
             "format": "regex",
+            "unsupported": true,
             "appliesNot": [
                 "model",
                 "form"
-            ]
+            ],
+            "description": "Regular Expression (Regex) pattern<br>\nThis is currently not supported by Semantic Forms.\n"
         },
         "items": {
             "anyOf": [
@@ -136,26 +151,34 @@
             ],
             "default": {},
             "type": [
+                "array",
                 "object"
             ],
-            "important": true,
-            "description": "Lists all models that the form uses.<br>\nThose are included by `$extend`.<br>\nIf multiple instance templates need to be created, use another items hierachy.\n"
+            "important": true
         },
         "maxItems": {
             "$ref": "#/definitions/positiveInteger",
+            "type": [
+                "number"
+            ],
+            "unsupported": true,
             "appliesNot": [
                 "model",
                 "form"
             ],
-            "type": []
+            "description": "How many instances are allowed at most.\n"
         },
         "minItems": {
             "$ref": "#/definitions/positiveIntegerDefault0",
+            "type": [
+                "number"
+            ],
+            "unsupported": true,
             "appliesNot": [
                 "model",
                 "form"
             ],
-            "type": []
+            "description": "How many instances are required at least.\n"
         },
         "required": {
             "$ref": "#/definitions/stringArray",
@@ -184,6 +207,10 @@
             "appliesNot": [
                 "model",
                 "form"
+            ],
+            "description": "List of all possible values.<br>\nDefaults to a dropdown widget.\n",
+            "example": [
+                "type: string\nenum:\n  - red\n  - green\n  - blue\n"
             ]
         },
         "type": {
@@ -281,7 +308,10 @@
             "uniqueItems": true,
             "specific": "domain",
             "important": true,
-            "description": "Array that sets the display order of all (including inherited) properties.<br>\nUnmentioned fields will be appended at the bottom in their original order.\n"
+            "description": "In case that fields have been inherited, they might not end up in the correct order.\nThe itemsOrder array lists the order of the fields.\nEvery field that is not listed will be appended at the bottom, in their regular order.\n",
+            "example": [
+                "itemsOrder:\n  - brand\n  - modelName\n"
+            ]
         },
         "todo": {
             "type": [
@@ -289,14 +319,6 @@
             ],
             "specific": "domain",
             "description": "If TODO notes are placed here, mobo can print them in the CLI (If the corresponding global setting is enabled)\n"
-        },
-        "note": {
-            "type": [
-                "object",
-                "string"
-            ],
-            "specific": "domain",
-            "description": "Notes can be strings or objects and their content will be ignored\n"
         },
         "wikitext": {
             "type": "string",
