@@ -9,6 +9,14 @@
    </thead>
    <tbody>
        <tr>
+           <td class="schema-propertyName">allowAdditionalProperties</td>
+           <td class="schema-propertyType"><span class="schema-type schema-type-boolean">boolean</span></td>
+           <td class="schema-defaultValue">false</td>
+           <td class="schema-description">If false, mobo will warn when the development model contains unsupported/unknown properties.
+This is very helpful to spot typos and other accidents when modeling
+</td>
+       </tr>
+       <tr>
            <td class="schema-propertyName">arrayMergeOptions</td>
            <td class="schema-propertyType"><span class="schema-type schema-type-object">object</span></td>
            <td class="schema-defaultValue"></td>

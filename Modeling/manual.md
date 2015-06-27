@@ -88,8 +88,11 @@ smw_postfix: |
 }
 ```
 
-To batch-convert a project from JSON to YAML notation (or the other way around), the [yamljs](https://www.npmjs.com/package/yamljs) CLI tool is recommended.
-Conversion should be easy and fast, so the choice of notation format should have no lock-in effect.
+To batch-convert a project from JSON to YAML notation (or the other way around),
+I can recommend the [yamljs](https://www.npmjs.com/package/yamljs) CLI tool or the [json2yaml.com](http://www.json2yaml.com/) WebApp.
+Conversion between both formats should be easy and fast, so the choice of notation format should have no lock-in effect.
+
+Since YAML is a superset of JSON, it is also possible to write/mix JSON into .yaml files.
 
 ## Mobo Schema
 Mobo uses JSON Schema as a basis for the model development.
@@ -189,7 +192,6 @@ allOf
 anyOf
 definitions
 dependencies
-dependencies
 exclusiveMaximum
 exclusiveMinimum
 multipleOf
@@ -198,8 +200,11 @@ patternProperties
 uniqueItems
 ```
 
-There are a few validation related JSON Schema properties which can be used but are currently not supported by Semantic Forms.
-They are used for internal validation - especially for programmatic imports, though.
+The `$ref` and `definition` property are substituted with mobos own `$extend` property.
+
+The reason the other (primarily validation oriented) properties are not supported is because
+the target system (SMW + Semantic Forms) has not much validation capabilities.
+Advanced validation properties can be used for internal validation, though (e.g. programmatic imports).
 
 ## Continue Learning
 Now that you've learned the basics of mobo, you may continue with:

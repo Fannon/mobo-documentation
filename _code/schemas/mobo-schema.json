@@ -49,9 +49,9 @@
         "id": {
             "type": "string",
             "format": null,
-            "description": "Usually auto generated id, consisting of the filename",
             "internal": true,
-            "specific": "domain"
+            "specific": "domain",
+            "description": "Usually auto generated ID, should be identical to the filename\n"
         },
         "$schema": {
             "type": "string",
@@ -62,42 +62,68 @@
             "type": [
                 "string"
             ],
-            "description": "Human readable title of the field",
-            "specific": "domain"
+            "specific": "domain",
+            "important": true,
+            "description": "Human readable title.\n"
         },
         "description": {
             "type": [
                 "string"
             ],
-            "description": "Description of the field. Can be displayed as tooltip info",
-            "specific": "domain"
+            "specific": "domain",
+            "important": true,
+            "description": "Description of the field. Can be displayed as tooltip info\n"
         },
         "default": {
+            "appliesNot": [
+                "model",
+                "form"
+            ],
             "type": []
         },
         "maximum": {
             "type": [
                 "number"
+            ],
+            "appliesNot": [
+                "model",
+                "form"
             ]
         },
         "minimum": {
             "type": [
                 "number"
+            ],
+            "appliesNot": [
+                "model",
+                "form"
             ]
         },
         "maxLength": {
             "$ref": "#/definitions/positiveInteger",
+            "appliesNot": [
+                "model",
+                "form"
+            ],
             "type": []
         },
         "minLength": {
             "$ref": "#/definitions/positiveIntegerDefault0",
+            "appliesNot": [
+                "model",
+                "form"
+            ],
             "type": []
         },
         "pattern": {
             "type": [
                 "string"
             ],
-            "format": "regex"
+            "format": "regex",
+            "appliesNot": [
+                "model",
+                "form"
+            ]
         },
         "items": {
             "anyOf": [
@@ -109,18 +135,35 @@
                 }
             ],
             "default": {},
-            "type": []
+            "type": [
+                "object"
+            ],
+            "important": true,
+            "description": "Lists all models that the form uses.<br>\nThose are included by `$extend`.<br>\nIf multiple instance templates need to be created, use another items hierachy.\n"
         },
         "maxItems": {
             "$ref": "#/definitions/positiveInteger",
+            "appliesNot": [
+                "model",
+                "form"
+            ],
             "type": []
         },
         "minItems": {
             "$ref": "#/definitions/positiveIntegerDefault0",
+            "appliesNot": [
+                "model",
+                "form"
+            ],
             "type": []
         },
         "required": {
             "$ref": "#/definitions/stringArray",
+            "appliesNot": [
+                "field",
+                "form"
+            ],
+            "description": "Array containing the IDs of all required fields\n",
             "type": []
         },
         "properties": {
@@ -129,15 +172,19 @@
                 "$ref": "#"
             },
             "default": {},
-            "description": "Mobo Schema does not use 'properties', it prefers 'items' because the order of the element can be garantueed. Internally, properties are still used because of their easier accessing.",
-            "internal": true
+            "internal": true,
+            "description": "Mobo Schema does not use 'properties', it prefers 'items' because the order of the element can be garantueed.\nInternally, properties are still because of their easier accessing.\n"
         },
         "enum": {
             "type": [
                 "array"
             ],
             "minItems": 1,
-            "uniqueItems": true
+            "uniqueItems": true,
+            "appliesNot": [
+                "model",
+                "form"
+            ]
         },
         "type": {
             "anyOf": [
@@ -153,102 +200,75 @@
                     "uniqueItems": true
                 }
             ],
-            "type": []
-        },
-        "format": {
-            "description": "Describe the semantic format, how to interpret the type. E.g. 'email' or SMW specific datatypes like 'Temperature'",
-            "enum": [
-                "date",
-                "date-time",
-                "url",
-                "email",
-                "tel",
-                "Page",
-                "page",
-                "Code",
-                "code",
-                "geographic coordinate",
-                "Geographic coordinate",
-                "Quantity",
-                "quantity",
-                "Record",
-                "record",
-                "Temperature",
-                "temperature"
+            "type": [
+                "array",
+                "string"
             ],
-            "specific": "domain",
-            "type": []
-        },
-        "$meta": {
-            "type": "object",
-            "description": "Internal metadata",
-            "internal": true,
-            "specific": "metadata"
+            "important": true,
+            "description": "Defines the data-type.\n"
         },
         "$extend": {
             "type": [
                 "array",
                 "string"
             ],
-            "description": "This references another mobo json file. It will be included through inheritance, all existing attributes in the parent object will be overwritten.",
             "pattern": "^/.*/_*.*$",
-            "uniqueItems": true
+            "uniqueItems": true,
+            "important": true,
+            "specific": "intermediary",
+            "description": "This references another mobo json file.\nIt will be included through inheritance, all existing attributes in the parent object will be overwritten.\n"
         },
         "$remove": {
             "type": [
                 "array"
             ],
-            "description": "Array, containing the IDs of all items/properties to remove from the current object.",
-            "minItems": 1,
-            "uniqueItems": true
-        },
-        "$reference": {
-            "type": "object",
-            "description": "For internal use only! After inheritance is applied, $extend will be replaced through reference. (For keeping info on the heritage)",
             "minItems": 1,
             "uniqueItems": true,
-            "internal": true,
-            "specific": "metadata"
-        },
-        "$path": {
-            "type": "string",
-            "description": "For internal use only! This stores the path of the object, as used in '$extend' or 'format'. Used for improved debugging messages",
-            "internal": true,
-            "specific": "metadata"
-        },
-        "$filepath": {
-            "type": "string",
-            "description": "For internal use only! This stores the complete relative path of the .json file. Used for improved debugging messages",
-            "internal": true,
-            "specific": "metadata"
-        },
-        "$modelPart": {
-            "type": "string",
-            "description": "For internal use only! This declares the part from the model where the object originated (field, form,...)",
-            "internal": true,
-            "specific": "metadata"
-        },
-        "wikitext": {
-            "type": "string",
-            "description": "For internal use only! This contains wikitext to inject",
-            "internal": true,
-            "specific": "metadata"
+            "specific": "intermediary",
+            "description": "Array, containing the IDs of all items/properties to remove from current object.\n"
         },
         "$ignore": {
             "type": [
                 "boolean"
             ],
-            "description": "If true this file will be ignored.",
             "default": false,
-            "specific": "domain"
+            "specific": "intermediary",
+            "description": "If true, this file will be ignored completely.\n"
         },
         "$abstract": {
             "type": [
                 "boolean"
             ],
             "default": false,
-            "description": "If true this object is only used for inheritance and will not be created itself.",
-            "specific": "domain"
+            "specific": "intermediary",
+            "important": true,
+            "description": "If true this object is only used for inheritance and will not be itself.\n"
+        },
+        "$reference": {
+            "type": "object",
+            "minItems": 1,
+            "uniqueItems": true,
+            "internal": true,
+            "specific": "metadata",
+            "description": "For internal use only!\nAfter inheritance is applied, $extend will be replaced through $reference.\n(For keeping info on the heritage)\n"
+        },
+        "$path": {
+            "type": "string",
+            "internal": true,
+            "specific": "metadata",
+            "description": "For internal use only!\nThis stores the path of the object, as used '$extend' or 'format'.\nUsed for improved debugging messages\n"
+        },
+        "$filepath": {
+            "type": "string",
+            "internal": true,
+            "specific": "metadata",
+            "description": "For internal use only!\nThis stores the complete relative path of the development model file.\nUsed for improved debugging messages\n"
+        },
+        "$modelPart": {
+            "type": "string",
+            "internal": true,
+            "specific": "metadata",
+            "description": "For internal use only!\nThis declares the part from the model where object originated (field, form,...)\n"
         },
         "itemsOrder": {
             "type": [
@@ -257,28 +277,34 @@
             "items": {
                 "type": "string"
             },
-            "description": "Array that sets the display order of all (including inherited) properties. Unmentioned fields will be appended at the bottom in their original order.",
             "minItems": 1,
             "uniqueItems": true,
-            "specific": "domain"
+            "specific": "domain",
+            "important": true,
+            "description": "Array that sets the display order of all (including inherited) properties.<br>\nUnmentioned fields will be appended at the bottom in their original order.\n"
         },
         "todo": {
             "type": [
                 "string"
             ],
-            "description": "If todo notes are placed here, mobo can output them (this is a setting)",
-            "specific": "domain"
+            "specific": "domain",
+            "description": "If TODO notes are placed here, mobo can print them in the CLI (If the corresponding global setting is enabled)\n"
         },
         "note": {
             "type": [
                 "object",
                 "string"
             ],
-            "description": "Notes can be strings or objects and their content will be ignored",
-            "specific": "domain"
+            "specific": "domain",
+            "description": "Notes can be strings or objects and their content will be ignored\n"
+        },
+        "wikitext": {
+            "type": "string",
+            "internal": true,
+            "specific": "metadata",
+            "description": "For internal use only! This contains wikitext to inject\n"
         }
     },
-    "default": {},
-    "additionalProperties": false
+    "default": {}
 }
 ```

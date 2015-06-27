@@ -17,6 +17,9 @@ module.exports = function(grunt) {
     },
 
     shell: {
+        documentation: {
+            command: 'mobo --generate-docs'
+        },
         build: {
             command: 'gitbook build'
         }
@@ -25,6 +28,6 @@ module.exports = function(grunt) {
   });
 
   // Register Tasks
-  grunt.registerTask('default', ['shell:build', 'watch']);
+  grunt.registerTask('default', ['shell:documentation', 'shell:build', 'watch']);
 
 };

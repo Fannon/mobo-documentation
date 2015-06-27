@@ -20,6 +20,9 @@
         "allOf",
         "anyOf",
         "oneOf"
-    ]
+    ],
+    "field": null,
+    "model": null,
+    "form": null
 }
 ```

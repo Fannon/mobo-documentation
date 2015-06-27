@@ -1,7 +1,7 @@
 ```json
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "description": "mobo field JSON Schema",
+    "description": "Core schema meta-schema",
     "definitions": {
         "schemaArray": {
             "type": "array",
@@ -49,9 +49,9 @@
         "id": {
             "type": "string",
             "format": null,
-            "description": "Usually auto generated id, consisting of the filename",
             "internal": true,
-            "specific": "domain"
+            "specific": "domain",
+            "description": "Usually auto generated ID, should be identical to the filename\n"
         },
         "$schema": {
             "type": "string",
@@ -62,42 +62,68 @@
             "type": [
                 "string"
             ],
-            "description": "Human readable title of the field",
-            "specific": "domain"
+            "specific": "domain",
+            "important": true,
+            "description": "Human readable title.\n"
         },
         "description": {
             "type": [
                 "string"
             ],
-            "description": "Description of the field. Can be displayed as tooltip info",
-            "specific": "domain"
+            "specific": "domain",
+            "important": true,
+            "description": "Description of the field. Can be displayed as tooltip info\n"
         },
         "default": {
+            "appliesNot": [
+                "model",
+                "form"
+            ],
             "type": []
         },
         "maximum": {
             "type": [
                 "number"
+            ],
+            "appliesNot": [
+                "model",
+                "form"
             ]
         },
         "minimum": {
             "type": [
                 "number"
+            ],
+            "appliesNot": [
+                "model",
+                "form"
             ]
         },
         "maxLength": {
             "$ref": "#/definitions/positiveInteger",
+            "appliesNot": [
+                "model",
+                "form"
+            ],
             "type": []
         },
         "minLength": {
             "$ref": "#/definitions/positiveIntegerDefault0",
+            "appliesNot": [
+                "model",
+                "form"
+            ],
             "type": []
         },
         "pattern": {
             "type": [
                 "string"
             ],
-            "format": "regex"
+            "format": "regex",
+            "appliesNot": [
+                "model",
+                "form"
+            ]
         },
         "items": {
             "anyOf": [
@@ -109,19 +135,35 @@
                 }
             ],
             "default": {},
-            "type": []
+            "type": [
+                "object"
+            ],
+            "important": true,
+            "description": "Lists all models that the form uses.<br>\nThose are included by `$extend`.<br>\nIf multiple instance templates need to be created, use another items hierachy.\n"
         },
         "maxItems": {
             "$ref": "#/definitions/positiveInteger",
+            "appliesNot": [
+                "model",
+                "form"
+            ],
             "type": []
         },
         "minItems": {
             "$ref": "#/definitions/positiveIntegerDefault0",
+            "appliesNot": [
+                "model",
+                "form"
+            ],
             "type": []
         },
         "required": {
             "$ref": "#/definitions/stringArray",
-            "type": []
+            "appliesNot": [
+                "field",
+                "form"
+            ],
+            "description": "Array containing the IDs of all required fields\n"
         },
         "properties": {
             "type": "object",
@@ -129,15 +171,19 @@
                 "$ref": "#"
             },
             "default": {},
-            "description": "Mobo Schema does not use 'properties', it prefers 'items' because the order of the element can be garantueed. Internally, properties are still used because of their easier accessing.",
-            "internal": true
+            "internal": true,
+            "description": "Mobo Schema does not use 'properties', it prefers 'items' because the order of the element can be garantueed.\nInternally, properties are still because of their easier accessing.\n"
         },
         "enum": {
             "type": [
                 "array"
             ],
             "minItems": 1,
-            "uniqueItems": true
+            "uniqueItems": true,
+            "appliesNot": [
+                "model",
+                "form"
+            ]
         },
         "type": {
             "anyOf": [
@@ -153,10 +199,123 @@
                     "uniqueItems": true
                 }
             ],
-            "type": []
+            "type": [
+                "array",
+                "string"
+            ],
+            "important": true,
+            "description": "Defines the data-type.\n"
+        },
+        "$extend": {
+            "type": [
+                "array",
+                "string"
+            ],
+            "pattern": "^/.*/_*.*$",
+            "uniqueItems": true,
+            "important": true,
+            "specific": "intermediary",
+            "description": "This references another mobo json file.\nIt will be included through inheritance, all existing attributes in the parent object will be overwritten.\n"
+        },
+        "$remove": {
+            "type": [
+                "array"
+            ],
+            "minItems": 1,
+            "uniqueItems": true,
+            "specific": "intermediary",
+            "description": "Array, containing the IDs of all items/properties to remove from current object.\n"
+        },
+        "$ignore": {
+            "type": [
+                "boolean"
+            ],
+            "default": false,
+            "specific": "intermediary",
+            "description": "If true, this file will be ignored completely.\n"
+        },
+        "$abstract": {
+            "type": [
+                "boolean"
+            ],
+            "default": false,
+            "specific": "intermediary",
+            "important": true,
+            "description": "If true this object is only used for inheritance and will not be itself.\n"
+        },
+        "$reference": {
+            "type": "object",
+            "minItems": 1,
+            "uniqueItems": true,
+            "internal": true,
+            "specific": "metadata",
+            "description": "For internal use only!\nAfter inheritance is applied, $extend will be replaced through $reference.\n(For keeping info on the heritage)\n"
+        },
+        "$path": {
+            "type": "string",
+            "internal": true,
+            "specific": "metadata",
+            "description": "For internal use only!\nThis stores the path of the object, as used '$extend' or 'format'.\nUsed for improved debugging messages\n"
+        },
+        "$filepath": {
+            "type": "string",
+            "internal": true,
+            "specific": "metadata",
+            "description": "For internal use only!\nThis stores the complete relative path of the development model file.\nUsed for improved debugging messages\n"
+        },
+        "$modelPart": {
+            "type": "string",
+            "internal": true,
+            "specific": "metadata",
+            "description": "For internal use only!\nThis declares the part from the model where object originated (field, form,...)\n"
+        },
+        "itemsOrder": {
+            "type": [
+                "array"
+            ],
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true,
+            "specific": "domain",
+            "important": true,
+            "description": "Array that sets the display order of all (including inherited) properties.<br>\nUnmentioned fields will be appended at the bottom in their original order.\n"
+        },
+        "todo": {
+            "type": [
+                "string"
+            ],
+            "specific": "domain",
+            "description": "If TODO notes are placed here, mobo can print them in the CLI (If the corresponding global setting is enabled)\n"
+        },
+        "note": {
+            "type": [
+                "object",
+                "string"
+            ],
+            "specific": "domain",
+            "description": "Notes can be strings or objects and their content will be ignored\n"
+        },
+        "wikitext": {
+            "type": "string",
+            "internal": true,
+            "specific": "metadata",
+            "description": "For internal use only! This contains wikitext to inject\n"
+        },
+        "deprecated": {
+            "type": [
+                "boolean"
+            ],
+            "default": false,
+            "specific": "domain",
+            "appliesNot": [
+                "model",
+                "form"
+            ],
+            "description": "If true, the field will be deprecated. This means it will not be\ndisplayed in forms, but the template will keep it in order to display old entries.\n"
         },
         "format": {
-            "description": "Describe the semantic format, how to interpret the type. E.g. 'email' or SMW specific datatypes like 'Temperature'",
             "enum": [
                 "date",
                 "date-time",
@@ -177,113 +336,12 @@
                 "temperature"
             ],
             "specific": "domain",
+            "appliesNot": [
+                "model",
+                "form"
+            ],
+            "description": "Describes the semantic format (how to interpret the type).\nE.g. 'email' or SMW specific datatypes like 'Temperature'\n",
             "type": []
-        },
-        "$meta": {
-            "type": "object",
-            "description": "Internal metadata",
-            "internal": true,
-            "specific": "metadata"
-        },
-        "$extend": {
-            "type": [
-                "array",
-                "string"
-            ],
-            "description": "This references another mobo json file. It will be included through inheritance, all existing attributes in the parent object will be overwritten.",
-            "pattern": "^/.*/_*.*$",
-            "uniqueItems": true
-        },
-        "$remove": {
-            "type": [
-                "array"
-            ],
-            "description": "Array, containing the IDs of all items/properties to remove from the current object.",
-            "minItems": 1,
-            "uniqueItems": true
-        },
-        "$reference": {
-            "type": "object",
-            "description": "For internal use only! After inheritance is applied, $extend will be replaced through reference. (For keeping info on the heritage)",
-            "minItems": 1,
-            "uniqueItems": true,
-            "internal": true,
-            "specific": "metadata"
-        },
-        "$path": {
-            "type": "string",
-            "description": "For internal use only! This stores the path of the object, as used in '$extend' or 'format'. Used for improved debugging messages",
-            "internal": true,
-            "specific": "metadata"
-        },
-        "$filepath": {
-            "type": "string",
-            "description": "For internal use only! This stores the complete relative path of the .json file. Used for improved debugging messages",
-            "internal": true,
-            "specific": "metadata"
-        },
-        "$modelPart": {
-            "type": "string",
-            "description": "For internal use only! This declares the part from the model where the object originated (field, form,...)",
-            "internal": true,
-            "specific": "metadata"
-        },
-        "wikitext": {
-            "type": "string",
-            "description": "For internal use only! This contains wikitext to inject",
-            "internal": true,
-            "specific": "metadata"
-        },
-        "$ignore": {
-            "type": [
-                "boolean"
-            ],
-            "description": "If true this file will be ignored.",
-            "default": false,
-            "specific": "domain"
-        },
-        "$abstract": {
-            "type": [
-                "boolean"
-            ],
-            "default": false,
-            "description": "If true this object is only used for inheritance and will not be created itself.",
-            "specific": "domain"
-        },
-        "itemsOrder": {
-            "type": [
-                "array"
-            ],
-            "items": {
-                "type": "string"
-            },
-            "description": "Array that sets the display order of all (including inherited) properties. Unmentioned fields will be appended at the bottom in their original order.",
-            "minItems": 1,
-            "uniqueItems": true,
-            "specific": "domain"
-        },
-        "todo": {
-            "type": [
-                "string"
-            ],
-            "description": "If todo notes are placed here, mobo can output them (this is a setting)",
-            "specific": "domain"
-        },
-        "note": {
-            "type": [
-                "object",
-                "string"
-            ],
-            "description": "Notes can be strings or objects and their content will be ignored",
-            "specific": "domain"
-        },
-        "deprecated": {
-            "type": [
-                "boolean"
-            ],
-            "description": "If true, the field will be deprecated. This means it will not be displayed in forms, but the template will keep it in order to display old entries.",
-            "default": false,
-            "specific": "domain"
         },
         "form": {
             "type": [
@@ -291,6 +349,10 @@
                 "string"
             ],
             "specific": "domain",
+            "appliesNot": [
+                "model",
+                "form"
+            ],
             "description": "Defines which form should be automatically used if the red link is clicked\n",
             "example": [
                 "form: formName\n",
@@ -303,6 +365,10 @@
             ],
             "default": true,
             "specific": "platform",
+            "appliesNot": [
+                "model",
+                "form"
+            ],
             "description": "If set to false, the property will not be saved as a SMW property, through #set or #subobject\n"
         },
         "sf_form": {
@@ -312,36 +378,32 @@
             "link": "https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#.27field.27_tag",
             "additionalProperties": true,
             "specific": "platform",
-            "description": "Object, containing SemanticForms option, that will be redirected to the form"
-        },
-        "showPage": {
-            "type": [
-                "boolean"
+            "appliesNot": [
+                "model",
+                "form"
             ],
-            "description": "If false the field will not be visibly renderd in the page view",
-            "default": true,
-            "specific": "domain"
-        },
-        "showForm": {
-            "type": [
-                "boolean"
-            ],
-            "description": "If false, the field will not be visible in the form edit view",
-            "default": true,
-            "specific": "domain"
+            "description": "Object, containing SemanticForms option, that will be redirected to the form\n"
         },
         "smw_overwriteOutput": {
             "type": [
                 "string"
             ],
-            "description": "Overwrites the final value of the field, used for both display and data set",
-            "specific": "implementation"
+            "specific": "implementation",
+            "appliesNot": [
+                "model",
+                "form"
+            ],
+            "description": "Overwrites the final value of the field, used for both display and data set\n"
         },
         "smw_overwriteOutputToLink": {
             "type": [
                 "boolean"
             ],
             "specific": "platform",
+            "appliesNot": [
+                "model",
+                "form"
+            ],
             "description": "If true, this will create a link in display mode, using #formredlink if applicable\n"
         },
         "smw_overwriteDisplay": {
@@ -349,13 +411,21 @@
                 "string"
             ],
             "specific": "implementation",
-            "description": "Overwrites only the display value of the current field"
+            "appliesNot": [
+                "model",
+                "form"
+            ],
+            "description": "Overwrites only the display value of the current field\n"
         },
         "smw_overwriteData": {
             "type": [
                 "string"
             ],
             "specific": "implementation",
+            "appliesNot": [
+                "model",
+                "form"
+            ],
             "description": "Overwrites the final #set or #subobject value of the field. This\nwill also overwrite smw_overwriteOutput.\n"
         },
         "smw_forceSet": {
@@ -364,28 +434,61 @@
             ],
             "default": false,
             "specific": "platform",
+            "appliesNot": [
+                "model",
+                "form"
+            ],
             "description": "Forces the semantic storage of the attribute through the #set parser function.\nThis is useful for #subobject models that want to expose one or more fields as regular #set properties.\n"
         },
         "smw_arraymaptemplate": {
             "type": [
                 "string"
             ],
-            "description": "Name of the arraymap template to use. Field needs to be of type `array`.",
             "link": "https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Semantic_Forms_and_templates#arraymaptemplate",
             "default": false,
-            "specific": "platform"
+            "specific": "platform",
+            "appliesNot": [
+                "model",
+                "form"
+            ],
+            "description": "Name of the arraymap template to use. Field needs to be of type `array`.\n"
         },
         "smw_drilldown": {
             "type": [
                 "boolean"
             ],
-            "description": "If the global settings `smw_semanticDrilldown` is enabled, fields with smw_drilldown set to true will be filterable.",
             "default": false,
-            "specific": "platform"
+            "specific": "platform",
+            "appliesNot": [
+                "model",
+                "form"
+            ],
+            "description": "If the global settings `smw_semanticDrilldown` is enabled, fields\nwith smw_drilldown set to true will be filterable.\n"
+        },
+        "showPage": {
+            "type": [
+                "boolean"
+            ],
+            "default": true,
+            "specific": "domain",
+            "appliesNot": [
+                "form"
+            ],
+            "description": "Whether to display this element in the page view."
+        },
+        "showForm": {
+            "type": [
+                "boolean"
+            ],
+            "default": true,
+            "specific": "domain",
+            "appliesNot": [
+                "form"
+            ],
+            "description": "Whether to display this element in the form-edit view."
         }
     },
     "default": {},
-    "additionalProperties": false,
-    "title": "mobo fields"
+    "title": "Mobo Fields"
 }
 ```
