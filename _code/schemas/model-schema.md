@@ -183,7 +183,8 @@ templates or add arbitrary wikitext)
        </tr>
        <tr>
            <td class="schema-propertyId">smw_category</td>
-           <td class="schema-description"><p class="schema-description">Whether the template should tag the page as a category of the model-name.
+           <td class="schema-description"><p class="schema-description">If true, the models template will assign a category.
+The name of the category is the model ID.
 </p><p class="schema-default"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span></p><p class="schema-default"><strong>Default</strong>: true</p></td>
            <td class="schema-specific schema-specific-platform" title="platform specific"></td>
        </tr>
@@ -191,7 +192,8 @@ templates or add arbitrary wikitext)
            <td class="schema-propertyId">smw_display</td>
            <td class="schema-description"><p class="schema-description">Defines the template output rendering mode, whether the template should use tables, ul, etc.<br>
 The rendering mode must be available in  /mobo_template/template.wikitext!
-</p><p class="schema-default"><strong>Type(s)</strong>: <span class="schema-type schema-type-string">string</span></p><p class="schema-default"><strong>Default</strong>: "table"</p></td>
+</p><p class="schema-default"><strong>Type(s)</strong>: <span class="schema-type schema-type-string">string</span></p><p class="schema-default"><strong>Default</strong>: "table"</p><p class="schema-example-header"><strong>Example</strong>:</p><pre class="schema-example"><code>smw_display: ul
+</code></pre></td>
            <td class="schema-specific schema-specific-platform" title="platform specific"></td>
        </tr>
        <tr>
@@ -294,13 +296,16 @@ templates or add arbitrary wikitext)
            <td class="schema-propertyId">smw_subobject</td>
            <td class="schema-description"><p class="schema-description">If true, this models attributes will be created as subobjects.
 Useful if this model is used through multiple instances.
+Mobo will automantically introduce two additional helper attributes `subobjectType` and `subobjectParent` that help with querying subobjects.
 </p><p class="schema-default"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span></p><p class="schema-default"><strong>Default</strong>: false</p></td>
            <td class="schema-specific schema-specific-platform" title="platform specific"></td>
        </tr>
        <tr>
            <td class="schema-propertyId">smw_subobjectExtend</td>
            <td class="schema-description"><p class="schema-description">Contains a set (object) of additional #subobject properties
-</p><p class="schema-default"><strong>Type(s)</strong>: <span class="schema-type schema-type-object">object</span></p></td>
+</p><p class="schema-default"><strong>Type(s)</strong>: <span class="schema-type schema-type-object">object</span></p><p class="schema-example-header"><strong>Example</strong>:</p><pre class="schema-example"><code>smw_subobjectExtend:
+  additionalSubObjProp2: 'Some fixed text'
+</code></pre></td>
            <td class="schema-specific schema-specific-platform" title="platform specific"></td>
        </tr>
        <tr>

@@ -513,7 +513,7 @@
             "appliesNot": [
                 "form"
             ],
-            "description": "If true, this models attributes will be created as subobjects.\nUseful if this model is used through multiple instances.\n"
+            "description": "If true, this models attributes will be created as subobjects.\nUseful if this model is used through multiple instances.\nMobo will automantically introduce two additional helper attributes `subobjectType` and `subobjectParent` that help with querying subobjects.\n"
         },
         "smw_subobjectExtend": {
             "type": [
@@ -523,7 +523,10 @@
             "appliesNot": [
                 "form"
             ],
-            "description": "Contains a set (object) of additional #subobject properties\n"
+            "description": "Contains a set (object) of additional #subobject properties\n",
+            "example": [
+                "smw_subobjectExtend:\n  additionalSubObjProp2: 'Some fixed text'\n"
+            ]
         },
         "smw_display": {
             "type": [
@@ -534,7 +537,10 @@
             "appliesNot": [
                 "form"
             ],
-            "description": "Defines the template output rendering mode, whether the template should use tables, ul, etc.<br>\nThe rendering mode must be available in  /mobo_template/template.wikitext!\n"
+            "description": "Defines the template output rendering mode, whether the template should use tables, ul, etc.<br>\nThe rendering mode must be available in  /mobo_template/template.wikitext!\n",
+            "example": [
+                "smw_display: ul\n"
+            ]
         },
         "smw_prepend": {
             "type": [
@@ -753,7 +759,7 @@
             "appliesNot": [
                 "form"
             ],
-            "description": "Whether the template should tag the page as a category of the model-name.\n"
+            "description": "If true, the models template will assign a category.\nThe name of the category is the model ID.\n"
         },
         "smw_categories": {
             "type": [

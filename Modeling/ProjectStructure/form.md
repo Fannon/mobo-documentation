@@ -15,7 +15,7 @@ since most information has already been declared and is inherited from fields an
 ## Available Properties
 {% include "./../../_code/schemas/form-schema.md" %}
 
-## Commonly used form propererties
+## Important Concepts
 ### items
 The `items` property contains an array of all models and templates that are used by the form.
 Models are imported using `$extend`.
@@ -34,7 +34,13 @@ items:
 ```
 
 #### Including Templates
-If you want to include templates into the form, you can do so by $extending an smw_template.
+If you want to include templates into the form, you can do so by using `$extend` to an smw_template.
+
+```yaml
+- $extend: /smw_template/NetworkPrinterHeader
+    showForm: true # True by default, can be ommited
+    showPage: true # True by default, can be ommited
+```
 
 There are two options, both true by default:
 
