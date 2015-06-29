@@ -1,11 +1,11 @@
 # The Mobo Manual
 ## Premises
-In order to learn mobo, it is mandatory to understand the basic concepts of [JSON](http://json.org/) and [JSON Schema](http://json-schema.org/) first.
+To learn mobo, it is mandatory to understand the basic concepts of [JSON](http://json.org/) and [JSON Schema](http://json-schema.org/) first.
 I would also highly recommended to learn [YAML](http://yaml.org/) and use it instead of JSON.
 
-JSON Schema is a simple and concise standard which should only take a few hours to learn it.
+JSON Schema is a simple and concise standard which can be leaned in a few hours.
 There is a [great tutorial](http://spacetelescope.github.io/understanding-json-schema/) by the Space Telescope Science Institute.
-The time learning JSON Schema is a good investment anyhow, since it can be useful in other contexts as well.
+The time learning JSON Schema is a good investment anyhow. It is a versataile standard that can be used in many different situations.
 
 Some understanding of [MediaWiki](http://mediawiki.org), [SemanticMediaWiki](https://semantic-mediawiki.org/) and [SemanticForms](https://www.mediawiki.org/wiki/Extension:Semantic_Forms) is also highly recommended,
 since they are the target system. Their architecture has a huge impact on how models are developed.
@@ -13,6 +13,7 @@ since they are the target system. Their architecture has a huge impact on how mo
 If the default templates need to be changed, an understanding of the [Handlebars.js template engine](http://handlebarsjs.com/) is of advantage.
 
 ## Create a new project
+
 To start with the model development, an empty project structure has to be created first:
 
 ```sh
@@ -90,24 +91,55 @@ smw_postfix: |
 
 To batch-convert a project from JSON to YAML notation (or the other way around),
 I can recommend the [yamljs](https://www.npmjs.com/package/yamljs) CLI tool or the [json2yaml.com](http://www.json2yaml.com/) WebApp.
-Conversion between both formats should be easy and fast, so the choice of notation format should have no lock-in effect.
+Conversion between both formats should be easy and fast, so the choice of notation format should have no lock in effect.
 
 Since YAML is a superset of JSON, it is also possible to write/mix JSON into .yaml files.
 
 ## Mobo Schema
 Mobo uses JSON Schema as a basis for the model development.
-To fit the model development better, some additions, changes and simplifications were made.
+To fit the model development better, some additions and simplifications are introduced.
 The adjusted JSON Schema will be referred to as *mobo Schema*.
 
 ### Additions
-#### Inheritance: $extend and $remove,
-The `$extend` keyword takes a string or an array of strings that describe the path to another model file.
-`$extend` can be used with fields, models and forms. Circular dependencies are not allowed, however.
+#### Inheritance: $extend
+The `$extend` keyword is used to inherit other models and implicitly defines how those relate to each other.
+It takes a string (or an array of strings) that describe the path to another model file.
+`$extend` can be used with fields, models, forms and smw_templates. Circular dependencies are not allowed.
+
+##### Parent - Child Inheritance
+Use `$extend` on the main level, to inherit a parent object and extend it:
 
 ```yaml
+# Inherit an abstract _Shape
 $extend: /model/_Shape
+
+# Overwrite title
+title: Circle
+
+# Add a new field (in addition to those that are inherited)
+items:
+  - $extend: /field/radius
 ```
 
+This goes hand in hand with the `$abstract` keyword.
+
+##### Inheritance to include and reference to other model parts
+Use `$extend` to include fields in models, models in forms, or templates in forms.
+The inheritance works just the same as on the main level.
+This is how the actual model structure and the relationships between forms, models and fields are defined.
+
+**TIPP**: You can overwrite inherited properties by adding them on the same level as the extend.
+
+```yaml
+title: Model with fields
+
+items:
+  - $extend: /field/fieldOne
+  - $extend: /field/fieldTwo
+    title: Overwrite the title of fieldTwo
+```
+
+##### Inheritance Behaviour
 Mobo will inherit all properties of the referenced parent object to the child object where this statement was made.
 If an array of multiple parent objects is given, the inheritance order will be the order of the array.
 
@@ -141,6 +173,17 @@ JSON Schema has a similar keyword, called `$ref`.
 The official spec does not specify an inheritance behavior, though.
 To avoid confusion, mobo supports only the custom $extend property.
 
+#### $remove
+`$remove` is an array, that contains the IDs of all `item` to remove.
+Use this to remove any unwanted items that have been inherited from parents.
+
+Use this with care! A good designed object oriented structure probably wont need this.
+
+```yaml
+$remove:
+  - fieldThree
+```
+
 #### $abstract
 Abstract objects will only be used for inheritance purposes.
 They do not create any wiki related pages.
@@ -151,9 +194,11 @@ To (temporarily) remove objects from the model the ignore attribute can be set t
 The `$abstract` keyword is not inherited, so children of abstract objects don't have to explicitly set abstract: false.
 
 #### itemsOrder
-To easily change the order of the items array, the keyword `itemsOrder` can be used.
+To change the order of the items array, the keyword `itemsOrder` can be used.
+This becomes necessary when the inherited items do not end up in the desired order.
 
-The order is defined through an array of the IDs of the items. The ID is the filename of the referenced object.
+The `itemsOrder` keyword takes an array of the IDs of the items. (The ID is the filename of the referenced object.)
+Any items that have not been mentioned will be appended at the bottom in their original order.
 
 ```yaml
 itemsOrder:
@@ -165,9 +210,6 @@ itemsOrder:
 There are many implementation specific additions to the schema.
 They are prefixed with `smw_` and `sf_` and support the various settings
 and possibilities of Semantic MediaWiki and Semantic Forms.
-
-
-A comprehensive overview can be found in the [Schemas Documentation](../Schemas/).
 
 The implementation specific settings are often directly passed through to the end system.
 In those cases, the available options are documented by the end system.
@@ -210,4 +252,4 @@ Advanced validation properties can be used for internal validation, though (e.g.
 Now that you've learned the basics of mobo, you may continue with:
 * [The tutorial](hardware-tutorial.md) gives a fast overview how it's like to work with mobo
 * An overview about the [project structure](ProjectStructure/)
-* The [Schemas Documentation](../Schemas/) is important for technical reference
+* The project structure also contains a complete and up to date documentation of all available properties.
