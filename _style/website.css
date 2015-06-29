@@ -44,6 +44,7 @@
 .book .book-body .page-wrapper .page-inner section.normal table th,
 .book .book-body .page-wrapper .page-inner section.normal table td {
   padding: 4px 8px;
+  text-align: left;
 }
 
 /** Schema Table */
@@ -68,7 +69,7 @@
 }
 .schema-table .schema-type {
     padding: 0 4px 1px 4px;
-    margin: 4px 2px;
+    margin: 0 2px;
     background: #555;
     color: #FFF;
     border-radius: 2px;
