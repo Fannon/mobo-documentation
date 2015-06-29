@@ -58,8 +58,9 @@
     -moz-hyphens: auto;
     hyphens: auto;
 }
-.schema-table .schema-propertyName {
-    border-left: 4px solid #CCC;
+
+.schema-propertyId {
+    font-family: Consolas,"Liberation Mono",Menlo,Courier,monospace;
 }
 
 /* Schema Type */
