@@ -10,7 +10,7 @@ Models will create Templates and Categories. They define the actual structure of
 * The template “rendering” mode (table, unordered lists, …)
 * If they are stored as regular semantic properties or a subobject
 * MediaWiki Categories
-* Prefix and Postfix wikitext
+* Prepend and append wikitext
 
 ## Available Properties
 {% include "./../../_code/schemas/model-schema.md" %}

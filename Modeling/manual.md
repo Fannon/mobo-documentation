@@ -3,7 +3,7 @@
 To learn mobo, it is mandatory to understand the basic concepts of [JSON](http://json.org/) and [JSON Schema](http://json-schema.org/) first.
 I would also highly recommended to learn [YAML](http://yaml.org/) and use it instead of JSON.
 
-JSON Schema is a simple and concise standard which can be leaned in a few hours.
+JSON Schema is a simple and concise standard which can be learned in a few hours.
 There is a [great tutorial](http://spacetelescope.github.io/understanding-json-schema/) by the Space Telescope Science Institute.
 The time learning JSON Schema is a good investment anyhow. It is a versataile standard that can be used in many different situations.
 

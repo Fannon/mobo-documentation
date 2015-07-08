@@ -99,15 +99,24 @@
 
 /* Schema Specific */
 .schema-table .schema-specific {
+    padding: 0 6px 1px 6px;
+    margin: 0 2px;
+    color: #FFF;
+    background: #777;
+    border-radius: 2px;
+    font-size: 0.9em;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
 }
 .schema-table  .schema-specific-domain {
-    background: #FEFFE4;
+    background: #E2B818;
 }
 .schema-table  .schema-specific-platform {
-    background: #FFF1DD;
+    background: #E66C00;
 }
 .schema-table  .schema-specific-implementation {
-    background: #FFE4E4;
+    background: #C32424;
 }
 
 

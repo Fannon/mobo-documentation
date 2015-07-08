@@ -7,7 +7,7 @@
 Schema-Driven Development (simplified MDE) way.
 The model is written in [YAML](http://yaml.org/) or [JSON](http://json.org/), using object oriented [JSON Schema](http://json-schema.org/).
 
-Since the model is organized in folders and plain text files, an editor of choice and Version Control Systems like Git can be used.
+Since the model is organized in plain text files and folders, the user is free to use an editor of Version Control System choice.
 There is no need of additional tooling.
 
 The main feature of mobo is the model development workflow.
