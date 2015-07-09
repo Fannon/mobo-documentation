@@ -51,7 +51,7 @@
             "format": null,
             "internal": true,
             "specific": "domain",
-            "description": "Usually auto generated ID, should be identical to the filename\n"
+            "description": "Usually auto generated ID, identical to the filename.\n"
         },
         "$schema": {
             "type": "string",
@@ -72,14 +72,14 @@
             ],
             "specific": "domain",
             "important": true,
-            "description": "Description of the field. Can be displayed as tooltip info\n"
+            "description": "General Description. Fields may use them as tooltips, forms can display a small description box.\nThis depends on the used template.\n"
         },
         "default": {
             "appliesNot": [
                 "model",
                 "form"
             ],
-            "description": "The default value of the field.\n",
+            "description": "The default value. Applies only to fields.\n",
             "type": []
         },
         "maximum": {
@@ -91,7 +91,7 @@
                 "model",
                 "form"
             ],
-            "description": "The maximum value of a number\n"
+            "description": "The maximum value of a number.\n"
         },
         "minimum": {
             "type": [
@@ -102,7 +102,7 @@
                 "model",
                 "form"
             ],
-            "description": "The minimum value of a number\n"
+            "description": "The minimum value of a number.\n"
         },
         "maxLength": {
             "$ref": "#/definitions/positiveInteger",
@@ -114,7 +114,7 @@
                 "model",
                 "form"
             ],
-            "description": "The maximum length of a string\n"
+            "description": "The maximum length of a string.\n"
         },
         "minLength": {
             "$ref": "#/definitions/positiveIntegerDefault0",
@@ -126,7 +126,7 @@
                 "model",
                 "form"
             ],
-            "description": "The minimum length of a string\n"
+            "description": "The minimum length of a string.\n"
         },
         "pattern": {
             "type": [
@@ -138,7 +138,7 @@
                 "model",
                 "form"
             ],
-            "description": "Regular Expression (Regex) pattern<br>\nThis is currently not supported by Semantic Forms.\n"
+            "description": "Provides a Regular Expression (Regex) pattern to validate the field value.<br>\nThis is currently not supported by Semantic Forms.\n"
         },
         "items": {
             "anyOf": [
@@ -186,7 +186,7 @@
                 "field",
                 "form"
             ],
-            "description": "Array containing the IDs of all required fields\n",
+            "description": "Array containing the IDs of all required fields.\n",
             "type": []
         },
         "properties": {
@@ -196,7 +196,7 @@
             },
             "default": {},
             "internal": true,
-            "description": "Mobo Schema does not use 'properties', it prefers 'items' because the order of the element can be garantueed.\nInternally, properties are still because of their easier accessing.\n"
+            "description": "Mobo Schema does not use 'properties', it prefers 'items' since the order of the element must be garantueed.\nInternally, properties are still because of their easier accessing.\n"
         },
         "enum": {
             "type": [
@@ -249,7 +249,12 @@
             "uniqueItems": true,
             "important": true,
             "specific": "intermediary",
-            "description": "This references another mobo json file.\nIt will be included through inheritance, all existing attributes in the parent object will be overwritten.\n"
+            "description": "This includes and extends another file of the development.<br>\nInheritance is applied, the children (the current file) overwrites the parent properties.\n",
+            "example": [
+                "# Inherit a single parent\n$extend: /model/_Shape\n",
+                "# Multiple parents are possible\n$extend:\n  - /field/fieldA\n  - /field/fieldB\n",
+                "# extend is also used to import fields into models or models into forms.\ntitle: A Model with two fields\nitems:\n  - $extend: /field/fieldA\n  - $extend: /field/fieldB\n"
+            ]
         },
         "$remove": {
             "type": [
@@ -266,7 +271,7 @@
             ],
             "default": false,
             "specific": "intermediary",
-            "description": "If true, this file will be ignored completely.\n"
+            "description": "If true, this file will be ignored completely.<br>\nUse this to temporarily remove parts of the development model without deleting them.\n"
         },
         "$abstract": {
             "type": [
@@ -275,7 +280,7 @@
             "default": false,
             "specific": "intermediary",
             "important": true,
-            "description": "If true this object is only used for inheritance and will not be itself.\n"
+            "description": "If true this object is only used for inheritance and will not be created by itself.\n"
         },
         "$reference": {
             "type": "object",
@@ -314,7 +319,7 @@
             "uniqueItems": true,
             "specific": "domain",
             "important": true,
-            "description": "In case that fields have been inherited, they might not end up in the correct order.\nThe itemsOrder array lists the order of the fields.\nEvery field that is not listed will be appended at the bottom, in their regular order.\n",
+            "description": "In case that fields have been inherited, they might not end up in the correct order.<br>\nThe itemsOrder array lists the order of the fields.\nEvery field that is not listed will be appended at the bottom, in their regular order.\n",
             "example": [
                 "itemsOrder:\n  - brand\n  - modelName\n"
             ]
@@ -324,13 +329,13 @@
                 "string"
             ],
             "specific": "domain",
-            "description": "If TODO notes are placed here, mobo can print them in the CLI (If the corresponding global setting is enabled)\n"
+            "description": "If TODO notes are placed here, mobo can print them in the CLI (If the corresponding global setting is enabled).\n"
         },
         "wikitext": {
             "type": "string",
             "internal": true,
             "specific": "metadata",
-            "description": "For internal use only! This contains wikitext to inject\n"
+            "description": "For internal use only! This contains wikitext to inject.\n"
         }
     },
     "default": {}

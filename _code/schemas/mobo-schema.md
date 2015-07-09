@@ -8,18 +8,30 @@
    <tbody>
        <tr>
            <td class="schema-propertyId"><strong>$abstract</strong></td>
-           <td class="schema-description"><p class="schema-description">If true this object is only used for inheritance and will not be itself.
+           <td class="schema-description"><p class="schema-description">If true this object is only used for inheritance and will not be created by itself.
 </p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-intermediary">intermediary</span></p><p class="schema-default"><strong>Default</strong>: false</p></td>
        </tr>
        <tr>
            <td class="schema-propertyId"><strong>$extend</strong></td>
-           <td class="schema-description"><p class="schema-description">This references another mobo json file.
-It will be included through inheritance, all existing attributes in the parent object will be overwritten.
-</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-array">array</span><span class="schema-type schema-type-string">string</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-intermediary">intermediary</span></p></td>
+           <td class="schema-description"><p class="schema-description">This includes and extends another file of the development.<br>
+Inheritance is applied, the children (the current file) overwrites the parent properties.
+</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-array">array</span><span class="schema-type schema-type-string">string</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-intermediary">intermediary</span></p><p class="schema-example-header"><strong>Example</strong>:</p><pre class="schema-example"><code># Inherit a single parent
+$extend: /model/_Shape
+</code></pre><p class="schema-example-header"><strong>Example</strong>:</p><pre class="schema-example"><code># Multiple parents are possible
+$extend:
+  - /field/fieldA
+  - /field/fieldB
+</code></pre><p class="schema-example-header"><strong>Example</strong>:</p><pre class="schema-example"><code># extend is also used to import fields into models or models into forms.
+title: A Model with two fields
+items:
+  - $extend: /field/fieldA
+  - $extend: /field/fieldB
+</code></pre></td>
        </tr>
        <tr>
            <td class="schema-propertyId">$ignore</td>
-           <td class="schema-description"><p class="schema-description">If true, this file will be ignored completely.
+           <td class="schema-description"><p class="schema-description">If true, this file will be ignored completely.<br>
+Use this to temporarily remove parts of the development model without deleting them.
 </p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-intermediary">intermediary</span></p><p class="schema-default"><strong>Default</strong>: false</p></td>
        </tr>
        <tr>
@@ -29,12 +41,13 @@ It will be included through inheritance, all existing attributes in the parent o
        </tr>
        <tr>
            <td class="schema-propertyId">default</td>
-           <td class="schema-description"><p class="schema-description">The default value of the field.
+           <td class="schema-description"><p class="schema-description">The default value. Applies only to fields.
 </p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p></td>
        </tr>
        <tr>
            <td class="schema-propertyId"><strong>description</strong></td>
-           <td class="schema-description"><p class="schema-description">Description of the field. Can be displayed as tooltip info
+           <td class="schema-description"><p class="schema-description">General Description. Fields may use them as tooltips, forms can display a small description box.
+This depends on the used template.
 </p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-string">string</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p></td>
        </tr>
        <tr>
@@ -54,7 +67,7 @@ enum:
        </tr>
        <tr>
            <td class="schema-propertyId"><strong>itemsOrder</strong></td>
-           <td class="schema-description"><p class="schema-description">In case that fields have been inherited, they might not end up in the correct order.
+           <td class="schema-description"><p class="schema-description">In case that fields have been inherited, they might not end up in the correct order.<br>
 The itemsOrder array lists the order of the fields.
 Every field that is not listed will be appended at the bottom, in their regular order.
 </p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-array">array</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p><p class="schema-example-header"><strong>Example</strong>:</p><pre class="schema-example"><code>itemsOrder:
@@ -69,12 +82,12 @@ Every field that is not listed will be appended at the bottom, in their regular 
        </tr>
        <tr>
            <td class="schema-propertyId"><i class="fade">maxLength</i></td>
-           <td class="schema-description"><p class="schema-description">The maximum length of a string
+           <td class="schema-description"><p class="schema-description">The maximum length of a string.
 </p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-number">number</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p><p class="schema-unsupported"><strong>Unsupported</strong>: This property is currently unsupported by the end-system.</p></td>
        </tr>
        <tr>
            <td class="schema-propertyId"><i class="fade">maximum</i></td>
-           <td class="schema-description"><p class="schema-description">The maximum value of a number
+           <td class="schema-description"><p class="schema-description">The maximum value of a number.
 </p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-number">number</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p><p class="schema-unsupported"><strong>Unsupported</strong>: This property is currently unsupported by the end-system.</p></td>
        </tr>
        <tr>
@@ -84,23 +97,23 @@ Every field that is not listed will be appended at the bottom, in their regular 
        </tr>
        <tr>
            <td class="schema-propertyId"><i class="fade">minLength</i></td>
-           <td class="schema-description"><p class="schema-description">The minimum length of a string
+           <td class="schema-description"><p class="schema-description">The minimum length of a string.
 </p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-number">number</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p><p class="schema-unsupported"><strong>Unsupported</strong>: This property is currently unsupported by the end-system.</p></td>
        </tr>
        <tr>
            <td class="schema-propertyId"><i class="fade">minimum</i></td>
-           <td class="schema-description"><p class="schema-description">The minimum value of a number
+           <td class="schema-description"><p class="schema-description">The minimum value of a number.
 </p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-number">number</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p><p class="schema-unsupported"><strong>Unsupported</strong>: This property is currently unsupported by the end-system.</p></td>
        </tr>
        <tr>
            <td class="schema-propertyId"><i class="fade">pattern</i></td>
-           <td class="schema-description"><p class="schema-description">Regular Expression (Regex) pattern<br>
+           <td class="schema-description"><p class="schema-description">Provides a Regular Expression (Regex) pattern to validate the field value.<br>
 This is currently not supported by Semantic Forms.
 </p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-string">string</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p><p class="schema-unsupported"><strong>Unsupported</strong>: This property is currently unsupported by the end-system.</p></td>
        </tr>
        <tr>
            <td class="schema-propertyId">required</td>
-           <td class="schema-description"><p class="schema-description">Array containing the IDs of all required fields
+           <td class="schema-description"><p class="schema-description">Array containing the IDs of all required fields.
 </p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p></td>
        </tr>
        <tr>
@@ -110,7 +123,7 @@ This is currently not supported by Semantic Forms.
        </tr>
        <tr>
            <td class="schema-propertyId">todo</td>
-           <td class="schema-description"><p class="schema-description">If TODO notes are placed here, mobo can print them in the CLI (If the corresponding global setting is enabled)
+           <td class="schema-description"><p class="schema-description">If TODO notes are placed here, mobo can print them in the CLI (If the corresponding global setting is enabled).
 </p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-string">string</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p></td>
        </tr>
        <tr>

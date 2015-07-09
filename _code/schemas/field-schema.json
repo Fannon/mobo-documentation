@@ -51,7 +51,7 @@
             "format": null,
             "internal": true,
             "specific": "domain",
-            "description": "Usually auto generated ID, should be identical to the filename\n"
+            "description": "Usually auto generated ID, identical to the filename.\n"
         },
         "$schema": {
             "type": "string",
@@ -72,14 +72,14 @@
             ],
             "specific": "domain",
             "important": true,
-            "description": "Description of the field. Can be displayed as tooltip info\n"
+            "description": "General Description. Fields may use them as tooltips, forms can display a small description box.\nThis depends on the used template.\n"
         },
         "default": {
             "appliesNot": [
                 "model",
                 "form"
             ],
-            "description": "The default value of the field.\n",
+            "description": "The default value. Applies only to fields.\n",
             "type": []
         },
         "maximum": {
@@ -91,7 +91,7 @@
                 "model",
                 "form"
             ],
-            "description": "The maximum value of a number\n"
+            "description": "The maximum value of a number.\n"
         },
         "minimum": {
             "type": [
@@ -102,7 +102,7 @@
                 "model",
                 "form"
             ],
-            "description": "The minimum value of a number\n"
+            "description": "The minimum value of a number.\n"
         },
         "maxLength": {
             "$ref": "#/definitions/positiveInteger",
@@ -114,7 +114,7 @@
                 "model",
                 "form"
             ],
-            "description": "The maximum length of a string\n"
+            "description": "The maximum length of a string.\n"
         },
         "minLength": {
             "$ref": "#/definitions/positiveIntegerDefault0",
@@ -126,7 +126,7 @@
                 "model",
                 "form"
             ],
-            "description": "The minimum length of a string\n"
+            "description": "The minimum length of a string.\n"
         },
         "pattern": {
             "type": [
@@ -138,7 +138,7 @@
                 "model",
                 "form"
             ],
-            "description": "Regular Expression (Regex) pattern<br>\nThis is currently not supported by Semantic Forms.\n"
+            "description": "Provides a Regular Expression (Regex) pattern to validate the field value.<br>\nThis is currently not supported by Semantic Forms.\n"
         },
         "items": {
             "anyOf": [
@@ -190,7 +190,7 @@
                 "field",
                 "form"
             ],
-            "description": "Array containing the IDs of all required fields\n"
+            "description": "Array containing the IDs of all required fields.\n"
         },
         "properties": {
             "type": "object",
@@ -199,7 +199,7 @@
             },
             "default": {},
             "internal": true,
-            "description": "Mobo Schema does not use 'properties', it prefers 'items' because the order of the element can be garantueed.\nInternally, properties are still because of their easier accessing.\n"
+            "description": "Mobo Schema does not use 'properties', it prefers 'items' since the order of the element must be garantueed.\nInternally, properties are still because of their easier accessing.\n"
         },
         "enum": {
             "type": [
@@ -252,7 +252,12 @@
             "uniqueItems": true,
             "important": true,
             "specific": "intermediary",
-            "description": "This references another mobo json file.\nIt will be included through inheritance, all existing attributes in the parent object will be overwritten.\n"
+            "description": "This includes and extends another file of the development.<br>\nInheritance is applied, the children (the current file) overwrites the parent properties.\n",
+            "example": [
+                "# Inherit a single parent\n$extend: /model/_Shape\n",
+                "# Multiple parents are possible\n$extend:\n  - /field/fieldA\n  - /field/fieldB\n",
+                "# extend is also used to import fields into models or models into forms.\ntitle: A Model with two fields\nitems:\n  - $extend: /field/fieldA\n  - $extend: /field/fieldB\n"
+            ]
         },
         "$remove": {
             "type": [
@@ -269,7 +274,7 @@
             ],
             "default": false,
             "specific": "intermediary",
-            "description": "If true, this file will be ignored completely.\n"
+            "description": "If true, this file will be ignored completely.<br>\nUse this to temporarily remove parts of the development model without deleting them.\n"
         },
         "$abstract": {
             "type": [
@@ -278,7 +283,7 @@
             "default": false,
             "specific": "intermediary",
             "important": true,
-            "description": "If true this object is only used for inheritance and will not be itself.\n"
+            "description": "If true this object is only used for inheritance and will not be created by itself.\n"
         },
         "$reference": {
             "type": "object",
@@ -317,7 +322,7 @@
             "uniqueItems": true,
             "specific": "domain",
             "important": true,
-            "description": "In case that fields have been inherited, they might not end up in the correct order.\nThe itemsOrder array lists the order of the fields.\nEvery field that is not listed will be appended at the bottom, in their regular order.\n",
+            "description": "In case that fields have been inherited, they might not end up in the correct order.<br>\nThe itemsOrder array lists the order of the fields.\nEvery field that is not listed will be appended at the bottom, in their regular order.\n",
             "example": [
                 "itemsOrder:\n  - brand\n  - modelName\n"
             ]
@@ -327,13 +332,13 @@
                 "string"
             ],
             "specific": "domain",
-            "description": "If TODO notes are placed here, mobo can print them in the CLI (If the corresponding global setting is enabled)\n"
+            "description": "If TODO notes are placed here, mobo can print them in the CLI (If the corresponding global setting is enabled).\n"
         },
         "wikitext": {
             "type": "string",
             "internal": true,
             "specific": "metadata",
-            "description": "For internal use only! This contains wikitext to inject\n"
+            "description": "For internal use only! This contains wikitext to inject.\n"
         },
         "format": {
             "type": [
@@ -377,7 +382,7 @@
                 "model",
                 "form"
             ],
-            "description": "Defines which form should be automatically used if the red link is clicked.\nIt can link to one multiple forms.<br>\nIt sets implicitly: `type: string`  and `format: Page`\n",
+            "description": "Defines which form should be automatically used if the red link is clicked.\nIt can link to one multiple forms.<br>\nWhen form it used, it implies: `type: string` and `format: Page`\n",
             "example": [
                 "form: formName\n",
                 "form:\n  - formName1\n  - formName2\n"
@@ -393,7 +398,7 @@
                 "model",
                 "form"
             ],
-            "description": "If true, the field will be deprecated. This means it will not be\ndisplayed in forms, but the template will keep it in order to display old entries.\n"
+            "description": "If true, the field will be deprecated.\nIt will not be displayed in forms, but the template will keep it in order to display old entries.\n"
         },
         "showPage": {
             "type": [
@@ -404,7 +409,7 @@
             "appliesNot": [
                 "form"
             ],
-            "description": "Whether to display this element in the page view."
+            "description": "Whether to display this element in the page view.\n"
         },
         "showForm": {
             "type": [
@@ -416,7 +421,7 @@
             "appliesNot": [
                 "form"
             ],
-            "description": "Whether to display this element in the form-edit view."
+            "description": "Whether to display this element in the form-edit view.\n"
         },
         "smw_type": {
             "type": "string",
@@ -499,7 +504,7 @@
                 "model",
                 "form"
             ],
-            "description": "Overwrites the final #set or #subobject value of the field. This\nwill also overwrite smw_overwriteOutput.\n"
+            "description": "Overwrites the final #set or #subobject value of the field.\n"
         },
         "smw_forceSet": {
             "type": [
@@ -511,7 +516,7 @@
                 "model",
                 "form"
             ],
-            "description": "Forces the semantic storage of the attribute through the #set parser function.\nThis is useful for #subobject models that want to expose one or more fields as regular #set properties.\n"
+            "description": "Forces the semantic storage of the attribute through the #set parser function.<br>\nThis is useful for #subobject models that want to expose one or more fields as regular #set properties.\n"
         },
         "smw_arraymaptemplate": {
             "type": [
@@ -524,7 +529,7 @@
                 "model",
                 "form"
             ],
-            "description": "Name of the arraymap template to use. Field needs to be of type `array`.\n"
+            "description": "Name of the arraymap template to use.<br>\nField needs to be of type `array`.\n"
         },
         "smw_drilldown": {
             "type": [
@@ -536,7 +541,7 @@
                 "model",
                 "form"
             ],
-            "description": "If the global settings `smw_semanticDrilldown` is enabled, fields\nwith smw_drilldown set to true will be filterable.\n"
+            "description": "If the global settings `smw_semanticDrilldown` is enabled,\nfields with smw_drilldown set to true will be filterable.\n"
         }
     },
     "default": {},

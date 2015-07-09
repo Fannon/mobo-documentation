@@ -16,9 +16,9 @@ Models will create Templates and Categories. They define the actual structure of
 {% include "./../../_code/schemas/model-schema.md" %}
 
 ## Annotated Examples
-Model inheritance:
+### Model inheritance
 
-### /model/_Shape.json
+##### /model/_Shape.json
 
 ```yaml
 # Abstract model. Will not be created on the target wiki.
@@ -37,7 +37,7 @@ required:
   - y
 ```
 
-### /model/Circle.json
+##### /model/Circle.json
 
 ```yaml
 $extend: /model/_Shape
