@@ -9,7 +9,8 @@
        <tr>
            <td class="schema-propertyId"><strong>$abstract</strong></td>
            <td class="schema-description"><p class="schema-description">If true this object is only used for inheritance and will not be created by itself.
-</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-intermediary">intermediary</span></p><p class="schema-default"><strong>Default</strong>: false</p></td>
+</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-intermediary">intermediary</span></p><p class="schema-default"><strong>Default</strong>: false</p><p class="schema-example-header"><strong>Example</strong>:</p><pre class="schema-example"><code>$abstract: true
+</code></pre></td>
        </tr>
        <tr>
            <td class="schema-propertyId"><strong>$extend</strong></td>
@@ -32,12 +33,16 @@ items:
            <td class="schema-propertyId">$ignore</td>
            <td class="schema-description"><p class="schema-description">If true, this file will be ignored completely.<br>
 Use this to temporarily remove parts of the development model without deleting them.
-</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-intermediary">intermediary</span></p><p class="schema-default"><strong>Default</strong>: false</p></td>
+</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-intermediary">intermediary</span></p><p class="schema-default"><strong>Default</strong>: false</p><p class="schema-example-header"><strong>Example</strong>:</p><pre class="schema-example"><code>$ignore: true
+</code></pre></td>
        </tr>
        <tr>
            <td class="schema-propertyId">$remove</td>
            <td class="schema-description"><p class="schema-description">Array, containing the IDs of all items/properties to remove from current object.
-</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-array">array</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-intermediary">intermediary</span></p></td>
+</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-array">array</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-intermediary">intermediary</span></p><p class="schema-example-header"><strong>Example</strong>:</p><pre class="schema-example"><code>$remove:
+  - fieldA
+  - fieldB
+</code></pre></td>
        </tr>
        <tr>
            <td class="schema-propertyId">default</td>
@@ -48,7 +53,9 @@ Use this to temporarily remove parts of the development model without deleting t
            <td class="schema-propertyId"><strong>description</strong></td>
            <td class="schema-description"><p class="schema-description">General Description. Fields may use them as tooltips, forms can display a small description box.
 This depends on the used template.
-</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-string">string</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p></td>
+</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-string">string</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p><p class="schema-example-header"><strong>Example</strong>:</p><pre class="schema-example"><code>description: |
+  Longer description of the current model part.
+</code></pre></td>
        </tr>
        <tr>
            <td class="schema-propertyId">enum</td>
@@ -109,17 +116,22 @@ Every field that is not listed will be appended at the bottom, in their regular 
            <td class="schema-propertyId"><i class="fade">pattern</i></td>
            <td class="schema-description"><p class="schema-description">Provides a Regular Expression (Regex) pattern to validate the field value.<br>
 This is currently not supported by Semantic Forms.
-</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-string">string</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p><p class="schema-unsupported"><strong>Unsupported</strong>: This property is currently unsupported by the end-system.</p></td>
+</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-string">string</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p><p class="schema-unsupported"><strong>Unsupported</strong>: This property is currently unsupported by the end-system.</p><p class="schema-example-header"><strong>Example</strong>:</p><pre class="schema-example"><code>pattern: '/^[\d]{4,5}/$'
+</code></pre></td>
        </tr>
        <tr>
            <td class="schema-propertyId">required</td>
            <td class="schema-description"><p class="schema-description">Array containing the IDs of all required fields.
-</p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p></td>
+</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-array">array</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p><p class="schema-example-header"><strong>Example</strong>:</p><pre class="schema-example"><code>required:
+  - fieldA
+  - fieldB
+</code></pre></td>
        </tr>
        <tr>
            <td class="schema-propertyId"><strong>title</strong></td>
            <td class="schema-description"><p class="schema-description">Human readable title.
-</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-string">string</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p></td>
+</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-string">string</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p><p class="schema-example-header"><strong>Example</strong>:</p><pre class="schema-example"><code>title: Some title
+</code></pre></td>
        </tr>
        <tr>
            <td class="schema-propertyId">todo</td>
@@ -129,7 +141,8 @@ This is currently not supported by Semantic Forms.
        <tr>
            <td class="schema-propertyId"><strong>type</strong></td>
            <td class="schema-description"><p class="schema-description">Defines the data-type.
-</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-string">string</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p><p class="schema-enum"><strong>Valid entries</strong>: string, number, boolean, array, object</p></td>
+</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-string">string</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p><p class="schema-enum"><strong>Valid entries</strong>: string, number, boolean, array, object</p><p class="schema-example-header"><strong>Example</strong>:</p><pre class="schema-example"><code>type: number
+</code></pre></td>
        </tr>
    </tbody>
 </table>

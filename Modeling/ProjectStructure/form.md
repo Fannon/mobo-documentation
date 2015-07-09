@@ -1,5 +1,4 @@
 # /form/
-## Description
 Each Mobo Form will create a Semantic Form and define its content.
 
 Mobo forms are much more lightweight than regular SF Forms,

@@ -64,7 +64,10 @@
             ],
             "specific": "domain",
             "important": true,
-            "description": "Human readable title.\n"
+            "description": "Human readable title.\n",
+            "example": [
+                "title: Some title\n"
+            ]
         },
         "description": {
             "type": [
@@ -72,7 +75,10 @@
             ],
             "specific": "domain",
             "important": true,
-            "description": "General Description. Fields may use them as tooltips, forms can display a small description box.\nThis depends on the used template.\n"
+            "description": "General Description. Fields may use them as tooltips, forms can display a small description box.\nThis depends on the used template.\n",
+            "example": [
+                "description: |\n  Longer description of the current model part.\n"
+            ]
         },
         "default": {
             "appliesNot": [
@@ -138,7 +144,10 @@
                 "model",
                 "form"
             ],
-            "description": "Provides a Regular Expression (Regex) pattern to validate the field value.<br>\nThis is currently not supported by Semantic Forms.\n"
+            "description": "Provides a Regular Expression (Regex) pattern to validate the field value.<br>\nThis is currently not supported by Semantic Forms.\n",
+            "example": [
+                "pattern: '/^[\\d]{4,5}/$'\n"
+            ]
         },
         "items": {
             "anyOf": [
@@ -186,11 +195,17 @@
         },
         "required": {
             "$ref": "#/definitions/stringArray",
+            "type": [
+                "array"
+            ],
             "appliesNot": [
                 "field",
                 "form"
             ],
-            "description": "Array containing the IDs of all required fields.\n"
+            "description": "Array containing the IDs of all required fields.\n",
+            "example": [
+                "required:\n  - fieldA\n  - fieldB\n"
+            ]
         },
         "properties": {
             "type": "object",
@@ -241,7 +256,10 @@
                 "object"
             ],
             "important": true,
-            "description": "Defines the data-type.\n"
+            "description": "Defines the data-type.\n",
+            "example": [
+                "type: number\n"
+            ]
         },
         "$extend": {
             "type": [
@@ -266,7 +284,10 @@
             "minItems": 1,
             "uniqueItems": true,
             "specific": "intermediary",
-            "description": "Array, containing the IDs of all items/properties to remove from current object.\n"
+            "description": "Array, containing the IDs of all items/properties to remove from current object.\n",
+            "example": [
+                "$remove:\n  - fieldA\n  - fieldB\n"
+            ]
         },
         "$ignore": {
             "type": [
@@ -274,7 +295,10 @@
             ],
             "default": false,
             "specific": "intermediary",
-            "description": "If true, this file will be ignored completely.<br>\nUse this to temporarily remove parts of the development model without deleting them.\n"
+            "description": "If true, this file will be ignored completely.<br>\nUse this to temporarily remove parts of the development model without deleting them.\n",
+            "example": [
+                "$ignore: true\n"
+            ]
         },
         "$abstract": {
             "type": [
@@ -283,7 +307,10 @@
             "default": false,
             "specific": "intermediary",
             "important": true,
-            "description": "If true this object is only used for inheritance and will not be created by itself.\n"
+            "description": "If true this object is only used for inheritance and will not be created by itself.\n",
+            "example": [
+                "$abstract: true\n"
+            ]
         },
         "$reference": {
             "type": "object",
@@ -369,7 +396,10 @@
                 "model",
                 "form"
             ],
-            "description": "Describes the semantic format (how to interpret the type).\nE.g. 'email' or SMW specific datatypes like 'Temperature'\n"
+            "description": "Describes the semantic format (how to interpret the type).\nE.g. 'email' or SMW specific datatypes like 'Temperature'\n",
+            "example": [
+                "type: string\nformat: email\n"
+            ]
         },
         "form": {
             "type": [
@@ -398,7 +428,10 @@
                 "model",
                 "form"
             ],
-            "description": "If true, the field will be deprecated.\nIt will not be displayed in forms, but the template will keep it in order to display old entries.\n"
+            "description": "If true, the field will be deprecated.\nIt will not be displayed in forms, but the template will keep it in order to display old entries.\n",
+            "example": [
+                "deprecated: true\n"
+            ]
         },
         "showPage": {
             "type": [
@@ -409,7 +442,10 @@
             "appliesNot": [
                 "form"
             ],
-            "description": "Whether to display this element in the page view.\n"
+            "description": "Whether to display this element in the page view.\n",
+            "example": [
+                "showPage: false\n"
+            ]
         },
         "showForm": {
             "type": [
@@ -421,7 +457,10 @@
             "appliesNot": [
                 "form"
             ],
-            "description": "Whether to display this element in the form-edit view.\n"
+            "description": "Whether to display this element in the form-edit view.\n",
+            "example": [
+                "showForm: false\n"
+            ]
         },
         "smw_type": {
             "type": "string",
@@ -430,7 +469,7 @@
                 "model",
                 "form"
             ],
-            "description": "The final SMW Type of the field. Please avoid to set this manually - use \"type\" and \"format\" instead.\n"
+            "description": "The final SMW Type of the field. <br>\nAvoid to set this manually - use the domain specific \"type\" and \"format\" instead, if possible.\n"
         },
         "smw_property": {
             "type": [
@@ -443,7 +482,10 @@
                 "model",
                 "form"
             ],
-            "description": "If smw_property is set to false the templates won't declare it as a semantic property.\nPlease note that the field can't be queried then.\n"
+            "description": "If smw_property is set to false the templates won't declare it as a semantic property.\nPlease note that the field can't be queried then.\n",
+            "example": [
+                "smw_property: false\n"
+            ]
         },
         "sf_form": {
             "type": [
@@ -456,7 +498,7 @@
                 "model",
                 "form"
             ],
-            "description": "The sf_form property is an object that redirects all settings directly to Semantic Forms.\nIf no value is necessary (e.g. \"existing values only\"), use true.\nTo see which options are supported, refer to the Semantic Forms manual\n",
+            "description": "The sf_form property is an object that redirects all settings directly to Semantic Forms.<br>\nIf no value is necessary (e.g. \"existing values only\"), use true.\nTo see which options are supported, refer to the Semantic Forms manual.\n",
             "link": "https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#.27field.27_tag",
             "example": [
                 "sf_form:\n  input type: combobox\n  values from namespace: Manufacturer\n  max values: 1\n  existing values only: true\n"
@@ -471,7 +513,11 @@
                 "model",
                 "form"
             ],
-            "description": "Overwrites the final value of the field, used for both display and data set\n"
+            "description": "Overwrites the final value of the field, used for both display and data set\n",
+            "example": [
+                "smw_overwriteOutput: '[[CustomNamespace:{{FULLPAGENAME}}]]'\n",
+                "smw_overwriteOutput: '{{FULLPAGENAME}}/subpath/&#123;&#123;&#123;fieldId|}}}'\n"
+            ]
         },
         "smw_overwriteOutputToLink": {
             "type": [
@@ -482,7 +528,10 @@
                 "model",
                 "form"
             ],
-            "description": "If true, this will create a link in display mode, using #formredlink if applicable\n"
+            "description": "If true, this will create a link in display mode, using #formredlink if applicable.<br>\nThis needs to be used together with `smw_overwriteOutput`.\n",
+            "example": [
+                "smw_overwriteOutput: 'CustomNamespace:{{FULLPAGENAME}}'\nsmw_overwriteOutputToLink: true\n"
+            ]
         },
         "smw_overwriteDisplay": {
             "type": [
@@ -493,7 +542,7 @@
                 "model",
                 "form"
             ],
-            "description": "Overwrites only the display value of the current field\n"
+            "description": "Overwrites only the display value of the current field<br>\nIs used similar to `smw_overwriteOutput`.\n"
         },
         "smw_overwriteData": {
             "type": [
@@ -504,7 +553,7 @@
                 "model",
                 "form"
             ],
-            "description": "Overwrites the final #set or #subobject value of the field.\n"
+            "description": "Overwrites the final #set or #subobject value of the field.<br>\nIs used similar to `smw_overwriteOutput`\n"
         },
         "smw_forceSet": {
             "type": [
@@ -516,7 +565,10 @@
                 "model",
                 "form"
             ],
-            "description": "Forces the semantic storage of the attribute through the #set parser function.<br>\nThis is useful for #subobject models that want to expose one or more fields as regular #set properties.\n"
+            "description": "Forces the semantic storage of the attribute through the #set parser function.<br>\nThis is useful for #subobject models that want to expose one or more fields as regular #set properties.\n",
+            "example": [
+                "smw_forceSet: true\n"
+            ]
         },
         "smw_arraymaptemplate": {
             "type": [
@@ -529,7 +581,10 @@
                 "model",
                 "form"
             ],
-            "description": "Name of the arraymap template to use.<br>\nField needs to be of type `array`.\n"
+            "description": "Name of the arraymap template to use.<br>\nField needs to be of type `array`.\n",
+            "example": [
+                "smw_arraymaptemplate: ArrayMapRemoveNamespaceTags\n"
+            ]
         },
         "smw_drilldown": {
             "type": [
@@ -541,7 +596,10 @@
                 "model",
                 "form"
             ],
-            "description": "If the global settings `smw_semanticDrilldown` is enabled,\nfields with smw_drilldown set to true will be filterable.\n"
+            "description": "If the global settings `smw_semanticDrilldown` is enabled,\nfields with smw_drilldown set to true will be filterable.\n",
+            "example": [
+                "smw_drilldown: true\n"
+            ]
         }
     },
     "default": {},

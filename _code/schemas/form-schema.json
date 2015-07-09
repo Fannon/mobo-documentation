@@ -64,7 +64,10 @@
             ],
             "specific": "domain",
             "important": true,
-            "description": "Human readable title.\n"
+            "description": "Human readable title.\n",
+            "example": [
+                "title: Some title\n"
+            ]
         },
         "description": {
             "type": [
@@ -72,7 +75,10 @@
             ],
             "specific": "domain",
             "important": true,
-            "description": "General Description. Fields may use them as tooltips, forms can display a small description box.\nThis depends on the used template.\n"
+            "description": "General Description. Fields may use them as tooltips, forms can display a small description box.\nThis depends on the used template.\n",
+            "example": [
+                "description: |\n  Longer description of the current model part.\n"
+            ]
         },
         "default": {
             "appliesNot": [
@@ -127,7 +133,10 @@
                 "model",
                 "form"
             ],
-            "description": "Provides a Regular Expression (Regex) pattern to validate the field value.<br>\nThis is currently not supported by Semantic Forms.\n"
+            "description": "Provides a Regular Expression (Regex) pattern to validate the field value.<br>\nThis is currently not supported by Semantic Forms.\n",
+            "example": [
+                "pattern: '/^[\\d]{4,5}/$'\n"
+            ]
         },
         "items": {
             "anyOf": [
@@ -144,9 +153,9 @@
                 "object"
             ],
             "important": true,
-            "description": "Lists all models that the form uses.<br>\nThose are included by `$extend`.<br>\nIf multiple instance templates need to be created, use another items hierachy.\n",
+            "description": "Declares all models and templates that the form uses and imports them through `$extend`.<br>\nTo create multiple instance templates, add another items hierachy (see example).\n",
             "example": [
-                "items:\n- $extend: /field/brand\n  title: Overwritten brand title\n- $extend: /field/modelName\n"
+                "items:\n# Import a template and show it only in the page-view\n- $extend: /smw_template/SomeTemplate\n  showForm: false\n\n# Include a single instance model\n- $extend: /model/SingleInstanceModel\n\n# Include a multiple instance model\n- items:\n    $extend: /model/MultipleInstanceModel\n"
             ]
         },
         "maxItems": {
@@ -171,11 +180,17 @@
         },
         "required": {
             "$ref": "#/definitions/stringArray",
+            "type": [
+                "array"
+            ],
             "appliesNot": [
                 "field",
                 "form"
             ],
-            "description": "Array containing the IDs of all required fields.\n"
+            "description": "Array containing the IDs of all required fields.\n",
+            "example": [
+                "required:\n  - fieldA\n  - fieldB\n"
+            ]
         },
         "properties": {
             "type": "object",
@@ -224,7 +239,10 @@
                 "object"
             ],
             "important": false,
-            "description": "Defines the data-type.\n"
+            "description": "Defines the data-type.\n",
+            "example": [
+                "type: number\n"
+            ]
         },
         "$extend": {
             "type": [
@@ -249,7 +267,10 @@
             "minItems": 1,
             "uniqueItems": true,
             "specific": "intermediary",
-            "description": "Array, containing the IDs of all items/properties to remove from current object.\n"
+            "description": "Array, containing the IDs of all items/properties to remove from current object.\n",
+            "example": [
+                "$remove:\n  - fieldA\n  - fieldB\n"
+            ]
         },
         "$ignore": {
             "type": [
@@ -257,7 +278,10 @@
             ],
             "default": false,
             "specific": "intermediary",
-            "description": "If true, this file will be ignored completely.<br>\nUse this to temporarily remove parts of the development model without deleting them.\n"
+            "description": "If true, this file will be ignored completely.<br>\nUse this to temporarily remove parts of the development model without deleting them.\n",
+            "example": [
+                "$ignore: true\n"
+            ]
         },
         "$abstract": {
             "type": [
@@ -266,7 +290,10 @@
             "default": false,
             "specific": "intermediary",
             "important": true,
-            "description": "If true this object is only used for inheritance and will not be created by itself.\n"
+            "description": "If true this object is only used for inheritance and will not be created by itself.\n",
+            "example": [
+                "$abstract: true\n"
+            ]
         },
         "$reference": {
             "type": "object",
@@ -350,7 +377,10 @@
                 "model",
                 "form"
             ],
-            "description": "Describes the semantic format (how to interpret the type).\nE.g. 'email' or SMW specific datatypes like 'Temperature'\n"
+            "description": "Describes the semantic format (how to interpret the type).\nE.g. 'email' or SMW specific datatypes like 'Temperature'\n",
+            "example": [
+                "type: string\nformat: email\n"
+            ]
         },
         "form": {
             "type": [
@@ -377,7 +407,10 @@
                 "model",
                 "form"
             ],
-            "description": "If true, the field will be deprecated.\nIt will not be displayed in forms, but the template will keep it in order to display old entries.\n"
+            "description": "If true, the field will be deprecated.\nIt will not be displayed in forms, but the template will keep it in order to display old entries.\n",
+            "example": [
+                "deprecated: true\n"
+            ]
         },
         "showPage": {
             "type": "boolean",
@@ -386,7 +419,10 @@
             "appliesNot": [
                 "form"
             ],
-            "description": "If true the template/model will be hidden in the page view.\nThis will usually be declared in the forms by adding this after the model $extend.\n"
+            "description": "If true the template/model will be hidden in the page view.\nThis will usually be declared in the forms by adding this after the model $extend.\n",
+            "example": [
+                "showPage: false\n"
+            ]
         },
         "showForm": {
             "type": "boolean",
@@ -396,7 +432,10 @@
             "appliesNot": [
                 "form"
             ],
-            "description": "If true the template/model will be hidden in the form view.\nThis will usually be declared in the forms by adding this after the model $extend.\n"
+            "description": "If true the template/model will be hidden in the form view.\nThis will usually be declared in the forms by adding this after the model $extend.\n",
+            "example": [
+                "showForm: false\n"
+            ]
         },
         "smw_type": {
             "type": "string",
@@ -405,7 +444,7 @@
                 "model",
                 "form"
             ],
-            "description": "The final SMW Type of the field. Please avoid to set this manually - use \"type\" and \"format\" instead.\n"
+            "description": "The final SMW Type of the field. <br>\nAvoid to set this manually - use the domain specific \"type\" and \"format\" instead, if possible.\n"
         },
         "smw_property": {
             "type": "boolean",
@@ -416,7 +455,10 @@
                 "model",
                 "form"
             ],
-            "description": "If smw_property is set to false the templates won't declare it as a semantic property.\nPlease note that the field can't be queried then.\n"
+            "description": "If smw_property is set to false the templates won't declare it as a semantic property.\nPlease note that the field can't be queried then.\n",
+            "example": [
+                "smw_property: false\n"
+            ]
         },
         "sf_form": {
             "type": "object",
@@ -427,7 +469,7 @@
                 "model",
                 "form"
             ],
-            "description": "The sf_form property is an object that redirects all settings directly to Semantic Forms.\nIf no value is necessary (e.g. \"existing values only\"), use true.\nTo see which options are supported, refer to the Semantic Forms manual\n",
+            "description": "The sf_form property is an object that redirects all settings directly to Semantic Forms.<br>\nIf no value is necessary (e.g. \"existing values only\"), use true.\nTo see which options are supported, refer to the Semantic Forms manual.\n",
             "link": "https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#.27field.27_tag",
             "example": [
                 "sf_form:\n  input type: combobox\n  values from namespace: Manufacturer\n  max values: 1\n  existing values only: true\n"
@@ -440,7 +482,11 @@
                 "model",
                 "form"
             ],
-            "description": "Overwrites the final value of the field, used for both display and data set\n"
+            "description": "Overwrites the final value of the field, used for both display and data set\n",
+            "example": [
+                "smw_overwriteOutput: '[[CustomNamespace:{{FULLPAGENAME}}]]'\n",
+                "smw_overwriteOutput: '{{FULLPAGENAME}}/subpath/&#123;&#123;&#123;fieldId|}}}'\n"
+            ]
         },
         "smw_overwriteOutputToLink": {
             "type": "boolean",
@@ -449,7 +495,10 @@
                 "model",
                 "form"
             ],
-            "description": "If true, this will create a link in display mode, using #formredlink if applicable\n"
+            "description": "If true, this will create a link in display mode, using #formredlink if applicable.<br>\nThis needs to be used together with `smw_overwriteOutput`.\n",
+            "example": [
+                "smw_overwriteOutput: 'CustomNamespace:{{FULLPAGENAME}}'\nsmw_overwriteOutputToLink: true\n"
+            ]
         },
         "smw_overwriteDisplay": {
             "type": "string",
@@ -458,7 +507,7 @@
                 "model",
                 "form"
             ],
-            "description": "Overwrites only the display value of the current field\n"
+            "description": "Overwrites only the display value of the current field<br>\nIs used similar to `smw_overwriteOutput`.\n"
         },
         "smw_overwriteData": {
             "type": "string",
@@ -467,7 +516,7 @@
                 "model",
                 "form"
             ],
-            "description": "Overwrites the final #set or #subobject value of the field.\n"
+            "description": "Overwrites the final #set or #subobject value of the field.<br>\nIs used similar to `smw_overwriteOutput`\n"
         },
         "smw_forceSet": {
             "type": "boolean",
@@ -477,7 +526,10 @@
                 "model",
                 "form"
             ],
-            "description": "Forces the semantic storage of the attribute through the #set parser function.<br>\nThis is useful for #subobject models that want to expose one or more fields as regular #set properties.\n"
+            "description": "Forces the semantic storage of the attribute through the #set parser function.<br>\nThis is useful for #subobject models that want to expose one or more fields as regular #set properties.\n",
+            "example": [
+                "smw_forceSet: true\n"
+            ]
         },
         "smw_arraymaptemplate": {
             "type": "string",
@@ -488,7 +540,10 @@
                 "model",
                 "form"
             ],
-            "description": "Name of the arraymap template to use.<br>\nField needs to be of type `array`.\n"
+            "description": "Name of the arraymap template to use.<br>\nField needs to be of type `array`.\n",
+            "example": [
+                "smw_arraymaptemplate: ArrayMapRemoveNamespaceTags\n"
+            ]
         },
         "smw_drilldown": {
             "type": "boolean",
@@ -498,7 +553,10 @@
                 "model",
                 "form"
             ],
-            "description": "If the global settings `smw_semanticDrilldown` is enabled,\nfields with smw_drilldown set to true will be filterable.\n"
+            "description": "If the global settings `smw_semanticDrilldown` is enabled,\nfields with smw_drilldown set to true will be filterable.\n",
+            "example": [
+                "smw_drilldown: true\n"
+            ]
         },
         "recommended": {
             "type": "array",
@@ -509,7 +567,10 @@
             "appliesNot": [
                 "form"
             ],
-            "description": "Array of fields that should be highlighted as recommended (complementary to mandatory)\n"
+            "description": "Array of fields that should be marked as recommended (complementary to mandatory).<br>\nPlease note that the template and the MediaWiki skin have to support this, since it is not an official feature.\n",
+            "example": [
+                "recommended:\n  - fieldA\n  - fieldB\n"
+            ]
         },
         "smw_subobject": {
             "type": "boolean",
@@ -518,7 +579,10 @@
             "appliesNot": [
                 "form"
             ],
-            "description": "If true, this models attributes will be created as subobjects.\nUseful if this model is used through multiple instances.\nMobo will automantically introduce two additional helper attributes `subobjectType` and `subobjectParent` that help with querying subobjects.\n"
+            "description": "If true, this models attributes will be created as subobjects.<br>\nThis may be appropiate when model is used through multiple instances.<br><br>\nMobo will automantically introduce two additional helper attributes `subobjectType` and `subobjectParent` that help with querying subobjects.\n",
+            "example": [
+                "smw_subobject: true\n"
+            ]
         },
         "smw_subobjectExtend": {
             "type": "object",
@@ -526,9 +590,9 @@
             "appliesNot": [
                 "form"
             ],
-            "description": "Contains a set (object) of additional #subobject properties\n",
+            "description": "Contains a set (object) of additional #subobject properties.\n",
             "example": [
-                "smw_subobjectExtend:\n  additionalSubObjProp2: 'Some fixed text'\n"
+                "smw_subobjectExtend:\n  additionalSubObjProp2: 'Some fixed text'\n  additionalSubObjProp3: '{{FULLPAGENAME}}/subpath/&#123;&#123;&#123;fieldId|}}}'\n"
             ]
         },
         "smw_display": {
@@ -551,7 +615,7 @@
             "properties": {
                 "wikitext": {
                     "type": "string",
-                    "description": "wikitext to prefix"
+                    "description": "wikitext to prepend"
                 },
                 "header": {
                     "type": "number",
@@ -569,7 +633,11 @@
             "appliesNot": [
                 "form"
             ],
-            "description": "Prefixes wikitext to both forms and templates. Can either be a string\nor an object for more advanced features (auto-generate headers, inject templates\nor add arbitrary wikitext)\n"
+            "description": "Prepends wikitext to both forms and templates.\nCan either be a string or an object for more advanced features (auto-generate headers, inject templates\nor add arbitrary wikitext).\n",
+            "example": [
+                "smw_prepend:\n  header: 1\n  wikitext: |\n    Some prepended wikitext\n    Will be inserted after the H1 header\n",
+                "smw_prepend: 'Some prepended wikitext'\n"
+            ]
         },
         "smw_prependForm": {
             "type": [
@@ -579,7 +647,7 @@
             "properties": {
                 "wikitext": {
                     "type": "string",
-                    "description": "wikitext to prefix"
+                    "description": "wikitext to prepend"
                 },
                 "header": {
                     "type": "number",
@@ -600,7 +668,7 @@
             "appliesNot": [
                 "form"
             ],
-            "description": "Prefixes wikitext only to forms (edit-view). Can either be a string\nor an object for more advanced features (auto-generate headers, inject templates\nor add arbitrary wikitext)\n"
+            "description": "Prepends wikitext only to forms (edit-view). Can either be a string\nor an object for more advanced features (auto-generate headers, inject templates\nor add arbitrary wikitext)\n"
         },
         "smw_prependPage": {
             "type": [
@@ -610,7 +678,7 @@
             "properties": {
                 "wikitext": {
                     "type": "string",
-                    "description": "wikitext to prefix"
+                    "description": "wikitext to prepend"
                 },
                 "header": {
                     "type": "number",
@@ -631,7 +699,7 @@
             "appliesNot": [
                 "form"
             ],
-            "description": "Prefixes wikitext only to templates (page-view). Can either be a\nstring or an object for more advanced features (auto-generate headers, inject\ntemplates or add arbitrary wikitext)\n"
+            "description": "Prepends wikitext only to templates (page-view). Can either be a\nstring or an object for more advanced features (auto-generate headers, inject\ntemplates or add arbitrary wikitext)\n"
         },
         "smw_prependCategory": {
             "type": "string",
@@ -639,7 +707,10 @@
             "appliesNot": [
                 "form"
             ],
-            "description": "Wikitext to prepend on the category page\n"
+            "description": "Wikitext to prepend on the category page\n",
+            "example": [
+                "smw_prependCategory: |\n  Some wikitext to prepend on the category page\n"
+            ]
         },
         "smw_append": {
             "type": [
@@ -661,10 +732,9 @@
             "appliesNot": [
                 "form"
             ],
-            "description": "Adds a postfix wikitext to forms and models.\n",
+            "description": "Adds a append wikitext to forms and models.\n",
             "example": [
-                "smw_append:\n  header: 1\n  wikitext: |\n    Some appended wikitext\n    Will be inserted after the H1 header\n",
-                "smw_append: 'Some prepended wikitext'\n"
+                "smw_append: |\n  Some appended wikitext\n  Will be inserted after the H1 header\n"
             ]
         },
         "smw_appendForm": {
@@ -675,7 +745,7 @@
             "properties": {
                 "wikitext": {
                     "type": "string",
-                    "description": "wikitext to prefix"
+                    "description": "wikitext to prepend"
                 },
                 "template": {
                     "type": [
@@ -700,7 +770,7 @@
             "properties": {
                 "wikitext": {
                     "type": "string",
-                    "description": "wikitext to prefix"
+                    "description": "wikitext to prepend"
                 },
                 "template": {
                     "type": [
@@ -723,7 +793,10 @@
             "appliesNot": [
                 "form"
             ],
-            "description": "Wikitext to postfix on the category page\n"
+            "description": "Wikitext to append on the category page\n",
+            "example": [
+                "smw_appendCategory: |\n  Some wikitext to append on the category page\n"
+            ]
         },
         "smw_category": {
             "type": "boolean",
@@ -732,7 +805,10 @@
             "appliesNot": [
                 "form"
             ],
-            "description": "If true, the models template will assign a category.\nThe name of the category is the model ID.\n"
+            "description": "If true, the models template will assign a category.\nThe name of the category is the model ID.\n",
+            "example": [
+                "smw_category: false\n"
+            ]
         },
         "smw_categories": {
             "type": "array",
@@ -743,14 +819,20 @@
             "appliesNot": [
                 "form"
             ],
-            "description": "Array of additional categories the template should set.\n"
+            "description": "Array of additional categories the template should set.\n",
+            "example": [
+                "smw_categories:\n  - additionalCategoryA\n  - additionalCategoryB\n"
+            ]
         },
         "naming": {
             "type": [
                 "string"
             ],
             "specific": "domain",
-            "description": "Provides naming conventions / guideline. Will appear on the form page itself.\n"
+            "description": "Provides naming conventions / guideline. Will appear on the form page itself.\n",
+            "example": [
+                "naming: 'lastname, firstname'\n"
+            ]
         },
         "sf_forminput": {
             "type": [
@@ -758,7 +840,10 @@
             ],
             "link": "https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#The_.23forminput_function",
             "specific": "platform",
-            "description": "Object, containing SemanticForms #forminput options\n"
+            "description": "Object, containing SemanticForms #forminput options\n",
+            "example": [
+                "smw_forminput:\n  autocomplete on category: SomeCategory\n"
+            ]
         },
         "sf_forminfo": {
             "type": [
@@ -777,7 +862,10 @@
             ],
             "default": true,
             "specific": "platform",
-            "description": "Decides whether the freetext textarea will be displayed below the form.\n"
+            "description": "Decides whether the freetext textarea will be displayed below the form.\n",
+            "example": [
+                "sf_freetext: false\n"
+            ]
         },
         "sf_summary": {
             "type": [
@@ -785,7 +873,10 @@
             ],
             "default": false,
             "specific": "platform",
-            "description": "Decides whether the summary field will be displayed below the form.\n"
+            "description": "Decides whether the summary field will be displayed below the form.\n",
+            "example": [
+                "sf_summary: false\n"
+            ]
         }
     },
     "default": {},

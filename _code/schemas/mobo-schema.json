@@ -64,7 +64,10 @@
             ],
             "specific": "domain",
             "important": true,
-            "description": "Human readable title.\n"
+            "description": "Human readable title.\n",
+            "example": [
+                "title: Some title\n"
+            ]
         },
         "description": {
             "type": [
@@ -72,7 +75,10 @@
             ],
             "specific": "domain",
             "important": true,
-            "description": "General Description. Fields may use them as tooltips, forms can display a small description box.\nThis depends on the used template.\n"
+            "description": "General Description. Fields may use them as tooltips, forms can display a small description box.\nThis depends on the used template.\n",
+            "example": [
+                "description: |\n  Longer description of the current model part.\n"
+            ]
         },
         "default": {
             "appliesNot": [
@@ -138,7 +144,10 @@
                 "model",
                 "form"
             ],
-            "description": "Provides a Regular Expression (Regex) pattern to validate the field value.<br>\nThis is currently not supported by Semantic Forms.\n"
+            "description": "Provides a Regular Expression (Regex) pattern to validate the field value.<br>\nThis is currently not supported by Semantic Forms.\n",
+            "example": [
+                "pattern: '/^[\\d]{4,5}/$'\n"
+            ]
         },
         "items": {
             "anyOf": [
@@ -182,12 +191,17 @@
         },
         "required": {
             "$ref": "#/definitions/stringArray",
+            "type": [
+                "array"
+            ],
             "appliesNot": [
                 "field",
                 "form"
             ],
             "description": "Array containing the IDs of all required fields.\n",
-            "type": []
+            "example": [
+                "required:\n  - fieldA\n  - fieldB\n"
+            ]
         },
         "properties": {
             "type": "object",
@@ -238,7 +252,10 @@
                 "object"
             ],
             "important": true,
-            "description": "Defines the data-type.\n"
+            "description": "Defines the data-type.\n",
+            "example": [
+                "type: number\n"
+            ]
         },
         "$extend": {
             "type": [
@@ -263,7 +280,10 @@
             "minItems": 1,
             "uniqueItems": true,
             "specific": "intermediary",
-            "description": "Array, containing the IDs of all items/properties to remove from current object.\n"
+            "description": "Array, containing the IDs of all items/properties to remove from current object.\n",
+            "example": [
+                "$remove:\n  - fieldA\n  - fieldB\n"
+            ]
         },
         "$ignore": {
             "type": [
@@ -271,7 +291,10 @@
             ],
             "default": false,
             "specific": "intermediary",
-            "description": "If true, this file will be ignored completely.<br>\nUse this to temporarily remove parts of the development model without deleting them.\n"
+            "description": "If true, this file will be ignored completely.<br>\nUse this to temporarily remove parts of the development model without deleting them.\n",
+            "example": [
+                "$ignore: true\n"
+            ]
         },
         "$abstract": {
             "type": [
@@ -280,7 +303,10 @@
             "default": false,
             "specific": "intermediary",
             "important": true,
-            "description": "If true this object is only used for inheritance and will not be created by itself.\n"
+            "description": "If true this object is only used for inheritance and will not be created by itself.\n",
+            "example": [
+                "$abstract: true\n"
+            ]
         },
         "$reference": {
             "type": "object",
