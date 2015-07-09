@@ -215,15 +215,19 @@ This can sometimes be useful, if some changes were lost or you want to go for su
        </tr>
        <tr>
            <td class="schema-propertyId">mw_server_path</td>
-           <td class="schema-description"><p class="schema-description">Relative path to the MediaWiki installation without trailing slash</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span><span class="schema-type schema-type-string">string</span></p><p class="schema-default"><strong>Default</strong>: ""</p></td>
+           <td class="schema-description"><p class="schema-description">Relative path to the MediaWiki installation without trailing slash
+</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span><span class="schema-type schema-type-string">string</span></p><p class="schema-default"><strong>Default</strong>: ""</p></td>
        </tr>
        <tr>
            <td class="schema-propertyId">mw_server_port</td>
-           <td class="schema-description"><p class="schema-description">The port your MW installation is using.</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span><span class="schema-type schema-type-string">string</span></p><p class="schema-default"><strong>Default</strong>: false</p></td>
+           <td class="schema-description"><p class="schema-description">The port your MW installation is using.
+</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span><span class="schema-type schema-type-string">string</span></p><p class="schema-default"><strong>Default</strong>: false</p></td>
        </tr>
        <tr>
            <td class="schema-propertyId">mw_server_url</td>
-           <td class="schema-description"><p class="schema-description">URL to your MediaWiki server without trailing slash. Do not include the port or relative path to MediaWiki here!</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span><span class="schema-type schema-type-string">string</span></p><p class="schema-default"><strong>Default</strong>: false</p></td>
+           <td class="schema-description"><p class="schema-description">URL to your MediaWiki server without trailing slash.
+Do not include the port or relative path to MediaWiki!
+</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span><span class="schema-type schema-type-string">string</span></p><p class="schema-default"><strong>Default</strong>: false</p></td>
        </tr>
        <tr>
            <td class="schema-propertyId">mw_username</td>
