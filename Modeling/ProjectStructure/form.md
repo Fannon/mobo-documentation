@@ -1,12 +1,12 @@
 # /form/
-Each Mobo Form will create a Semantic Form and define its content.
+A mobo Form describes all mobo models that the form consits of. For each mobo Form, a Semantic Form will be created.
 
-Mobo forms are much more lightweight than regular SF Forms,
-since most information has already been declared and is inherited from fields and models.
+Please note that mobo forms are much more lightweight than regular SF Forms,
+since most information has already been declared and inherited in mobo fields and mobo models.
 
 #### Forms declare:
 * Which models to use
-* If the model should be implemented as a single or multiple instance
+* If the model should be implemented as a single or multiple instance template
 * Which template to use / inject
 * The order of these models and templates
 * Visibility of templates in edit-view and reading-view
