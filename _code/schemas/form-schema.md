@@ -77,6 +77,13 @@ Every field that is not listed will be appended at the bottom, in their regular 
 </p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-array">array</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p><p class="schema-example-header"><strong>Example</strong>:</p><pre class="schema-example"><code>itemsOrder:
   - brand
   - modelName
+</code></pre><p class="schema-example-header"><strong>Example</strong>:</p><pre class="schema-example"><code>itemsOrder:
+  - '@unique'
+  - '@sorted'
+  - b
+  - c
+  - a
+  - b
 </code></pre></td>
        </tr>
        <tr>

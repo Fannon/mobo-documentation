@@ -23,3 +23,6 @@ $ mobo --init
     ├── report.wikitext
     └── template.wikitext
 ```
+
+## Structure of the mobo Schema
+![webapp](/_img/SDD_mobo-schema-structure.png)

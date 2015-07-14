@@ -145,7 +145,8 @@ If an array of multiple parent objects is given, the inheritance order will be t
 
 Properties of the child object will merge or overwrite inherited properties:
 * Primitive Datatypes like Strings, Numbers and Booleans will be overwritten
-* Objects will be merged
+* Objects will be merged.
+  In the case that two properties share the same key, the merging algorithm is recursively executed.
 * Arrays can behave in different ways. Multiple annotations can be used to define the merging behavior:
     * `@overwrite`: The children overwrites the parent completely
     * `@prepend`: The children elements are prepended
@@ -207,11 +208,11 @@ itemsOrder:
 ```
 
 #### SMW / SF specific Additions
-There are many implementation specific additions to the schema.
+There are many platform and implementation specific additions to the schema.
 They are prefixed with `smw_` and `sf_` and support the various settings
 and possibilities of Semantic MediaWiki and Semantic Forms.
 
-The implementation specific settings are often directly passed through to the end system.
+The platform specific options are often directly passed through to the end system.
 In those cases, the available options are documented by the end system.
 
 **Example**: SemanticForms field tag (see [official documentation](https://www.mediawiki.org/wiki/Extension:Semantic_Forms/Defining_forms#.27field.27_tag))

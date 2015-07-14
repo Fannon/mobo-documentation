@@ -1,8 +1,10 @@
 # Nuke Module
 ## Description
 The nuke module is currently a very simple module with only few options.
+It allows to batch-delete wiki pages according to their namespace.
 
-**WARNGING** Use it with care! The nuker will delete all pages, not just those that mobo created!
+**WARNGING**: Use this module with care!
+The nuker will delete all pages, not just those that mobo created!
 
 ## Usage
 View the available command line options:

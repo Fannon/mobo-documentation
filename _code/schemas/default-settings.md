@@ -74,8 +74,8 @@
     "sf_wpDiff": true,
     "sf_wpWatchthis": true,
     "buildGraphSettings": {
-        "dataTypeNodeSize": 8,
-        "templateNodeSize": 12,
+        "dataTypeNodeSize": 12,
+        "templateNodeSize": 16,
         "modelNodeSize": 24,
         "formNodeSize": 36,
         "edgeWeight": 2,

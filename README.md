@@ -14,8 +14,8 @@ The main feature of mobo is the model development workflow.
 Semantic MediaWikis can be developed rapidly and modular, leading to a more agile development process.
 Mobo can run in an interactive mode, automatically validating and uploading the development model in realtime.
 
-It features a web application for inspecting the development model in its various stages
-and can also be used to batch-import wiki pages or data (programmatically).
+It features a web application for inspecting the development model in its various stages.
+Mobo can also be used to batch-import wiki pages, either static or programmatically from data.
 
 Mobo is [Open Source](https://github.com/Fannon/mobo) and Cross-Platform.
 
@@ -24,19 +24,19 @@ Mobo is [Open Source](https://github.com/Fannon/mobo) and Cross-Platform.
 * Download the documentation at [GitBook](https://www.gitbook.com/book/fannon/mobo-documentation)
 
 ## Screenshots
-The mobo model is developed with your favorite text editor:
+The mobo development model can be developed with your favorite text editor:
 
 ![text-editor](/_img/editor.png)
 
 ----------------------------------------------------------------
 
-Mobo is a console application. It validates, generates and uploads your model in realtime:
+Mobo is a console application. It validates, generates and uploads your model in real-time:
 
 ![cli](/_img/mobo-cli.gif)
 
 ----------------------------------------------------------------
 
-There is a webapp that allows you to browse your development model and the resulting wikitext:
+There is a web application that allows you to browse your development model and the resulting wikitext:
 
 ![webapp](/_img/mobo-inspector.gif)
 

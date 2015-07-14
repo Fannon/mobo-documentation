@@ -347,7 +347,8 @@
             "important": true,
             "description": "In case that fields have been inherited, they might not end up in the correct order.<br>\nThe itemsOrder array lists the order of the fields.\nEvery field that is not listed will be appended at the bottom, in their regular order.\n",
             "example": [
-                "itemsOrder:\n  - brand\n  - modelName\n"
+                "itemsOrder:\n  - brand\n  - modelName\n",
+                "itemsOrder:\n  - '@unique'\n  - '@sorted'\n  - b\n  - c\n  - a\n  - b\n"
             ]
         },
         "todo": {

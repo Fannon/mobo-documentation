@@ -98,7 +98,7 @@ This is very helpful to spot typos and other accidents when modeling
    <tbody>
        <tr>
            <td class="schema-propertyId">dataTypeNodeSize</td>
-           <td class="schema-description"><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-number">number</span></p><p class="schema-default"><strong>Default</strong>: 8</p></td>
+           <td class="schema-description"><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-number">number</span></p><p class="schema-default"><strong>Default</strong>: 12</p></td>
        </tr>
        <tr>
            <td class="schema-propertyId">edgeWeight</td>
@@ -118,7 +118,7 @@ This is very helpful to spot typos and other accidents when modeling
        </tr>
        <tr>
            <td class="schema-propertyId">templateNodeSize</td>
-           <td class="schema-description"><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-number">number</span></p><p class="schema-default"><strong>Default</strong>: 12</p></td>
+           <td class="schema-description"><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-number">number</span></p><p class="schema-default"><strong>Default</strong>: 16</p></td>
        </tr>
    </tbody>
 </table>
