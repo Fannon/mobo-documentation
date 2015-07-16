@@ -68,8 +68,7 @@
 .schema-table .schema-propertyType {
     text-align: center;
 }
-.schema-table .schema-type,
-.schema-table .schema-specific {
+.schema-table .schema-type {
     padding: 0 6px 1px 6px;
     margin: 0 2px;
     background: #555;
@@ -98,17 +97,27 @@
 }
 
 /* Schema Specific */
-.schema-table  .schema-specific-intermediary {
-    background: #888;
+.schema-table .schema-specific {
+    padding: 0 6px 1px 6px;
+    margin: 0 2px;
+    background: #FFF;
+    border: 1px solid #888;
+    color: #222;
+    border-radius: 2px;
+    font-size: 0.9em;
+    text-align: center;
 }
 .schema-table  .schema-specific-domain {
-    background: #F59D56;
+    color: #F9750C;
+    border-color: #F59D56;
 }
 .schema-table  .schema-specific-platform {
-    background: #C05046;
+    color: #C52012;
+    border-color: #C05046;
 }
 .schema-table  .schema-specific-implementation {
-    background: #75579B;
+    color: #32105F;
+    border-color: #75579B;
 }
 
 
