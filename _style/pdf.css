@@ -46,6 +46,9 @@
   padding: 4px 8px;
   text-align: left;
 }
+.book .book-body .page-wrapper .page-inner section.normal table tr:nth-child(2n) {
+    background-color: #FAFAFA;
+}
 
 /** Schema Table */
 .schema-table .schema-description {
@@ -73,7 +76,7 @@
     margin: 0 2px;
     background: #555;
     color: #FFF;
-    border-radius: 2px;
+    border-radius: 0.32em;
     font-size: 0.9em;
     white-space: nowrap;
     display: inline-block;
@@ -83,8 +86,7 @@
     background: #444;
 }
 .schema-table .schema-type-object {
-    background: #DDD;
-    color: #555;
+    background: #999;
 }
 .schema-table .schema-type-boolean {
     background: #8D2AC9;
@@ -101,9 +103,9 @@
     padding: 0 6px 1px 6px;
     margin: 0 2px;
     background: #FFF;
-    border: 1px solid #888;
-    color: #888;
-    border-radius: 2px;
+    border: 0.16em solid #888;
+    color: #666;
+    border-radius: 0.32em;
     font-size: 0.9em;
     text-align: center;
 }
