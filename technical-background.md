@@ -1,10 +1,14 @@
 # Technical background
 ## Master Thesis
-I have written my master thesis about the approach and architecture behind mobo.
-I'll call the approach Schema-Driven Development (SDD).
+To learn more about the approach and architecture behind mobo, please read my [master thesis](http://up.fannon.de/doc/Schema-Driven_Development_of_Semantic_MediaWikis.pdf) on the subject.
 
-My thesis will explain this approach and proposes an generic SDD architecture.
-After those theoretic foundations are laid, the technical implementation and decicions of mobo are explained in more detail.
+I'll propose a new term, Schema-Driven Development (SDD) and a modular architecture how it might be implemented.
+After the theoretic foundations of the SDD approach are laid,
+the technical implementation and decisions of mobo are explained in more detail.
 
-## Link to Thesis
-The thesis is not published yet, but will be shortly.
+### Download
+* [Schema-Driven Development of Semantic MediaWikis](http://up.fannon.de/doc/Schema-Driven_Development_of_Semantic_MediaWikis.pdf) (PDF)
+
+<p align="center">
+<a href="http://up.fannon.de/doc/Schema-Driven_Development_of_Semantic_MediaWikis.pdf"><img src="/_img/MasterThesisCover_400.png" alt="MasterThesis Cover"></a>
+</p>
