@@ -221,7 +221,7 @@ This can sometimes be useful, if some changes were lost or you want to go for su
        <tr>
            <td class="schema-propertyId">mw_server_port</td>
            <td class="schema-description"><p class="schema-description">The port your MW installation is using.
-</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span><span class="schema-type schema-type-string">string</span></p><p class="schema-default"><strong>Default</strong>: false</p></td>
+</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span><span class="schema-type schema-type-number">number</span></p><p class="schema-default"><strong>Default</strong>: false</p></td>
        </tr>
        <tr>
            <td class="schema-propertyId">mw_server_url</td>
@@ -314,7 +314,7 @@ SemanticForms itself does not support / supply this for a div based layout.</p><
        </tr>
        <tr>
            <td class="schema-propertyId">webAppPort</td>
-           <td class="schema-description"><p class="schema-description">Port the WebApp is served on the localhost</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-number">number</span></p><p class="schema-default"><strong>Default</strong>: 8080</p></td>
+           <td class="schema-description"><p class="schema-description">Port the WebApp is served on the localhost</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-number">number</span></p><p class="schema-default"><strong>Default</strong>: 7000</p></td>
        </tr>
        <tr>
            <td class="schema-propertyId">writeExportFiles</td>

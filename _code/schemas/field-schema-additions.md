@@ -67,6 +67,12 @@ To see which options are supported, refer to the Semantic Forms manual.
 </code></pre></td>
        </tr>
        <tr>
+           <td class="schema-propertyId">smw_appendFormField</td>
+           <td class="schema-description"><p class="schema-description">Adds wikitext after the form input field. This is only displayed when the form is in edit mode.
+</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-string">string</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-implementation">implementation</span></p><p class="schema-example-header"><strong>Example</strong>:</p><pre class="schema-example"><code>smw_appendFormField: ' [[:Category:Location|...]]'
+</code></pre></td>
+       </tr>
+       <tr>
            <td class="schema-propertyId">smw_arraymaptemplate</td>
            <td class="schema-description"><p class="schema-description">Name of the arraymap template to use.<br>
 Field needs to be of type `array`.

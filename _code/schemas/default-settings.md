@@ -56,7 +56,7 @@
         ]
     },
     "uploadConcurrency": 4,
-    "webAppPort": 8080,
+    "webAppPort": 7000,
     "autoRefreshWebGui": true,
     "autoRefreshPort": 8081,
     "headerTabs": false,
