@@ -22,6 +22,7 @@ Mobo is [Open Source](https://github.com/Fannon/mobo) and Cross-Platform.
 ## Documentation
 * Read the [documentation online](http://fannon.gitbooks.io/mobo-documentation/content/)
 * Download the documentation at [GitBook](https://www.gitbook.com/book/fannon/mobo-documentation)
+* For deeper technical background, read my master-thesis on [Schema-Driven Development of Semantic MediaWikis](http://fannon.de/p/Schema-Driven_Development_of_Semantic_MediaWikis.pdf)
 
 ## Screenshots
 The mobo development model can be developed with your favorite text editor:
