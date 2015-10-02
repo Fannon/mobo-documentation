@@ -1,6 +1,6 @@
 # Getting Started
 ## Requirements
-Mobo requires a [Node.js runtime](https://nodejs.org/) of version 0.10.x or higher to run. Version 0.12.x or higher is recommended.
+Mobo requires a [Node.js runtime](https://nodejs.org/) of version 0.12.x or higher to run. Version 0.12.x or higher is recommended.
 
 The target wiki must have the [Semantic MediaWiki](http://www.mediawiki.org/wiki/Extension:Semantic_MediaWiki)
 and [Semantic Forms](http://www.mediawiki.org/wiki/Extension:Semantic_Forms) extension installed.
