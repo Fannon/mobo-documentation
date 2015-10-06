@@ -313,7 +313,7 @@ First, a wikitext template from the folder `smw_template` is included.
 It will provide a header and is shown in both form and page view:
 
 
-Create the template at `/swm_template/Headers/NetworkPrinterHeader`:
+Create the template at `/swm_template/Headers/NetworkPrinterHeader.wikitext`:
 
 **NOTE**: Don't forget to add a new line after the headline!
 Wikitext is whitespace sensitive - you might break functions/layout by ommitting whitespaces.
