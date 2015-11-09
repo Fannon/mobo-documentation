@@ -16,6 +16,67 @@ The biggest difference to SMW attributes is that mobo fields already declare how
 {% include "./../../_code/schemas/field-schema.md" %}
 
 ## Supported Datatypes
+
+### Overview
+<table>
+    <tr>
+        <th>Semantic MediaWiki</th>
+        <th>mobo</th>
+    </tr>
+    <tr>
+        <td>Boolean</td>
+        <td>type: boolean</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>type: string<br/>format: Code</td>
+    </tr>
+    <tr>
+        <td>Date</td>
+        <td>type: string<br/>format: date</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>type: string<br/>format: email</td>
+    </tr>
+    <tr>
+        <td>Geographic coordinate</td>
+        <td>type: string<br/>format: Geographic coordinate</td>
+    </tr>
+    <tr>
+        <td>Number</td>
+        <td>type: number</td>
+    </tr>
+    <tr>
+        <td>Page</td>
+        <td>type: string<br/>format: Page</td>
+    </tr>
+    <tr>
+        <td>Quantity</td>
+        <td>type: string<br/>format: Quantity</td>
+    </tr>
+    <tr>
+        <td>Record</td>
+        <td>type: string<br/>format:&nbsp;Record</td>
+    </tr>
+    <tr>
+        <td>Telephone number</td>
+        <td>type: string<br/>format:&nbsp;tel</td>
+    </tr>
+    <tr>
+        <td>Temperature</td>
+        <td>type: string<br/>format:&nbsp;Temperature</td>
+    </tr>
+    <tr>
+        <td>Text</td>
+        <td>type: text</td>
+    </tr>
+    <tr>
+        <td>URL</td>
+        <td>type: string<br/>format: url</td>
+    </tr>
+</table>
+
 ### Primitive Datatypes (type)
 * number / integer
 * boolean
