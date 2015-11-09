@@ -152,12 +152,6 @@ Every field that is not listed will be appended at the bottom, in their regular 
 </p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-number">number</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p><p class="schema-unsupported"><strong>Unsupported</strong>: This property is currently unsupported by the end-system.</p></td>
        </tr>
        <tr>
-           <td class="schema-propertyId">noEdit</td>
-           <td class="schema-description"><p class="schema-description">If true, the field will not be available for editing, but still included into the template
-</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p><p class="schema-default"><strong>Default</strong>: false</p><p class="schema-example-header"><strong>Example</strong>:</p><pre class="schema-example"><code>noEdit: true
-</code></pre></td>
-       </tr>
-       <tr>
            <td class="schema-propertyId"><i class="fade">pattern</i></td>
            <td class="schema-description"><p class="schema-description">Provides a Regular Expression (Regex) pattern to validate the field value.<br>
 This is currently not supported by Semantic Forms.

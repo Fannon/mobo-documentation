@@ -43,12 +43,6 @@ items:
 </code></pre></td>
        </tr>
        <tr>
-           <td class="schema-propertyId">noEdit</td>
-           <td class="schema-description"><p class="schema-description">If true, the field will not be available for editing, but still included into the template
-</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p><p class="schema-default"><strong>Default</strong>: false</p><p class="schema-example-header"><strong>Example</strong>:</p><pre class="schema-example"><code>noEdit: true
-</code></pre></td>
-       </tr>
-       <tr>
            <td class="schema-propertyId"><strong>sf_form</strong></td>
            <td class="schema-description"><p class="schema-description">The sf_form property is an object that redirects all settings directly to Semantic Forms.<br>
 If no value is necessary (e.g. "existing values only"), use true.

@@ -413,19 +413,6 @@
                 "deprecated: true\n"
             ]
         },
-        "noEdit": {
-            "type": "boolean",
-            "default": false,
-            "specific": "domain",
-            "appliesNot": [
-                "model",
-                "form"
-            ],
-            "description": "If true, the field will not be available for editing, but still included into the template\n",
-            "example": [
-                "noEdit: true\n"
-            ]
-        },
         "showPage": {
             "type": "boolean",
             "default": true,
