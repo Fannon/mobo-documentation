@@ -51,7 +51,7 @@ Use this to temporarily remove parts of the development model without deleting t
        </tr>
        <tr>
            <td class="schema-propertyId">deprecated</td>
-           <td class="schema-description"><p class="schema-description">If true, the field will be deprecated.
+           <td class="schema-description"><p class="schema-description">If true, the field will be marked as deprecated.
 It will not be displayed in forms, but the template will keep it in order to display old entries.
 </p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p><p class="schema-default"><strong>Default</strong>: false</p><p class="schema-example-header"><strong>Example</strong>:</p><pre class="schema-example"><code>deprecated: true
 </code></pre></td>

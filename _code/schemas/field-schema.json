@@ -429,7 +429,7 @@
                 "model",
                 "form"
             ],
-            "description": "If true, the field will be deprecated.\nIt will not be displayed in forms, but the template will keep it in order to display old entries.\n",
+            "description": "If true, the field will be marked as deprecated.\nIt will not be displayed in forms, but the template will keep it in order to display old entries.\n",
             "example": [
                 "deprecated: true\n"
             ]

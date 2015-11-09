@@ -163,7 +163,7 @@ This can sometimes be useful, if some changes were lost or you want to go for su
        </tr>
        <tr>
            <td class="schema-propertyId">formEditHelper</td>
-           <td class="schema-description"><p class="schema-description">If enabled this creates **FormEdit Helper Categories** that tag the WikiPages that were generated through a form as editable by that form.</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span></p><p class="schema-default"><strong>Default</strong>: false</p></td>
+           <td class="schema-description"><p class="schema-description">If enabled this creates **FormEdit Helper Categories** that tag the WikiPages that were generated through a form as editable by that form.</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span></p><p class="schema-default"><strong>Default</strong>: true</p></td>
        </tr>
        <tr>
            <td class="schema-propertyId">generateTemplateData</td>
@@ -207,7 +207,7 @@ This can sometimes be useful, if some changes were lost or you want to go for su
        </tr>
        <tr>
            <td class="schema-propertyId">logObjectsAsYaml</td>
-           <td class="schema-description"><p class="schema-description">Logging / CLI output: Prints JavaScript Object as colorized YAML</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span></p><p class="schema-default"><strong>Default</strong>: true</p></td>
+           <td class="schema-description"><p class="schema-description">Logging / CLI output: Prints JavaScript Object as colorized YAML</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span></p><p class="schema-default"><strong>Default</strong>: false</p></td>
        </tr>
        <tr>
            <td class="schema-propertyId">mw_password</td>
