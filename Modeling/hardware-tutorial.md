@@ -10,7 +10,7 @@ Please refer to the [manual](manual.md) how do this.
 
 ### Run mobo the first time
 Now run mobo the first time and check that the settings are correct and the upload to the external wiki is working.
-At your [localhost:8080](http://localhost:8080) should be a web application ready.
+At your [localhost:7000](http://localhost:7000) should be a web application ready.
 
 ![mobo-first-start](http://up.fannon.de/img/mobo-first-start.png?v=3)
 
@@ -313,7 +313,7 @@ First, a wikitext template from the folder `smw_template` is included.
 It will provide a header and is shown in both form and page view:
 
 
-Create the template at `/swm_template/Headers/NetworkPrinterHeader`:
+Create the template at `/swm_template/Headers/NetworkPrinterHeader.wikitext`:
 
 **NOTE**: Don't forget to add a new line after the headline!
 Wikitext is whitespace sensitive - you might break functions/layout by ommitting whitespaces.
