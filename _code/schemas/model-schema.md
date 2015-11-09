@@ -317,6 +317,14 @@ templates or add arbitrary wikitext)
 </td>
        </tr>
        <tr>
+           <td class="schema-propertyId">smw_set</td>
+           <td class="schema-description"><p class="schema-description">Contains a set (object) of additional #set properties.
+</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-object">object</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-platform">platform</span></p><p class="schema-example-header"><strong>Example</strong>:</p><pre class="schema-example"><code>smw_set:
+  additionalProp2: 'Some fixed text'
+  additionalProp3: '{{FULLPAGENAME}}/subpath/&#123;&#123;&#123;fieldId|}}}'
+</code></pre></td>
+       </tr>
+       <tr>
            <td class="schema-propertyId">smw_subobject</td>
            <td class="schema-description"><p class="schema-description">If true, this models attributes will be created as subobjects.<br>
 This may be appropiate when model is used through multiple instances.<br><br>

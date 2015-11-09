@@ -43,6 +43,12 @@ items:
 </code></pre></td>
        </tr>
        <tr>
+           <td class="schema-propertyId">noEdit</td>
+           <td class="schema-description"><p class="schema-description">If true, the field will not be available for editing, but still included into the template
+</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-boolean">boolean</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-domain">domain</span></p><p class="schema-default"><strong>Default</strong>: false</p><p class="schema-example-header"><strong>Example</strong>:</p><pre class="schema-example"><code>noEdit: true
+</code></pre></td>
+       </tr>
+       <tr>
            <td class="schema-propertyId"><strong>sf_form</strong></td>
            <td class="schema-description"><p class="schema-description">The sf_form property is an object that redirects all settings directly to Semantic Forms.<br>
 If no value is necessary (e.g. "existing values only"), use true.
@@ -53,6 +59,11 @@ To see which options are supported, refer to the Semantic Forms manual.
   max values: 1
   existing values only: true
 </code></pre></td>
+       </tr>
+       <tr>
+           <td class="schema-propertyId">sf_overwrite</td>
+           <td class="schema-description"><p class="schema-description">Overwrites the final wikitext/HTML that is rendered in Semantic Forms Edit mode
+</p><p class="schema-types"><strong>Type(s)</strong>: <span class="schema-type schema-type-string">string</span></p><p class="schema-specifics"><strong>Specific to</strong>: <span class="schema-specific schema-specific-implementation">implementation</span></p></td>
        </tr>
        <tr>
            <td class="schema-propertyId"><strong>showForm</strong></td>

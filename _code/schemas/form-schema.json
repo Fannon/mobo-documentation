@@ -413,6 +413,19 @@
                 "deprecated: true\n"
             ]
         },
+        "noEdit": {
+            "type": "boolean",
+            "default": false,
+            "specific": "domain",
+            "appliesNot": [
+                "model",
+                "form"
+            ],
+            "description": "If true, the field will not be available for editing, but still included into the template\n",
+            "example": [
+                "noEdit: true\n"
+            ]
+        },
         "showPage": {
             "type": "boolean",
             "default": true,
@@ -475,6 +488,15 @@
             "example": [
                 "sf_form:\n  input type: combobox\n  values from namespace: Manufacturer\n  max values: 1\n  existing values only: true\n"
             ]
+        },
+        "sf_overwrite": {
+            "type": "string",
+            "specific": "implementation",
+            "appliesNot": [
+                "model",
+                "form"
+            ],
+            "description": "Overwrites the final wikitext/HTML that is rendered in Semantic Forms Edit mode\n"
         },
         "smw_overwriteOutput": {
             "type": "string",
@@ -585,7 +607,19 @@
                 "recommended:\n  - fieldA\n  - fieldB\n"
             ]
         },
+        "smw_set": {
+            "type": "object",
+            "specific": "platform",
+            "appliesNot": [
+                "form"
+            ],
+            "description": "Contains a set (object) of additional #set properties.\n",
+            "example": [
+                "smw_set:\n  additionalProp2: 'Some fixed text'\n  additionalProp3: '{{FULLPAGENAME}}/subpath/&#123;&#123;&#123;fieldId|}}}'\n"
+            ]
+        },
         "smw_subobject": {
+            "todo": "This should replace subobjectExtend!\nAdd smw_store enum instead: annotation|set|subobject|none\n",
             "type": "boolean",
             "default": false,
             "specific": "platform",

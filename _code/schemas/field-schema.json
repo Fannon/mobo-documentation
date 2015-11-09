@@ -434,6 +434,21 @@
                 "deprecated: true\n"
             ]
         },
+        "noEdit": {
+            "type": [
+                "boolean"
+            ],
+            "default": false,
+            "specific": "domain",
+            "appliesNot": [
+                "model",
+                "form"
+            ],
+            "description": "If true, the field will not be available for editing, but still included into the template\n",
+            "example": [
+                "noEdit: true\n"
+            ]
+        },
         "showPage": {
             "type": [
                 "boolean"
@@ -504,6 +519,17 @@
             "example": [
                 "sf_form:\n  input type: combobox\n  values from namespace: Manufacturer\n  max values: 1\n  existing values only: true\n"
             ]
+        },
+        "sf_overwrite": {
+            "type": [
+                "string"
+            ],
+            "specific": "implementation",
+            "appliesNot": [
+                "model",
+                "form"
+            ],
+            "description": "Overwrites the final wikitext/HTML that is rendered in Semantic Forms Edit mode\n"
         },
         "smw_overwriteOutput": {
             "type": [
